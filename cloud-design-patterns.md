@@ -54,3 +54,5 @@ Move configuration information out of the application deployment package to a ce
 
 ### Federated Identity Pattern
 
+Delegate authentication to an external identity provider. This pattern can simplify development, minimize the requirement for user administration, and improve the user experience of the application.
+
