@@ -22,3 +22,9 @@ Handle faults that may take a variable amount of time to rectify when connecting
 
 Undo the work performed by a series of steps, which together define an eventually consistent operation, if one or more of the operations fails. Operations that follow the eventual consistency model are commonly found in cloud-hosted applications that implement complex business processes and workflows.
 
+![](/assets/IC709573.png)
+
+### Competing Consumers Pattern
+
+Enable multiple concurrent consumers to process messages received on the same messaging channel. This pattern enables a system to process multiple messages concurrently to optimize throughput, to improve scalability and availability, and to balance the workload.
+
