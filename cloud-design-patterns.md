@@ -28,3 +28,7 @@ Undo the work performed by a series of steps, which together define an eventuall
 
 Enable multiple concurrent consumers to process messages received on the same messaging channel. This pattern enables a system to process multiple messages concurrently to optimize throughput, to improve scalability and availability, and to balance the workload.
 
+![](/assets/IC709526-2.png)
+
+### Compute Resource Consolidation Pattern
+
