@@ -64,3 +64,5 @@ Protect applications and services by using a dedicated host instance that acts a
 
 Implement functional checks within an application that external tools can access through exposed endpoints at regular intervals. This pattern can help to verify that applications and services are performing correctly.
 
+### Index Table Pattern
+
