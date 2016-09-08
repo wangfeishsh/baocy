@@ -20,3 +20,5 @@ Handle faults that may take a variable amount of time to rectify when connecting
 
 Compensating Transaction Pattern
 
+Undo the work performed by a series of steps, which together define an eventually consistent operation, if one or more of the operations fails. Operations that follow the eventual consistency model are commonly found in cloud-hosted applications that implement complex business processes and workflows.
+
