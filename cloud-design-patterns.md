@@ -56,7 +56,7 @@ Move configuration information out of the application deployment package to a ce
 
 Delegate authentication to an external identity provider. This pattern can simplify development, minimize the requirement for user administration, and improve the user experience of the application.
 
-Gatekeeper Pattern
+### Gatekeeper Pattern
 
 Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. This pattern can provide an additional layer of security, and limit the attack surface of the system.
 
