@@ -36,3 +36,7 @@ Consolidate multiple tasks or operations into a single computational unit. This 
 
 ![](/assets/IC709519.png)
 
+### Command and Query Responsibility Segregation \(CQRS\) Pattern
+
+
+
