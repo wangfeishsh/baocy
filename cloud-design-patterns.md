@@ -50,5 +50,5 @@ Use an append-only store to record the full series of events that describe actio
 
 ### External Configuration Store Pattern
 
-
+Move configuration information out of the application deployment package to a centralized location. This pattern can provide opportunities for easier management and control of configuration data, and for sharing configuration data across applications and application instances.
 
