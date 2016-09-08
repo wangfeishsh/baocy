@@ -66,3 +66,5 @@ Implement functional checks within an application that external tools can access
 
 ### Index Table Pattern
 
+Create indexes over the fields in data stores that are frequently referenced by query criteria. This pattern can improve query performance by allowing applications to more quickly retrieve data from a data store.
+
