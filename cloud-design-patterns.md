@@ -48,3 +48,7 @@ Use an append-only store to record the full series of events that describe actio
 
 ![](/assets/IC709550.png)
 
+### External Configuration Store Pattern
+
+
+
