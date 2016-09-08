@@ -52,7 +52,11 @@ Use an append-only store to record the full series of events that describe actio
 
 Move configuration information out of the application deployment package to a centralized location. This pattern can provide opportunities for easier management and control of configuration data, and for sharing configuration data across applications and application instances.
 
-### Federated Identity Pattern 联合身份模式 
+### Federated Identity Pattern 联合身份模式
 
 Delegate authentication to an external identity provider. This pattern can simplify development, minimize the requirement for user administration, and improve the user experience of the application.
+
+Gatekeeper Pattern
+
+Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. This pattern can provide an additional layer of security, and limit the attack surface of the system.
 
