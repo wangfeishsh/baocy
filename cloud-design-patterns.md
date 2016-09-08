@@ -112,7 +112,7 @@ Deploy static content to a cloud-based storage service that can deliver these di
 
 Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. This pattern can allow the system to continue to function and meet service level agreements, even when an increase in demand places an extreme load on resources.
 
-### Valet Key Pattern
+### Valet Key Pattern备用钥匙模式
 
 Use a token or key that provides clients with restricted direct access to a specific resource or service in order to offload data transfer operations from the application code. This pattern is particularly useful in applications that use cloud-hosted storage systems or queues, and can minimize cost and maximize scalability and performance.
 
