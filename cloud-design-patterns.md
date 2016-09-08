@@ -74,3 +74,5 @@ Coordinate the actions performed by a collection of collaborating task instances
 
 ### Materialized View Pattern
 
+Generate pre-populated views over the data in one or more data stores when the data is formatted in a way that does not favor the required query operations. This pattern can help to support efficient querying and data extraction, and improve application performance.
+
