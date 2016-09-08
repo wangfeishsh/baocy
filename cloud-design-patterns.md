@@ -40,3 +40,7 @@ Consolidate multiple tasks or operations into a single computational unit. This 
 
 Segregate operations that read data from operations that update data by using separate interfaces. This pattern can maximize performance, scalability, and security; support evolution of the system over time through higher flexibility; and prevent update commands from causing merge conflicts at the domain level.
 
+![](/assets/IC702504.png)
+
+### Event Sourcing Pattern
+
