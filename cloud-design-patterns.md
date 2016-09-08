@@ -30,5 +30,5 @@ Enable multiple concurrent consumers to process messages received on the same me
 
 ![](/assets/IC709526-2.png)
 
-### Compute Resource Consolidation Pattern
+### Compute Resource Consolidation Pattern计算资源整合模式
 
