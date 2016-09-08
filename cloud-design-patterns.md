@@ -32,3 +32,5 @@ Enable multiple concurrent consumers to process messages received on the same me
 
 ### Compute Resource Consolidation Pattern计算资源整合模式
 
+Consolidate multiple tasks or operations into a single computational unit. This pattern can increase compute resource utilization, and reduce the costs and management overhead associated with performing compute processing in cloud-hosted applications.
+
