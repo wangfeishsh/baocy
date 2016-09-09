@@ -82,7 +82,7 @@ Create indexes over the fields in data stores that are frequently referenced by 
 
 Coordinate the actions performed by a collection of collaborating task instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the other instances. This pattern can help to ensure that tasks do not conflict with each other, cause contention for shared resources, or inadvertently interfere with the work that other task instances are performing.
 
-### Materialized View Pattern
+![](/assets/IC707854.png)Materialized View Pattern
 
 Generate pre-populated views over the data in one or more data stores when the data is formatted in a way that does not favor the required query operations. This pattern can help to support efficient querying and data extraction, and improve application performance.
 
