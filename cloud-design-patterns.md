@@ -70,6 +70,8 @@ Protect applications and services by using a dedicated host instance that acts a
 
 Implement functional checks within an application that external tools can access through exposed endpoints at regular intervals. This pattern can help to verify that applications and services are performing correctly.
 
+![](/assets/IC709539.png)
+
 ### Index Table Pattern
 
 Create indexes over the fields in data stores that are frequently referenced by query criteria. This pattern can improve query performance by allowing applications to more quickly retrieve data from a data store.
