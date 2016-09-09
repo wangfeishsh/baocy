@@ -76,6 +76,8 @@ Implement functional checks within an application that external tools can access
 
 Create indexes over the fields in data stores that are frequently referenced by query criteria. This pattern can improve query performance by allowing applications to more quickly retrieve data from a data store.
 
+![](/assets/IC709544.png)
+
 ### Leader Election Pattern
 
 Coordinate the actions performed by a collection of collaborating task instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the other instances. This pattern can help to ensure that tasks do not conflict with each other, cause contention for shared resources, or inadvertently interfere with the work that other task instances are performing.
