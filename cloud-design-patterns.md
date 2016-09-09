@@ -58,7 +58,7 @@ Move configuration information out of the application deployment package to a ce
 
 Delegate authentication to an external identity provider. This pattern can simplify development, minimize the requirement for user administration, and improve the user experience of the application.
 
-
+![](/assets/IC709540.png)
 
 ### Gatekeeper Pattern看门人模式
 
