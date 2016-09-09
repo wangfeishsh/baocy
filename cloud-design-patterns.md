@@ -64,6 +64,8 @@ Delegate authentication to an external identity provider. This pattern can simpl
 
 Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes净化 requests, and passes requests and data between them. This pattern can provide an additional layer of security, and limit the attack surface of the system.
 
+![](/assets/IC709552.png)
+
 ### Health Endpoint Monitoring Pattern
 
 Implement functional checks within an application that external tools can access through exposed endpoints at regular intervals. This pattern can help to verify that applications and services are performing correctly.
