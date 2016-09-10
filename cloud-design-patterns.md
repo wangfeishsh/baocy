@@ -102,6 +102,10 @@ Decompose a task that performs complex processing into a series of discrete elem
 
 Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those of a lower priority. This pattern is useful in applications that offer different service level guarantees to individual types of client.
 
+![](/assets/IC709554.png)
+
+![](/assets/IC709555.png)
+
 ### Queue-based Load Leveling Pattern
 
 Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads that may otherwise cause the service to fail or the task to timeout. This pattern can help to minimize the impact of peaks in demand on availability and responsiveness for both the task and the service.
