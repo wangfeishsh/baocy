@@ -138,7 +138,7 @@ Divide a data store into a set of horizontal partitions shards. This pattern can
 
 **The Range strategy**
 
-**The Hash strategy**
+**The Hash strategy**![](/assets/IC709564.png)
 
 
 
@@ -146,9 +146,13 @@ Divide a data store into a set of horizontal partitions shards. This pattern can
 
 Deploy static content to a cloud-based storage service that can deliver these directly to the client. This pattern can reduce the requirement for potentially expensive compute instances.
 
+![](/assets/IC709517.png)
+
 ### Throttling Pattern节流模式
 
 Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. This pattern can allow the system to continue to function and meet service level agreements, even when an increase in demand places an extreme load on resources.
+
+![](/assets/IC709567.png)
 
 ### Valet Key Pattern备用钥匙模式
 
