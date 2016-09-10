@@ -128,6 +128,8 @@ Design an application so that it can be reconfigured without requiring redeploym
 
 Coordinate a set of actions across a distributed set of services and other remote resources, attempt to transparently handle faults if any of these actions fail, or undo the effects of the work performed if the system cannot recover from a fault. This pattern can add resiliency to a distributed system by enabling it to recover and retry actions that fail due to transient exceptions, long-lasting faults, and process failures.
 
+![](/assets/IC709520.png)
+
 ### Sharding Pattern
 
 Divide a data store into a set of horizontal partitions shards. This pattern can improve scalability when storing and accessing large volumes of data.
