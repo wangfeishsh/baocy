@@ -140,6 +140,8 @@ Divide a data store into a set of horizontal partitions shards. This pattern can
 
 **The Hash strategy**
 
+
+
 ### Static Content Hosting Pattern静态内容托管模式
 
 Deploy static content to a cloud-based storage service that can deliver these directly to the client. This pattern can reduce the requirement for potentially expensive compute instances.
