@@ -134,6 +134,12 @@ Coordinate a set of actions across a distributed set of services and other remot
 
 Divide a data store into a set of horizontal partitions shards. This pattern can improve scalability when storing and accessing large volumes of data.
 
+**The Lookup strategy**
+
+**The Range strategy**
+
+**The Hash strategy**
+
 ### Static Content Hosting Pattern静态内容托管模式
 
 Deploy static content to a cloud-based storage service that can deliver these directly to the client. This pattern can reduce the requirement for potentially expensive compute instances.
