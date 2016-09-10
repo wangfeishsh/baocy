@@ -122,6 +122,8 @@ Enable an application to handle temporary failures when connecting to a service 
 
 Design an application so that it can be reconfigured without requiring redeployment or restarting the application. This helps to maintain availability and minimize downtime.
 
+![](/assets/IC709533.png)
+
 ### Scheduler Agent Supervisor Pattern
 
 Coordinate a set of actions across a distributed set of services and other remote resources, attempt to transparently handle faults if any of these actions fail, or undo the effects of the work performed if the system cannot recover from a fault. This pattern can add resiliency to a distributed system by enabling it to recover and retry actions that fail due to transient exceptions, long-lasting faults, and process failures.
