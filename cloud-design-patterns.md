@@ -140,8 +140,6 @@ Divide a data store into a set of horizontal partitions shards. This pattern can
 
 **The Hash strategy**![](/assets/IC709564.png)
 
-
-
 ### Static Content Hosting Pattern静态内容托管模式
 
 Deploy static content to a cloud-based storage service that can deliver these directly to the client. This pattern can reduce the requirement for potentially expensive compute instances.
@@ -157,4 +155,6 @@ Control the consumption of resources used by an instance of an application, an i
 ### Valet Key Pattern备用钥匙模式
 
 Use a token or key that provides clients with restricted direct access to a specific resource or service in order to offload data transfer operations from the application code. This pattern is particularly useful in applications that use cloud-hosted storage systems or queues, and can minimize cost and maximize scalability and performance.
+
+![](/assets/IC702501.png)
 
