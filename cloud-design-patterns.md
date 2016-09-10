@@ -110,9 +110,13 @@ Prioritize requests sent to services so that requests with a higher priority are
 
 Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads that may otherwise cause the service to fail or the task to timeout. This pattern can help to minimize the impact of peaks in demand on availability and responsiveness for both the task and the service.
 
+![](/assets/IC709531-2.png)
+
 ### Retry Pattern
 
 Enable an application to handle temporary failures when connecting to a service or network resource by transparently retrying the operation in the expectation that the failure is transient. This pattern can improve the stability of the application.
+
+![](/assets/IC709538.png)
 
 ### Runtime Reconfiguration Pattern
 
