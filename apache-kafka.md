@@ -43,5 +43,7 @@ In fact the only metadata retained on a per-consumer basis is the position of th
 
 This combination of features means that Kafka consumers are very cheap—they can come and go without much impact on the cluster or on other consumers. For example, you can use our command line tools to "tail" the contents of any topic without changing what is consumed by any existing consumers.
 
+这种内置功能，意味着Kafka的消费者非常便利，他们可以来和去，对集群或其他消费者没有太大的影响。例如，您可以使用我们的命令行工具“tail”的任何主题的内容，而不改变任何现有的消费者所消费的消息。
+
 The partitions in the log serve several purposes. First, they allow the log to scale beyond a size that will fit on a single server. Each individual partition must fit on the servers that host it, but a topic may have many partitions so it can handle an arbitrary amount of data. Second they act as the unit of parallelism—more on that in a bit.
 
