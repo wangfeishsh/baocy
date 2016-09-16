@@ -1,8 +1,8 @@
 # 学习计划列表
 
-[cloud design patterns](/cloud-design-patterns.md)
+[1、cloud design patterns](/cloud-design-patterns.md)
 
-apache kafka
+[2、apache kafka](/apache kafka)
 
-[spring cloud netflix - ribbon](/spring-cloud-netflix---ribbon.md)
+[3、spring cloud netflix - ribbon](/spring-cloud-netflix---ribbon.md)
 
