@@ -35,7 +35,7 @@ Each partition is an ordered, immutable sequence of messages that is continually
 
 The Kafka cluster retains all published messages—whether or not they have been consumed—for a configurable period of time. For example if the log retention is set to two days, then for the two days after a message is published it is available for consumption, after which it will be discarded to free up space. Kafka's performance is effectively constant with respect to data size so retaining lots of data is not a problem.
 
-Kafka集群保留所有已发布的消息，无论它们是否已经被消耗了，在一段可配置的时间内。例如，如果日志保留被设置为两天，那么在一个消息发布后的两天，它是可用的，它将被丢弃到空闲空间。卡夫卡的性能是有效的常数相对于数据的大小，所以保留了大量的数据是不是一个问题。
+Kafka集群保留所有已发布的消息，无论它们是否已经被消费了，在一段可配置的时间内。例如，如果日志保留被设置为两天，那么在一个消息发布后的两天，它是可用的，它将被丢弃到空闲空间。卡夫卡的性能是有效的常数相对于数据的大小，所以保留了大量的数据是不是一个问题。
 
 In fact the only metadata retained on a per-consumer basis is the position of the consumer in the log, called the "offset". This offset is controlled by the consumer: normally a consumer will advance its offset linearly as it reads messages, but in fact the position is controlled by the consumer and it can consume messages in any order it likes. For example a consumer can reset to an older offset to reprocess.
 
