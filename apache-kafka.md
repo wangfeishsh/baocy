@@ -17,7 +17,17 @@ First let's review some basic messaging terminology术语:
 
 So, at a high level, producers send messages over the network to the Kafka cluster which in turn serves them up to consumers like this: 因此，在一个高的水平，生产者把消息通过网络发送到kafka集群，而这反过来又服务于消费者，如下图：
 
-                                                                    ![](/assets/producer_consumer.png)
+```
+                                                                ![](/assets/producer_consumer.png)
+```
 
 Communication between the clients and the servers is done with a simple, high-performance, language agnostic  不可知论者 [TCP protocol](https://kafka.apache.org/protocol.html). We provide a Java client for Kafka, but clients are available in [many languages](https://cwiki.apache.org/confluence/display/KAFKA/Clients).
+
+
+
+**Topics and Logs**
+
+Let's first dive into the high-level abstraction Kafka provides—the topic.
+
+A topic is a category or feed name to which messages are published. For each topic, the Kafka cluster maintains a partitioned log that looks like this:
 
