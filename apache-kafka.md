@@ -25,7 +25,7 @@ Communication between the clients and the servers is done with a simple, high-pe
 
 Let's first dive into the high-level abstraction Kafka provides—the topic.
 
-A topic is a category or feed name to which messages are published. For each topic, the Kafka cluster maintains a partitioned log that looks like this:
+A topic is a category or feed name to which messages are published. For each topic, the Kafka cluster maintains a partitioned log that looks like this:\( anatomy : 解剖，分解，分析; （详细的） 剖析 \)
 
 ![](http://kafka.apache.org/images/log_anatomy.png)
 
