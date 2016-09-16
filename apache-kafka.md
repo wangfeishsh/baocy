@@ -23,11 +23,11 @@ So, at a high level, producers send messages over the network to the Kafka clust
 
 Communication between the clients and the servers is done with a simple, high-performance, language agnostic  不可知论者 [TCP protocol](https://kafka.apache.org/protocol.html). We provide a Java client for Kafka, but clients are available in [many languages](https://cwiki.apache.org/confluence/display/KAFKA/Clients).
 
-
-
 **Topics and Logs**
 
 Let's first dive into the high-level abstraction Kafka provides—the topic.
 
 A topic is a category or feed name to which messages are published. For each topic, the Kafka cluster maintains a partitioned log that looks like this:
+
+![](http://kafka.apache.org/images/log_anatomy.png)
 
