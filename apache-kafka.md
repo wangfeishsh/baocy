@@ -10,7 +10,7 @@ What does all that mean?
 
 First let's review some basic messaging terminology术语:
 
-* Kafka maintains feeds of messages in categories called _topics_.
+* Kafka maintains feeds of messages in categories called _topics_.kafka维护的各种类别信息源称为主题
 * We'll call processes that publish messages to a Kafka topic _producers_.
 * We'll call processes that subscribe to topics and process the feed of published messages _consumers_.
 * Kafka is run as a cluster comprised of one or more servers each of which is called a _broker_.
