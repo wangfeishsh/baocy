@@ -11,7 +11,7 @@ What does all that mean?
 First let's review some basic messaging terminology术语:
 
 * Kafka maintains feeds of messages in categories called _topics_.kafka维护的各种类别的信息源称为主题
-* We'll call processes that publish messages to a Kafka topic _producers_.发布消息到一个kafka主题的流程，我们称之为生产者
-* We'll call processes that subscribe to topics and process the feed of published messages _consumers_.
+* We'll call processes that publish messages to a Kafka topic _producers_.发布消息到一个kafka主题的过程，我们称之为生产者
+* We'll call processes that subscribe to topics and process the feed of published messages _consumers_.订阅主题并且处理发布消息的信息源的过程，我们称之为消费者
 * Kafka is run as a cluster comprised of one or more servers each of which is called a _broker_.
 
