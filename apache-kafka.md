@@ -47,5 +47,5 @@ This combination of features means that Kafka consumers are very cheap—they ca
 
 The partitions in the log serve several purposes. First, they allow the log to scale beyond a size that will fit on a single server. Each individual partition must fit on the servers that host it, but a topic may have many partitions so it can handle an arbitrary amount of data. Second they act as the unit of parallelism—more on that in a bit.
 
-日志服务中分区的几个目的。首先，他们允许日志规模超出了一个大小，这样适合在一个单一的服务器上。每个单独的分区都必须适于各自主机，但一个主题可能有许多分区，所以它可以处理任意数量的数据。第二，他们作为平行的单元，胜于在一点。
+日志服务中分区的几个目的。首先，他们允许日志规模超出了在一个单一的服务器上的大小。每个单独的分区都必须适于各自主机，但一个主题可能有许多分区，所以它可以处理任意数量的数据。第二，他们作为平行的单元，胜于在一点。
 
