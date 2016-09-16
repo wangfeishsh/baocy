@@ -37,6 +37,8 @@ The Kafka cluster retains all published messages—whether or not they have been
 
 In fact the only metadata retained on a per-consumer basis is the position of the consumer in the log, called the "offset". This offset is controlled by the consumer: normally a consumer will advance its offset linearly as it reads messages, but in fact the position is controlled by the consumer and it can consume messages in any order it likes. For example a consumer can reset to an older offset to reprocess.
 
+事实上，唯一的元数据保留在每一个消费的基础上是消费者在日志中的位置，称为“偏移”。这种偏移是由消费者控制：通常当它读取消息，一个消费者将线性的提前其偏移量。但实际上该位置是由消费者控制，它可以在任何命令，它喜欢的消息。例如，一个消费者可以重置为一个旧的的偏移去重新处理。
+
 This combination of features means that Kafka consumers are very cheap—they can come and go without much impact on the cluster or on other consumers. For example, you can use our command line tools to "tail" the contents of any topic without changing what is consumed by any existing consumers.
 
 The partitions in the log serve several purposes. First, they allow the log to scale beyond a size that will fit on a single server. Each individual partition must fit on the servers that host it, but a topic may have many partitions so it can handle an arbitrary amount of data. Second they act as the unit of parallelism—more on that in a bit.
