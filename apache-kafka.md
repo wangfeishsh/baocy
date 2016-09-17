@@ -109,6 +109,6 @@ More details on these guarantees are given in the design section of the document
 
 * 一个消费实例看到消息的顺序与在消息存储在日志中的顺序一致。
 
-* 对于一个主题的复制因子N，我们会容忍n-1服务器故障而不丢失任何信息提交到日志。
+* 对于一个主题的复制因子N，我们会容忍N-1服务器故障而不丢失任何信息提交到日志。
 
 
