@@ -89,7 +89,7 @@ A traditional queue retains messages in-order on the server, and if multiple con
 
 Kafka does it better. By having a notion of parallelism—the partition—within the topics, Kafka is able to provide both ordering guarantees and load balancing over a pool of consumer processes. This is achieved by assigning the partitions in the topic to the consumers in the consumer group so that each partition is consumed by exactly one consumer in the group. By doing this we ensure that the consumer is the only reader of that partition and consumes the data in order. Since there are many partitions this still balances the load over many consumer instances. Note however that there cannot be more consumer instances in a consumer group than partitions.
 
-Kafka做得更好。通过主题内一个概念的并行的－－分区，Kafka是能够通过消费者池提供排序保证和负载均衡。这是通过分配主题的分区给消费组中的消费者，使每个分区被该组中的一个消费者消费。通过这样做，我们确保消费者是唯一的读写器，并消耗数据的顺序。由于有许多分区，这仍然平衡了许多消费实例的负载。请注意，在一个消费群体中，不能有更多的消费者实例比分区。
+Kafka做得更好。通过主题内一个概念的并行的－－分区，Kafka是能够通过消费者池提供排序保证和负载均衡。这是通过分配主题的分区至消费组中的消费者，使每个分区被该组中的一个消费者消费。通过这样做，我们确保消费者是唯一的读写器，并消耗数据的顺序。由于有许多分区，这仍然平衡了许多消费实例的负载。请注意，在一个消费群体中，不能有更多的消费者实例比分区。
 
 Kafka only provides a total order over messages _within_ a partition, not between different partitions in a topic. Per-partition ordering combined with the ability to partition data by key is sufficient for most applications. However, if you require a total order over messages this can be achieved with a topic that has only one partition, though this will mean only one consumer process per consumer group.
 
