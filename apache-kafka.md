@@ -105,3 +105,11 @@ At a high-level Kafka gives the following guarantees:
 
 More details on these guarantees are given in the design section of the documentation.
 
+* 由生产者发送到一个特定主题分区的消息将被按照发送的顺序追加到日志中。那就是，如果一个消息M1发送同样的消息生产者为M2，M1发送第一，然后M1将有一个比M2低偏移和出现在日志前。
+
+  一个消费实例在存储在日志中的顺序中看到消息。
+
+  对于一个主题的复制因子N，我们会容忍n-1服务器故障而不丢失任何信息提交到日志。
+
+
+
