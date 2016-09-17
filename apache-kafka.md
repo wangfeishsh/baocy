@@ -59,3 +59,5 @@ Each partition has one server which acts as the "leader" and zero or more server
 
 Producers publish data to the topics of their choice. The producer is responsible for choosing which message to assign to which partition within the topic. This can be done in a round-robin fashion simply to balance load or it can be done according to some semantic partition function \(say based on some key in the message\). More on the use of partitioning in a second.
 
+生产者将数据发布到他们所选择的主题。生产者负责选择要在主题中分配哪个分区的消息。这可以以循环的方式简单的负载均衡也可以根据一些语义分区函数所做的（说根据消息中的一些关键）。更多关于使用分区的第二个。
+
