@@ -111,4 +111,6 @@ More details on these guarantees are given in the design section of the document
 
 * 对于一个主题的复制因子N，我们会容忍N-1服务器故障而不丢失任何信息提交到日志。
 
+  ### 1.2 Use Cases
+
 
