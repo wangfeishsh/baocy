@@ -113,4 +113,6 @@ More details on these guarantees are given in the design section of the document
 
   ### 1.2 Use Cases
 
+  Here is a description of a few of the popular use cases for Apache Kafka. For an overview of a number of these areas in action, see [this blog post](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying).
+
 
