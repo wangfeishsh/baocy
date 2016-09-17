@@ -67,7 +67,7 @@ Messaging traditionally has two models: [queuing](http://en.wikipedia.org/wiki/M
 
 Consumers label themselves with a consumer group name, and each message published to a topic is delivered to one consumer instance within each subscribing consumer group. Consumer instances can be in separate processes or on separate machines.
 
-消费者通过消费者的组名来标记自己，每个消息发布到主题，然后再传递到每个订阅的消费组的一个消费者实例。消费者实例可以在不同的流程或单独的机器上。
+消费者通过消费者的组名来标记自己，每个消息发布到主题，然后再传递到每个订阅的消费组的一个消费者实例。消费者实例可以在不同的程序或单独的机器上。
 
 If all the consumer instances have the same consumer group, then this works just like a traditional queue balancing load over the consumers.
 
