@@ -67,15 +67,17 @@ Messaging traditionally has two models: [queuing](http://en.wikipedia.org/wiki/M
 
 Consumers label themselves with a consumer group name, and each message published to a topic is delivered to one consumer instance within each subscribing consumer group. Consumer instances can be in separate processes or on separate machines.
 
+消费者通过消费者的组名来标记自己，每个消息发布到主题在每个订阅的消费群传递到一个消费者实例。消费者实例可以在不同的流程或单独的机器上。
+
 If all the consumer instances have the same consumer group, then this works just like a traditional queue balancing load over the consumers.
 
 If all the consumer instances have different consumer groups, then this works like publish-subscribe and all messages are broadcast to all consumers.
 
 More commonly, however, we have found that topics have a small number of consumer groups, one for each "logical subscriber". Each group is composed of many consumer instances for scalability and fault tolerance. This is nothing more than publish-subscribe semantics where the subscriber is a cluster of consumers instead of a single process.
 
-[](http://kafka.apache.org/images/consumer-groups.png)
 
- _A two server Kafka cluster hosting four partitions \(P0-P3\) with two consumer groups. Consumer group A has two consumer instances and group B has four. _
+
+_A two server Kafka cluster hosting four partitions \(P0-P3\) with two consumer groups. Consumer group A has two consumer instances and group B has four. _
 
 Kafka has stronger ordering guarantees than a traditional messaging system, too.
 
