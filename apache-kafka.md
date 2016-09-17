@@ -95,3 +95,13 @@ Kafka only provides a total order over messages _within_ a partition, not betwee
 
 Kafka只为在一个分区中的消息提供了一个总的顺序，而不是在一个主题的不同分区之间的。对于大多数应用，分区排序结合分区数据键的能力，就已经足够了。然而，如果您需要一个消息的总顺序，这可以通过一个主题只有一个分区实现，虽然这将意味着每一个消费组只有一个消费者进程。
 
+**Guarantees**
+
+At a high-level Kafka gives the following guarantees:
+
+* Messages sent by a producer to a particular topic partition will be appended in the order they are sent. That is, if a message M1 is sent by the same producer as a message M2, and M1 is sent first, then M1 will have a lower offset than M2 and appear earlier in the log.
+* A consumer instance sees messages in the order they are stored in the log.
+* For a topic with replication factor N, we will tolerate up to N-1 server failures without losing any messages committed to the log.
+
+More details on these guarantees are given in the design section of the documentation.
+
