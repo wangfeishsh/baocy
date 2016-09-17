@@ -93,3 +93,5 @@ Kafka做得更好。通过主题内一个概念的并行的－－分区，Kafka�
 
 Kafka only provides a total order over messages _within_ a partition, not between different partitions in a topic. Per-partition ordering combined with the ability to partition data by key is sufficient for most applications. However, if you require a total order over messages this can be achieved with a topic that has only one partition, though this will mean only one consumer process per consumer group.
 
+Kafka只为在一个分区中的消息提供了一个总的顺序，而不是在一个主题的不同分区之间的。对于大多数应用，每分区排序结合的能力，以分区数据的关键是足够的。然而，如果您需要一个总订单的消息，这可以实现与一个主题，只有一个分区，虽然这将意味着每一个消费组只有一个消费过程。
+
