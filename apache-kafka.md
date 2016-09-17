@@ -49,3 +49,9 @@ The partitions in the log serve several purposes. First, they allow the log to s
 
 日志服务中分区的几个目的。首先，他们允许日志规模的大小超出了在一个单一的服务器上的大小。每个单独的分区都必须适于各自主机，但一个主题可能有许多分区，所以它可以处理任意数量的数据。第二，他们作为平行的单元，胜于在一点。
 
+**Distribution**
+
+The partitions of the log are distributed over the servers in the Kafka cluster with each server handling data and requests for a share of the partitions. Each partition is replicated across a configurable number of servers for fault tolerance.
+
+Each partition has one server which acts as the "leader" and zero or more servers which act as "followers". The leader handles all read and write requests for the partition while the followers passively replicate the leader. If the leader fails, one of the followers will automatically become the new leader. Each server acts as a leader for some of its partitions and a follower for others so load is well balanced within the cluster.
+
