@@ -111,12 +111,13 @@ More details on these guarantees are given in the design section of the document
 
 * 对于一个主题的复制因子N，我们会容忍N-1服务器故障而不丢失任何信息提交到日志。
 
-  ### 1.2 Use Cases
-
-  Here is a description of a few of the popular use cases for Apache Kafka. For an overview of a number of these areas in action, see [this blog post](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying).
 
 
-Messaging 
+### 1.2 Use Cases 
+
+Here is a description of a few of the popular use cases for Apache Kafka. For an overview of a number of these areas in action, see [this blog post](http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying).
+
+Messaging
 
 Kafka works well as a replacement for a more traditional message broker. Message brokers are used for a variety of reasons \(to decouple processing from data producers, to buffer unprocessed messages, etc\). In comparison to most messaging systems Kafka has better throughput, built-in partitioning, replication, and fault-tolerance which makes it a good solution for large scale message processing applications.
 
