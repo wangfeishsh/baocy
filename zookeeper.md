@@ -131,3 +131,125 @@ From the shell, type help to get a listing of commands that can be executed from
 
 From here, you can try a few simple commands to get a feel for this simple command line interface. First, start by issuing the list command, as in ls, yielding:
 
+`[zkshell: 8] ls /`
+
+`[zookeeper]`
+
+Next, create a new znode by running create \/zk\_test my\_data. This creates a new znode and associates the string "my\_data" with the node. You should see:
+
+`[zkshell: 9] create /zk_test my_data`
+
+`Created /zk_test`
+
+Issue another ls \/ command to see what the directory looks like:
+
+`[zkshell: 11] ls /`
+
+`[zookeeper, zk_test]`
+
+Notice that the zk\_test directory has now been created.
+
+Next, verify that the data was associated with the znode by running the get command, as in:
+
+`[zkshell: 12] get /zk_test`
+
+`my_data`
+
+`cZxid = 5`
+
+`ctime = Fri Jun 05 13:57:06 PDT 2009`
+
+`mZxid = 5`
+
+`mtime = Fri Jun 05 13:57:06 PDT 2009`
+
+`pZxid = 5`
+
+`cversion = 0`
+
+`dataVersion = 0`
+
+`aclVersion = 0`
+
+`ephemeralOwner = 0`
+
+`dataLength = 7`
+
+`numChildren = 0`
+
+We can change the data associated with zk\_test by issuing the set command, as in:
+
+`[zkshell: 14] set /zk_test junk`
+
+`cZxid = 5`
+
+`ctime = Fri Jun 05 13:57:06 PDT 2009`
+
+`mZxid = 6`
+
+`mtime = Fri Jun 05 14:01:52 PDT 2009`
+
+`pZxid = 5`
+
+`cversion = 0`
+
+`dataVersion = 1`
+
+`aclVersion = 0`
+
+`ephemeralOwner = 0`
+
+`dataLength = 4`
+
+`numChildren = 0`
+
+`[zkshell: 15] get /zk_test`
+
+`junk`
+
+`cZxid = 5`
+
+`ctime = Fri Jun 05 13:57:06 PDT 2009`
+
+`mZxid = 6`
+
+`mtime = Fri Jun 05 14:01:52 PDT 2009`
+
+`pZxid = 5`
+
+`cversion = 0`
+
+`dataVersion = 1`
+
+`aclVersion = 0`
+
+`ephemeralOwner = 0`
+
+`dataLength = 4`
+
+`numChildren = 0`
+
+
+
+\(Notice we did a get after setting the data and it did, indeed, change.
+
+Finally, let's delete the node by issuing:
+
+`[zkshell: 16] delete /zk_test`
+
+`[zkshell: 17] ls /`
+
+`[zookeeper]`
+
+`[zkshell: 18]`
+
+That's it for now. To explore more, continue with the rest of this document and see the [Programmer's Guide](http://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html).
+
+**Programming to ZooKeeper**
+
+ZooKeeper has a Java bindings and C bindings. They are functionally equivalent. The C bindings exist in two variants: single threaded and multi-threaded. These differ only in how the messaging loop is done. For more information, see the [Programming Examples in the ZooKeeper Programmer's Guide](http://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#ch_programStructureWithExample) for sample code using of the different APIs.
+
+**Running Replicated ZooKeeper**
+
+Running ZooKeeper in standalone mode is convenient for evaluation, some development, and testing. But in production, you should run ZooKeeper in replicated mode. A replicated group of servers in the same application is called a _quorum_, and in replicated mode, all servers in the quorum have copies of the same configuration file.
+
