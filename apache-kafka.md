@@ -39,7 +39,7 @@ Kafka集群保留所有已发布的消息，无论它们是否已经被消费了
 
 In fact the only metadata retained on a per-consumer basis is the position of the consumer in the log, called the "offset". This offset is controlled by the consumer: normally a consumer will advance its offset linearly as it reads messages, but in fact the position is controlled by the consumer and it can consume messages in any order it likes. For example a consumer can reset to an older offset to reprocess.
 
-事实上，唯一的元数据保留在每一个消费者的基础上是消费者在日志中的位置，称为“偏移”。这种偏移是由消费者控制：通常当它读取消息， offset将会"线性"的向前驱动 。但实际上该位置是由消费者控制，它可以按照想要的任意顺序消费消息。例如，一个消费者可以重置为一个旧的的偏移去重新处理。
+事实上，唯一的元数据保留在每一个消费者的基础上是消费者在日志中的位置，称为“偏移”。这种偏移是由消费者控制：通常当它读取消息， offset将会"线性"的向前驱动（ 即消息将依次顺序被消费 ） 。但实际上该位置是由消费者控制，它可以按照想要的任意顺序消费消息。例如，一个消费者可以重置为一个旧的的偏移去重新处理。
 
 This combination of features means that Kafka consumers are very cheap—they can come and go without much impact on the cluster or on other consumers. For example, you can use our command line tools to "tail" the contents of any topic without changing what is consumed by any existing consumers.
 
