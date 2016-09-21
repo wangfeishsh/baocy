@@ -168,5 +168,5 @@ Event sourcing是一种应用程序设计的风格，其中状态更改被记录
 
 Kafka can serve as a kind of external commit-log for a distributed system. The log helps replicate data between nodes and acts as a re-syncing mechanism for failed nodes to restore their data. The [log compaction](http://kafka.apache.org/documentation.html#compaction) feature in Kafka helps support this usage. In this usage Kafka is similar to [Apache BookKeeper](http://zookeeper.apache.org/bookkeeper/) project.
 
-Kafka可以作为一种分布式系统的外部提交日志。日志可以复制节点和行为之间的数据重新同步机制失效节点恢复他们的数据。卡夫卡的日志压缩功能有助于支持这种用法。在这种用法类似于Apache的会计项目卡夫卡。
+Kafka可以作为一种分布式系统的外部提交日志。日志可以在节点间复制复制数据并使用重新同步机制恢复失效节点的数据。卡夫卡的日志压缩功能有助于支持这种用法。在这种用法类似于Apache的会计项目卡夫卡。
 
