@@ -37,3 +37,19 @@ To start ZooKeeper you need a configuration file. Here is a sample, create it in
 
 `clientPort=2181`
 
+This file can be called anything, but for the sake of this discussion call it **conf\/zoo.cfg**. Change the value of **dataDir** to specify an existing \(empty to start with\) directory. Here are the meanings for each of the fields:
+
+**tickTime**
+
+the basic time unit in milliseconds used by ZooKeeper. It is used to do heartbeats and the minimum session timeout will be twice the tickTime.
+
+**dataDir**
+
+the location to store the in-memory database snapshots and, unless specified otherwise, the transaction log of updates to the database.
+
+**clientPort**
+
+the port to listen for client connections
+
+Now that you created the configuration file, you can start ZooKeeper:
+
