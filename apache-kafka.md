@@ -144,6 +144,8 @@ Kafka的原始用例是能够重建一个用户活动跟踪管道作为一组实
 
 Kafka is often used for operational monitoring data. This involves aggregating statistics from distributed applications to produce centralized feeds of operational data.
 
+Kafka经常被用于操作监控数据。这涉及到从分布式应用程序汇总统计数据，以产生操作数据的集中源。
+
 **Log Aggregation**
 
 Many people use Kafka as a replacement for a log aggregation solution. Log aggregation typically collects physical log files off servers and puts them in a central place \(a file server or HDFS perhaps\) for processing. Kafka abstracts away the details of files and gives a cleaner abstraction of log or event data as a stream of messages. This allows for lower-latency processing and easier support for multiple data sources and distributed data consumption. In comparison to log-centric systems like Scribe or Flume, Kafka offers equally good performance, stronger durability guarantees due to replication, and much lower end-to-end latency.
