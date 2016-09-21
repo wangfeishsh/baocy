@@ -184,7 +184,7 @@ Step 1: Download the code
 
 Step 2: Start the server
 
-Kafka uses ZooKeeper so you need to first start a ZooKeeper server if you don't already have one. You can use the convenience script packaged with kafka to get a quick-and-dirty single-node ZooKeeper instance.
+Kafka uses ZooKeeper so you need to first start a ZooKeeper server if you don't already have one. You can use the convenience script packaged with kafka to get a quick-and-dirty应急的 single-node ZooKeeper instance.
 
 &gt; **bin\/zookeeper-server-start.sh config\/zookeeper.properties**
 
