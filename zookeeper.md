@@ -43,6 +43,8 @@ This file can be called anything, but for the sake of this discussion call it **
 
 the basic time unit in milliseconds used by ZooKeeper. It is used to do heartbeats and the minimum session timeout will be twice the tickTime.
 
+毫秒是ZooKeeper使用的基本时间单位。它是用来做什么的心跳和最小会话超时将两倍ticktime。
+
 **dataDir**
 
 the location to store the in-memory database snapshots and, unless specified otherwise, the transaction log of updates to the database.
