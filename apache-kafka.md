@@ -140,7 +140,7 @@ Kafka的原始用例是能够重建一个用户活动跟踪管道作为一组实
 
 活动跟踪通常是高容量的，因为每个用户页面视图都会生成多个活动消息。
 
-**Metrics**
+**Metrics**度量标准
 
 Kafka is often used for operational monitoring data. This involves aggregating statistics from distributed applications to produce centralized feeds of operational data.
 
