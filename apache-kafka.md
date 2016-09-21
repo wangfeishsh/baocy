@@ -172,3 +172,5 @@ Kafka可以作为一种分布式系统的外部提交日志。日志可以在节
 
 ### 1.3 Quick Start
 
+http:\/\/kafka.apache.org\/documentation.html\#uses
+
