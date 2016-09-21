@@ -2,7 +2,7 @@
 
 [1、cloud design patterns](/cloud-design-patterns.md)
 
-[2、apache kafka](/apache kafka)
+[2、apache kafka](/apache-kafka.md)
 
 [3、spring cloud netflix - ribbon](/spring-cloud-netflix---ribbon.md)
 
