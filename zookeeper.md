@@ -61,5 +61,11 @@ Now that you created the configuration file, you can start ZooKeeper:
 
 ZooKeeper logs messages using log4j -- more detail available in the [Logging](http://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#Logging) section of the Programmer's Guide. You will see log messages coming to the console \(default\) and\/or a log file depending on the log4j configuration.
 
-The steps outlined here run ZooKeeper in standalone mode. There is no replication, so if ZooKeeper process fails, the service will go down. This is fine for most development situations, but to run ZooKeeper in replicated mode, please see Running Replicated ZooKeeper.
+The steps outlined here run ZooKeeper in standalone mode. There is no replication, so if ZooKeeper process fails, the service will go down. This is fine for most development situations, but to run ZooKeeper in replicated mode, please see [Running Replicated ZooKeeper](http://zookeeper.apache.org/doc/trunk/zookeeperStarted.html#sc_RunningReplicatedZooKeeper).
+
+**Managing ZooKeeper Storage**
+
+For long running production systems ZooKeeper storage must be managed externally \(dataDir and logs\). See the section on [maintenance](http://zookeeper.apache.org/doc/trunk/zookeeperAdmin.html#sc_maintenance) for more details.
+
+**Connecting to ZooKeeper**
 
