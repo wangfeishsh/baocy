@@ -75,5 +75,15 @@ This lets you perform simple, file-like operations.
 
 Once you have connected, you should see something like:
 
+`Connecting to localhost:2181`
 
+`log4j:WARN No appenders could be found for logger (org.apache.zookeeper.ZooKeeper).`
+
+`log4j:WARN Please initialize the log4j system properly.`
+
+`Welcome to ZooKeeper!`
+
+`JLine support is enabled`
+
+`[zkshell: 0]`
 
