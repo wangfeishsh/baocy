@@ -172,5 +172,47 @@ Kafka可以作为一种分布式系统的外部提交日志。日志可以在节
 
 ### 1.3 Quick Start
 
-http:\/\/kafka.apache.org\/documentation.html\#uses
+This tutorial assumes you are starting fresh and have no existing Kafka or ZooKeeper data.
+
+Step 1: Download the code
+
+[Download](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.0.0/kafka_2.11-0.10.0.0.tgz) the 0.10.0.0 release and un-tar it.
+
+&gt; **tar -xzf kafka\_2.11-0.10.0.0.tgz**
+
+&gt; **cd kafka\_2.11-0.10.0.0**
+
+Step 2: Start the server
+
+Kafka uses ZooKeeper so you need to first start a ZooKeeper server if you don't already have one. You can use the convenience script packaged with kafka to get a quick-and-dirty single-node ZooKeeper instance.
+
+&gt; **bin\/zookeeper-server-start.sh config\/zookeeper.properties**
+
+\[2013-04-22 15:01:37,495\] INFO Reading configuration from: config\/zookeeper.properties \(org.apache.zookeeper.server.quorum.QuorumPeerConfig\)
+
+...
+
+Now start the Kafka server:
+
+&gt; **bin\/kafka-server-start.sh config\/server.properties**
+
+\[2013-04-22 15:01:47,028\] INFO Verifying properties \(kafka.utils.VerifiableProperties\)
+
+\[2013-04-22 15:01:47,051\] INFO Property socket.send.buffer.bytes is overridden to 1048576 \(kafka.utils.VerifiableProperties\)
+
+...
+
+Step 3: Create a topic
+
+Let's create a topic named "test" with a single partition and only one replica:
+
+&gt; **bin\/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test**
+
+We can now see that topic if we run the list topic command:
+
+&gt; **bin\/kafka-topics.sh --list --zookeeper localhost:2181**
+
+test
+
+Alternatively, instead of manually creating topics you can also configure your brokers to auto-create topics when a non-existent topic is published to.
 
