@@ -162,6 +162,8 @@ Many users of Kafka process data in processing pipelines consisting of multiple 
 
 [Event sourcing](http://martinfowler.com/eaaDev/EventSourcing.html) is a style of application design where state changes are logged as a time-ordered sequence of records. Kafka's support for very large stored log data makes it an excellent backend for an application built in this style.
 
+Event sourcing是一种应用程序设计的风格，其中状态更改被记录为一个时间顺序的记录序列。卡夫卡的支持非常大的存储日志数据，使它成为一个优秀的后台应用程序内置在这种风格。
+
 **Commit Log**
 
 Kafka can serve as a kind of external commit-log for a distributed system. The log helps replicate data between nodes and acts as a re-syncing mechanism for failed nodes to restore their data. The [log compaction](http://kafka.apache.org/documentation.html#compaction) feature in Kafka helps support this usage. In this usage Kafka is similar to [Apache BookKeeper](http://zookeeper.apache.org/bookkeeper/) project.
