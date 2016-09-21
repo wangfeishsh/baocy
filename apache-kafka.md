@@ -170,3 +170,5 @@ Kafka can serve as a kind of external commit-log for a distributed system. The l
 
 Kafka可以作为一种分布式系统的外部提交日志。日志可以在节点间复制复制数据并使用重新同步机制恢复失效节点的数据。Kafka的日志压缩功能支持这种用法。这种用法类似于Apache Bookeerper项目。
 
+
+
