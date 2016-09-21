@@ -69,3 +69,11 @@ For long running production systems ZooKeeper storage must be managed externally
 
 **Connecting to ZooKeeper**
 
+`$ bin/zkCli.sh -server 127.0.0.1:2181`
+
+This lets you perform simple, file-like operations.
+
+Once you have connected, you should see something like:
+
+
+
