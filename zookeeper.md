@@ -57,3 +57,9 @@ the port to listen for client connections
 
 Now that you created the configuration file, you can start ZooKeeper:
 
+`bin/zkServer.sh start`
+
+ZooKeeper logs messages using log4j -- more detail available in the [Logging](http://zookeeper.apache.org/doc/trunk/zookeeperProgrammers.html#Logging) section of the Programmer's Guide. You will see log messages coming to the console \(default\) and\/or a log file depending on the log4j configuration.
+
+The steps outlined here run ZooKeeper in standalone mode. There is no replication, so if ZooKeeper process fails, the service will go down. This is fine for most development situations, but to run ZooKeeper in replicated mode, please see Running Replicated ZooKeeper.
+
