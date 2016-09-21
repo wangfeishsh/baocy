@@ -150,7 +150,7 @@ Kafka经常被用于操作监控数据。这涉及到从分布式应用程序汇
 
 Many people use Kafka as a replacement for a log aggregation solution. Log aggregation typically collects physical log files off servers and puts them in a central place \(a file server or HDFS perhaps\) for processing. Kafka abstracts away the details of files and gives a cleaner abstraction of log or event data as a stream of messages. This allows for lower-latency processing and easier support for multiple data sources and distributed data consumption. In comparison to log-centric systems like Scribe or Flume, Kafka offers equally good performance, stronger durability guarantees due to replication, and much lower end-to-end latency.
 
-许多人使用Kafka作为一个日志集成解决方案的替代。日志聚合通常从服务器收集物理日志文件放在一个中心位置（文件服务器或HDFS也许）处理。Kafka抽象了文件细节，并给出了一个干净的抽象的日志或事件数据作为一个流的消息。这允许低延迟处理和更容易支持多个数据源和分布式数据消费。在比较，以日志为中心的系统，如Scribe或Flume，卡夫卡提供同样良好的性能，更强的耐用性保证，由于复制，和低得多的终端到终端的延迟。
+许多人使用Kafka作为一个日志集成解决方案的替代。日志聚合通常从服务器收集物理日志文件放在一个中心位置（文件服务器或HDFS也许）处理。Kafka抽象了文件细节，并给出了一个干净的抽象的日志或事件数据作为一个流的消息。这允许低延迟处理和更容易支持多个数据源和分布式数据消费。与以日志为中心的系统做比较，如Scribe或Flume，卡夫卡提供同样良好的性能，更强的耐用性保证，由于复制，和低得多的终端到终端的延迟。
 
 **Stream Processing**
 
