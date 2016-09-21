@@ -156,7 +156,7 @@ Many people use Kafka as a replacement for a log aggregation solution. Log aggre
 
 Many users of Kafka process data in processing pipelines consisting of multiple stages, where raw input data is consumed from Kafka topics and then aggregated, enriched, or otherwise transformed into new topics for further consumption or follow-up processing. For example, a processing pipeline for recommending news articles might crawl article content from RSS feeds and publish it to an "articles" topic; further processing might normalize or deduplicate this content and published the cleansed article content to a new topic; a final processing stage might attempt to recommend this content to users. Such processing pipelines create graphs of real-time data flows based on the individual topics. Starting in 0.10.0.0, a light-weight but powerful stream processing library called Kafka Streams is available in Apache Kafka to perform such data processing as described above. Apart from Kafka Streams, alternative open source stream processing tools include [Apache Storm](https://storm.apache.org/) and [Apache Samza](http://samza.apache.org/).
 
-许多Kafka用户处理数据管道过程包含了多个阶段，其中原始输入数据消耗从卡夫卡主题，然后汇总，丰富，或以其他方式转化为新的主题进一步消费或后续处理。例如，一个推荐新闻文章处理管道会抓取文章内容的RSS订阅和发布到“文章”的话题；进一步处理或重复内容，这可能使出版洁净文章内容的新课题；最后一个处理阶段可能会尝试推荐内容。这样的处理管道创建基于单个主题的实时数据流的图表。从0.10.0.0，重量轻，但功能强大的流处理图书馆称Kafka Streams可以在Apache卡夫卡履行上述数据处理。除了卡夫卡流，选择开源的流处理工具包括Apache Apache samza风暴
+许多Kafka用户处理数据时，在整个管道过程中包含了多个阶段，其中原始输入数据消耗从卡夫卡主题，然后汇总，丰富，或以其他方式转化为新的主题进一步消费或后续处理。例如，一个推荐新闻文章处理管道会抓取文章内容的RSS订阅和发布到“文章”的话题；进一步处理或重复内容，这可能使出版洁净文章内容的新课题；最后一个处理阶段可能会尝试推荐内容。这样的处理管道创建基于单个主题的实时数据流的图表。从0.10.0.0，重量轻，但功能强大的流处理图书馆称Kafka Streams可以在Apache卡夫卡履行上述数据处理。除了卡夫卡流，选择开源的流处理工具包括Apache Apache samza风暴
 
 **Event Sourcing**
 
