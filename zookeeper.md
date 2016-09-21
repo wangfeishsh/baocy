@@ -93,39 +93,41 @@ From the shell, type help to get a listing of commands that can be executed from
 
 `ZooKeeper host:port cmd args`
 
-` get path [watch]`
+`get path [watch]`
 
-` ls path [watch]`
+`ls path [watch]`
 
-` set path data [version]`
+`set path data [version]`
 
-` delquota [-n|-b] path`
+`delquota [-n|-b] path`
 
-` quit`
+`quit`
 
-` printwatches on|off`
+`printwatches on|off`
 
-` create path data acl`
+`create path data acl`
 
-` stat path [watch]`
+`stat path [watch]`
 
-` listquota path`
+`listquota path`
 
-` history`
+`history`
 
-` setAcl path acl`
+`setAcl path acl`
 
-` getAcl path`
+`getAcl path`
 
-` sync path`
+`sync path`
 
-` redo cmdno`
+`redo cmdno`
 
-` addauth scheme auth`
+`addauth scheme auth`
 
-` delete path [version]`
+`delete path [version]`
 
-` deleteall path`
+`deleteall path`
 
-` setquota -n|-b val path`
+`setquota -n|-b val path`
+
+From here, you can try a few simple commands to get a feel for this simple command line interface. First, start by issuing the list command, as in ls, yielding:
 
