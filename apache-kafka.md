@@ -124,7 +124,7 @@ In our experience messaging uses are often comparatively low-throughput, but may
 
 In this domain Kafka is comparable to traditional messaging systems such as [ActiveMQ](http://activemq.apache.org/) or [RabbitMQ](https://www.rabbitmq.com/).
 
-Website Activity Tracking
+**Website Activity Tracking**
 
 The original use case for Kafka was to be able to rebuild a user activity tracking pipeline as a set of real-time publish-subscribe feeds. This means site activity \(page views, searches, or other actions users may take\) is published to central topics with one topic per activity type. These feeds are available for subscription for a range of use cases including real-time processing, real-time monitoring, and loading into Hadoop or offline data warehousing systems for offline processing and reporting.
 
