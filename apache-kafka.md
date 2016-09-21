@@ -124,6 +124,12 @@ In our experience messaging uses are often comparatively low-throughput, but may
 
 In this domain Kafka is comparable to traditional messaging systems such as [ActiveMQ](http://activemq.apache.org/) or [RabbitMQ](https://www.rabbitmq.com/).
 
+Kafka更像是一个传统的信息broker的替代。信息brokers是应用于各种原因（分离数据生产者，缓冲未处理的消息等）。与大多数消息系统相比，Kafka有更好的吞吐量，内置的分区，复制和容错性，这使得它是一个很好的为大规模的消息处理应用的解决方案。
+
+在我们的经验消息使用往往是比较低的吞吐量，但可能需要低的终端到终端的延迟，往往依赖于kafka提供强大的持久性保证。
+
+在这一领域的Kafka与传统的消息传递系统如ActiveMQ和RabbitMQ。
+
 **Website Activity Tracking**
 
 The original use case for Kafka was to be able to rebuild a user activity tracking pipeline as a set of real-time publish-subscribe feeds. This means site activity \(page views, searches, or other actions users may take\) is published to central topics with one topic per activity type. These feeds are available for subscription for a range of use cases including real-time processing, real-time monitoring, and loading into Hadoop or offline data warehousing systems for offline processing and reporting.
