@@ -162,7 +162,7 @@ Many users of Kafka process data in processing pipelines consisting of multiple 
 
 [Event sourcing](http://martinfowler.com/eaaDev/EventSourcing.html) is a style of application design where state changes are logged as a time-ordered sequence of records. Kafka's support for very large stored log data makes it an excellent backend for an application built in this style.
 
-Event sourcing是一种应用程序设计的风格，其中状态更改被记录为一个时间顺序的记录序列。卡夫卡的支持非常大的存储日志数据，使它成为一个优秀的后台应用程序内置在这种风格。
+Event sourcing是一种应用程序设计的风格，其中状态更改被记录为一个时间顺序的序列记录。Kafka支持非常大的存储日志数据，使它成为一个优秀的内置这种风格的后台应用程序。
 
 **Commit Log**
 
