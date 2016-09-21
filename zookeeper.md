@@ -31,3 +31,9 @@ Once you've downloaded a stable ZooKeeper release unpack it and cd to the root
 
 To start ZooKeeper you need a configuration file. Here is a sample, create it in **conf\/zoo.cfg**:
 
+`tickTime=2000`
+
+`dataDir=/var/lib/zookeeper`
+
+`clientPort=2181`
+
