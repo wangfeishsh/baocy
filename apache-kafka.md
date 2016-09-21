@@ -130,11 +130,15 @@ Kafka更像是一个传统的信息broker的替代。信息brokers是应用于�
 
 在这一领域的Kafka与传统的消息传递系统如ActiveMQ和RabbitMQ。
 
-**Website Activity Tracking**
+**Website Activity Tracking** 网站活性跟踪 
 
 The original use case for Kafka was to be able to rebuild a user activity tracking pipeline as a set of real-time publish-subscribe feeds. This means site activity \(page views, searches, or other actions users may take\) is published to central topics with one topic per activity type. These feeds are available for subscription for a range of use cases including real-time processing, real-time monitoring, and loading into Hadoop or offline data warehousing systems for offline processing and reporting.
 
 Activity tracking is often very high volume as many activity messages are generated for each user page view.
+
+Kafka的原始用例是能够重建一个用户活动跟踪管道作为一组实时发布订阅。这意味着站点活动（用户可能的页面视图、搜索或其他操作）将被发布到每个活动类型的一个主题的中心主题中。这些feeds可用于一系列的使用情况，包括实时处理、订阅实时监控，和加载到Hadoop或离线数据仓库系统的离线处理和报告。
+
+活动跟踪通常是非常高的卷，因为每个用户页面视图都会生成多个活动消息。
 
 **Metrics**
 
