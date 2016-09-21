@@ -49,6 +49,8 @@ the basic time unit in milliseconds used by ZooKeeper. It is used to do heartbea
 
 the location to store the in-memory database snapshots and, unless specified otherwise, the transaction log of updates to the database.
 
+该位置存储内存数据库快照，除非指定其他位置，否则将事务日志记录更新到数据库。
+
 **clientPort**
 
 the port to listen for client connections
