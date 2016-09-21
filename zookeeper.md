@@ -87,3 +87,45 @@ Once you have connected, you should see something like:
 
 `[zkshell: 0]`
 
+From the shell, type help to get a listing of commands that can be executed from the client, as in:
+
+`[zkshell: 0] help`
+
+`ZooKeeper host:port cmd args`
+
+` get path [watch]`
+
+` ls path [watch]`
+
+` set path data [version]`
+
+` delquota [-n|-b] path`
+
+` quit`
+
+` printwatches on|off`
+
+` create path data acl`
+
+` stat path [watch]`
+
+` listquota path`
+
+` history`
+
+` setAcl path acl`
+
+` getAcl path`
+
+` sync path`
+
+` redo cmdno`
+
+` addauth scheme auth`
+
+` delete path [version]`
+
+` deleteall path`
+
+` setquota -n|-b val path`
+
