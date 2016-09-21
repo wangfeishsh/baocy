@@ -229,8 +229,6 @@ We can change the data associated with zk\_test by issuing the set command, as i
 
 `numChildren = 0`
 
-
-
 \(Notice we did a get after setting the data and it did, indeed, change.
 
 Finally, let's delete the node by issuing:
@@ -252,4 +250,6 @@ ZooKeeper has a Java bindings and C bindings. They are functionally equivalent. 
 **Running Replicated ZooKeeper**
 
 Running ZooKeeper in standalone mode is convenient for evaluation, some development, and testing. But in production, you should run ZooKeeper in replicated mode. A replicated group of servers in the same application is called a _quorum_, and in replicated mode, all servers in the quorum have copies of the same configuration file.
+
+quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
