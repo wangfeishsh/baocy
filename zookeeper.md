@@ -253,7 +253,7 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 
 quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
-_**Note**_
+**_Note_**
 
 _For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _**\*\***_less_**\*\***_ stable than a single server, because there are two single points of failure._
 
@@ -285,9 +285,11 @@ With both of these timeouts, you specify the unit of time using **tickTime**. In
 
 The entries of the form _server.X_ list the servers that make up the ZooKeeper service. When the server starts up, it knows which server it is by looking for the file _myid_ in the data directory. That file has the contains the server number, in ASCII.
 
+server.X项展示了组成ZooKeeper服务的服务器。当服务启动时，它通过查询数据目录文件_myid_的知道有哪些服务器。文件包含各个服务器ASCII编号。
+
 Finally, note the two port numbers after each server name: " 2888" and "3888". Peers use the former port to connect to other peers. Such a connection is necessary so that peers can communicate, for example, to agree upon the order of updates. More specifically, a ZooKeeper server uses this port to connect followers to the leader. When a new leader arises, a follower opens a TCP connection to the leader using this port. Because the default leader election also uses TCP, we currently require another port for leader election. This is the second port in the server entry.
 
-**_Note_**
+_**Note**_
 
 _If you want to test multiple servers on a single machine, specify the servername as localhost with unique quorum & leader election ports \(i.e. 2888:3888, 2889:3889, 2890:3890 in the example above\) for each server.X in that server's config file. Of course separate dataDirs and distinct clientPorts are also necessary \(in the above replicated example, running on a single localhost, you would still have three config files\)._
 
