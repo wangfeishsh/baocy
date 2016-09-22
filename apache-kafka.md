@@ -256,23 +256,19 @@ Now edit these new files and set the following properties:
 
 config\/server-1.properties:
 
- broker.id=1
+broker.id=1
 
- listeners=PLAINTEXT:\/\/:9093
+listeners=PLAINTEXT:\/\/:9093
 
- log.dir=\/tmp\/kafka-logs-1
-
-
-
-
+log.dir=\/tmp\/kafka-logs-1
 
 config\/server-2.properties:
 
- broker.id=2
+broker.id=2
 
- listeners=PLAINTEXT:\/\/:9094
+listeners=PLAINTEXT:\/\/:9094
 
- log.dir=\/tmp\/kafka-logs-2
+log.dir=\/tmp\/kafka-logs-2
 
 The broker.id property is the unique and permanent name of each node in the cluster. We have to override the port and log directory only because we are running these all on the same machine and we want to keep the brokers from all trying to register on the same port or overwrite each others data.
 
@@ -296,7 +292,11 @@ Okay but now that we have a cluster how can we know which broker is doing what? 
 
 Topic:my-replicated-topic PartitionCount:1 ReplicationFactor:3 Configs:
 
- Topic: my-replicated-topic Partition: 0 Leader: 1 Replicas: 1,2,0 Isr: 1,2,0
+Topic: my-replicated-topic Partition: 0 Leader: 1 Replicas: 1,2,0 Isr: 1,2,0
 
 Here is an explanation of output. The first line gives a summary of all the partitions, each additional line gives information about one partition. Since we have only one partition for this topic there is only one line.
+
+* "leader" is the node responsible for all reads and writes for the given partition. Each node will be the leader for a randomly selected portion of the partitions.
+* "replicas" is the list of nodes that replicate the log for this partition regardless of whether they are the leader or even if they are currently alive.
+* "isr" is the set of "in-sync" replicas. This is the subset of the replicas list that is currently alive and caught-up to the leader.
 
