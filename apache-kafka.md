@@ -176,11 +176,17 @@ This tutorial assumes you are starting fresh and have no existing Kafka or ZooKe
 
 ......
 
+Now create a new topic with a replication factor of three:
+
+&gt; **bin\/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic my-replicated-topic**
+
+Okay but now that we have a cluster how can we know which broker is doing what? To see that run the "describe topics" command:
+
 &gt; **bin\/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic**
 
 Topic:my-replicated-topic PartitionCount:1 ReplicationFactor:3 Configs:
 
- Topic: my-replicated-topic Partition: 0 Leader: 1 Replicas: 1,2,0 Isr: 1,2,0
+Topic: my-replicated-topic Partition: 0 Leader: 1 Replicas: 1,2,0 Isr: 1,2,0
 
 Here is an explanation of output. The first line gives a summary of all the partitions, each additional line gives information about one partition. Since we have only one partition for this topic there is only one line.
 
