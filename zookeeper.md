@@ -253,7 +253,7 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 
 quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
-_**Note**_
+**_Note_**
 
 _For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _**\*\***_less_**\*\***_ stable than a single server, because there are two single points of failure._
 
@@ -281,7 +281,7 @@ The new entry, **initLimit** is timeouts ZooKeeper uses to limit the length of t
 
 With both of these timeouts, you specify the unit of time using **tickTime**. In this example, the timeout for initLimit is 5 ticks at 2000 milleseconds a tick, or 10 seconds.
 
-与这些超时，你指定的单位时间使用ticktime。在这个例子中，对于initlimit超时5在2000 milleseconds蜱蜱，或10秒。
+这些超时的单位时间是你指定的ticktime。在这个例子中，对于initlimit超时为5个2000毫秒／心跳，或10秒。
 
 The entries of the form _server.X_ list the servers that make up the ZooKeeper service. When the server starts up, it knows which server it is by looking for the file _myid_ in the data directory. That file has the contains the server number, in ASCII.
 
