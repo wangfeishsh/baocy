@@ -300,3 +300,7 @@ Here is an explanation of output. The first line gives a summary of all the part
 * "replicas" is the list of nodes that replicate the log for this partition regardless of whether they are the leader or even if they are currently alive.
 * "isr" is the set of "in-sync" replicas. This is the subset of the replicas list that is currently alive and caught-up to the leader.
 
+Note that in my example node 1 is the leader for the only partition of the topic. 
+
+We can run the same command on the original topic we created to see where it is:
+
