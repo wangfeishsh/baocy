@@ -253,9 +253,9 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 
 quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
-**_Note_**
+_**Note**_
 
-_For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _******_less_******_ stable than a single server, because there are two single points of failure._
+_For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _**\*\***_less_**\*\***_ stable than a single server, because there are two single points of failure._
 
 The required **conf\/zoo.cfg** file for replicated mode is similar to the one used in standalone mode, but with a few differences. Here is an example:
 
@@ -277,7 +277,7 @@ The required **conf\/zoo.cfg** file for replicated mode is similar to the one us
 
 The new entry, **initLimit** is timeouts ZooKeeper uses to limit the length of time the ZooKeeper servers in quorum have to connect to a leader. The entry **syncLimit** limits how far out of date a server can be from a leader.
 
-新的标签initlimit是ZooKeeper规定ZooKeeper法定服务器必须连接到一个leader超时限制。进入synclimit限制多远过时的服务器可以从一个领导者。
+新的标签initlimit是ZooKeeper规定ZooKeeper法定服务器必须连接到一个leader超时限制。标签synclimit限制多久服务器leader过时失效。
 
 With both of these timeouts, you specify the unit of time using **tickTime**. In this example, the timeout for initLimit is 5 ticks at 2000 milleseconds a tick, or 10 seconds.
 
