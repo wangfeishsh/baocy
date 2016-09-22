@@ -216,3 +216,87 @@ test
 
 Alternatively, instead of manually creating topics you can also configure your brokers to auto-create topics when a non-existent topic is published to.
 
+Step 4: Send some messages
+
+Kafka comes with a command line client that will take input from a file or from standard input and send it out as messages to the Kafka cluster. By default each line will be sent as a separate message.
+
+Run the producer and then type a few messages into the console to send to the server.
+
+&gt; **bin\/kafka-console-producer.sh --broker-list localhost:9092 --topic test**
+
+**This is a message**
+
+**This is another message**
+
+Step 5: Start a consumer
+
+Kafka also has a command line consumer that will dump out messages to standard output.
+
+&gt; **bin\/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning**
+
+This is a message
+
+This is another message
+
+If you have each of the above commands running in a different terminal then you should now be able to type messages into the producer terminal and see them appear in the consumer terminal.
+
+All of the command line tools have additional options; running the command with no arguments will display usage information documenting them in more detail.
+
+Step 6: Setting up a multi-broker cluster
+
+So far we have been running against a single broker, but that's no fun. For Kafka, a single broker is just a cluster of size one, so nothing much changes other than starting a few more broker instances. But just to get feel for it, let's expand our cluster to three nodes \(still all on our local machine\).
+
+First we make a config file for each of the brokers:
+
+&gt; **cp config\/server.properties config\/server-1.properties**
+
+&gt; **cp config\/server.properties config\/server-2.properties**
+
+Now edit these new files and set the following properties:
+
+config\/server-1.properties:
+
+ broker.id=1
+
+ listeners=PLAINTEXT:\/\/:9093
+
+ log.dir=\/tmp\/kafka-logs-1
+
+
+
+
+
+config\/server-2.properties:
+
+ broker.id=2
+
+ listeners=PLAINTEXT:\/\/:9094
+
+ log.dir=\/tmp\/kafka-logs-2
+
+The broker.id property is the unique and permanent name of each node in the cluster. We have to override the port and log directory only because we are running these all on the same machine and we want to keep the brokers from all trying to register on the same port or overwrite each others data.
+
+We already have Zookeeper and our single node started, so we just need to start the two new nodes:
+
+&gt; **bin\/kafka-server-start.sh config\/server-1.properties &**
+
+...
+
+&gt; **bin\/kafka-server-start.sh config\/server-2.properties &**
+
+...
+
+Now create a new topic with a replication factor of three:
+
+&gt; **bin\/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic my-replicated-topic**
+
+Okay but now that we have a cluster how can we know which broker is doing what? To see that run the "describe topics" command:
+
+&gt; **bin\/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic**
+
+Topic:my-replicated-topic PartitionCount:1 ReplicationFactor:3 Configs:
+
+ Topic: my-replicated-topic Partition: 0 Leader: 1 Replicas: 1,2,0 Isr: 1,2,0
+
+Here is an explanation of output. The first line gives a summary of all the partitions, each additional line gives information about one partition. Since we have only one partition for this topic there is only one line.
+
