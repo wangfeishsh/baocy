@@ -253,7 +253,7 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 
 quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
-**_Note_**
+_**Note**_
 
 _For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _**\*\***_less_**\*\***_ stable than a single server, because there are two single points of failure._
 
@@ -287,11 +287,16 @@ The entries of the form _server.X_ list the servers that make up the ZooKeeper s
 
 Finally, note the two port numbers after each server name: " 2888" and "3888". Peers use the former port to connect to other peers. Such a connection is necessary so that peers can communicate, for example, to agree upon the order of updates. More specifically, a ZooKeeper server uses this port to connect followers to the leader. When a new leader arises, a follower opens a TCP connection to the leader using this port. Because the default leader election also uses TCP, we currently require another port for leader election. This is the second port in the server entry.
 
-_**Note**_
+**_Note_**
 
 _If you want to test multiple servers on a single machine, specify the servername as localhost with unique quorum & leader election ports \(i.e. 2888:3888, 2889:3889, 2890:3890 in the example above\) for each server.X in that server's config file. Of course separate dataDirs and distinct clientPorts are also necessary \(in the above replicated example, running on a single localhost, you would still have three config files\)._
 
 _Please be aware that setting up multiple servers on a single machine will not create any redundancy. If something were to happen which caused the machine to die, all of the zookeeper servers would be offline. Full redundancy requires that each server have its own machine. It must be a completely separate physical server. Multiple virtual machines on the same physical host are still vulnerable to the complete failure of that host._
 
+**Other Optimizations**
 
+There are a couple of other configuration parameters that can greatly increase performance:
+
+* To get low latencies on updates it is important to have a dedicated transaction log directory. By default transaction logs are put in the same directory as the data snapshots and _myid_ file. The dataLogDir parameters indicates a different directory to use for the transaction logs.
+* _\[tbd: what is the other config param?\]_
 
