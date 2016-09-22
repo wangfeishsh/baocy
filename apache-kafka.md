@@ -194,3 +194,5 @@ Here is an explanation of output. The first line gives a summary of all the part
 * "replicas" is the list of nodes that replicate the log for this partition regardless of whether they are the leader or even if they are currently alive.
 * "isr" is the set of "in-sync" replicas. This is the subset of the replicas list that is currently alive and caught-up to the leader.
 
+这里是一个输出的解释。第一行给出了所有的分区的摘要，每一个额外的行给出了一个分区的信息。由于这个主题只有一个分区，所以只有一行。
+
