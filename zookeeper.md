@@ -1,3 +1,7 @@
+可以参考
+
+http:\/\/www.ibm.com\/developerworks\/cn\/opensource\/os-cn-zookeeper\/
+
 **ZooKeeper Getting Started Guide**
 
 Getting Started: Coordinating Distributed Applications with ZooKeeper
@@ -253,7 +257,7 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 
 quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
-**_Note_**
+_**Note**_
 
 _For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _**\*\***_less_**\*\***_ stable than a single server, because there are two single points of failure._
 
@@ -291,7 +295,7 @@ Finally, note the two port numbers after each server name: " 2888" and "3888". P
 
 最后，注意在每个服务名后的两个端口号：" 2888" 与 "3888"。服务器间使用前一个端口进行连接。这个连接时必要的以便服务器间可以进行通讯交流，例如：同意更新的顺序。更具体地说，一个ZooKeeper服务器使用此端口连接的followers到leader。当一个新的leader出现，follower打开一个TCP连接使用此端口连接leader。因为默认的领导人选举也使用TCP，我们目前需要另外一个端口进行选举。这是服务器入口中的第二个端口。
 
-_**Note**_
+**_Note_**
 
 _If you want to test multiple servers on a single machine, specify the servername as localhost with unique quorum & leader election ports \(i.e. 2888:3888, 2889:3889, 2890:3890 in the example above\) for each server.X in that server's config file. Of course separate dataDirs and distinct clientPorts are also necessary \(in the above replicated example, running on a single localhost, you would still have three config files\)._
 
