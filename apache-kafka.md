@@ -176,3 +176,15 @@ This tutorial assumes you are starting fresh and have no existing Kafka or ZooKe
 
 ......
 
+&gt; **bin\/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic**
+
+Topic:my-replicated-topic PartitionCount:1 ReplicationFactor:3 Configs:
+
+ Topic: my-replicated-topic Partition: 0 Leader: 1 Replicas: 1,2,0 Isr: 1,2,0
+
+Here is an explanation of output. The first line gives a summary of all the partitions, each additional line gives information about one partition. Since we have only one partition for this topic there is only one line.
+
+* "leader" is the node responsible for all reads and writes for the given partition. Each node will be the leader for a randomly selected portion of the partitions.
+* "replicas" is the list of nodes that replicate the log for this partition regardless of whether they are the leader or even if they are currently alive.
+* "isr" is the set of "in-sync" replicas. This is the subset of the replicas list that is currently alive and caught-up to the leader.
+
