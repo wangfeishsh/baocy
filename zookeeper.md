@@ -253,7 +253,33 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 
 quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
-_**Note**_
+**_Note_**
 
-_For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently __**less**__ stable than a single server, because there are two single points of failure._
+_For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _****_less_****_ stable than a single server, because there are two single points of failure._
+
+The required **conf\/zoo.cfg** file for replicated mode is similar to the one used in standalone mode, but with a few differences. Here is an example:
+
+`tickTime=2000`
+
+`dataDir=/var/lib/zookeeper`
+
+`clientPort=2181`
+
+`initLimit=5`
+
+`syncLimit=2`
+
+`server.1=zoo1:2888:3888`
+
+`server.2=zoo2:2888:3888`
+
+`server.3=zoo3:2888:3888`
+
+The new entry, **initLimit** is timeouts ZooKeeper uses to limit the length of time the ZooKeeper servers in quorum have to connect to a leader. The entry **syncLimit** limits how far out of date a server can be from a leader.
+
+With both of these timeouts, you specify the unit of time using **tickTime**. In this example, the timeout for initLimit is 5 ticks at 2000 milleseconds a tick, or 10 seconds.
+
+The entries of the form _server.X_ list the servers that make up the ZooKeeper service. When the server starts up, it knows which server it is by looking for the file _myid_ in the data directory. That file has the contains the server number, in ASCII.
+
+Finally, note the two port numbers after each server name: " 2888" and "3888". Peers use the former port to connect to other peers. Such a connection is necessary so that peers can communicate, for example, to agree upon the order of updates. More specifically, a ZooKeeper server uses this port to connect followers to the leader. When a new leader arises, a follower opens a TCP connection to the leader using this port. Because the default leader election also uses TCP, we currently require another port for leader election. This is the second port in the server entry.
 
