@@ -253,7 +253,7 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 
 quorum，原指为了处理事务、拥有做出决定的权力而必须出席的众议员或参议员的数量（一般指半数以上）。（最低）法定人数。
 
-**_Note_**
+_**Note**_
 
 _For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently _**\*\***_less_**\*\***_ stable than a single server, because there are two single points of failure._
 
@@ -291,11 +291,15 @@ Finally, note the two port numbers after each server name: " 2888" and "3888". P
 
 最后，注意在每个服务名后的两个端口号：" 2888" 与 "3888"。服务器间使用前一个端口进行连接。这个连接时必要的以便服务器间可以进行通讯交流，例如：同意更新的顺序。更具体地说，一个ZooKeeper服务器使用此端口连接的followers到leader。当一个新的leader出现，follower打开一个TCP连接使用此端口连接leader。因为默认的领导人选举也使用TCP，我们目前需要另外一个端口进行选举。这是服务器入口中的第二个端口。
 
-_**Note**_
+**_Note_**
 
 _If you want to test multiple servers on a single machine, specify the servername as localhost with unique quorum & leader election ports \(i.e. 2888:3888, 2889:3889, 2890:3890 in the example above\) for each server.X in that server's config file. Of course separate dataDirs and distinct clientPorts are also necessary \(in the above replicated example, running on a single localhost, you would still have three config files\)._
 
+如果你想在一台机器上测试多个服务器，指定localhost服务器作为唯一_quorum_与_leader_选举端口（即2888:3888，2889:3889，2890:3890在上面的例子中）每个_server_.X服务器的配置文件。当然，不同的datadirs和鲜明的clientports也是必要的（在上面复制的例子，在一个单一的本地主机，运行你仍拥有三的配置文件）。
+
 _Please be aware that setting up multiple servers on a single machine will not create any redundancy. If something were to happen which caused the machine to die, all of the zookeeper servers would be offline. Full redundancy requires that each server have its own machine. It must be a completely separate physical server. Multiple virtual machines on the same physical host are still vulnerable to the complete failure of that host._
+
+请注意，在一台机器上设置多个服务器不会创建任何冗余。如果发生了什么导致机器死了，所有的_zookeeper_服务器将离线。完全冗余，要求每个服务器都有自己的机器。它必须是一个完全独立的物理服务器。在同一物理主机上的多个虚拟机仍然容易受到该主机的完全故障。
 
 **Other Optimizations**
 
@@ -303,4 +307,6 @@ There are a couple of other configuration parameters that can greatly increase p
 
 * To get low latencies on updates it is important to have a dedicated transaction log directory. By default transaction logs are put in the same directory as the data snapshots and _myid_ file. The dataLogDir parameters indicates a different directory to use for the transaction logs.
 * _\[tbd: what is the other config param?\]_
+
+* 要获得更新的低延迟，重要的是要有一个专用的事务日志目录。默认情况下，事务日志放在数据快照与_myid_文件的同一目录下。dataLogDir参数表示一个不同的目录使用事务日志
 
