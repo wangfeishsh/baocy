@@ -188,6 +188,10 @@ Now create a new topic with a replication factor of three:
 
 Okay but now that we have a cluster how can we know which broker is doing what? To see that run the "describe topics" command:
 
+在创建Topic时候可以使用–partitions &lt;numPartitions&gt;指定分区数。也可以在server.properties配置文件中配置参数num.partitions来指定默认的分区数。
+
+但有一点需要注意，为Topic创建分区时，分区数最好是broker数量的整数倍，这样才能是一个Topic的分区均匀的分布在整个Kafka集群中
+
 &gt; **bin\/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic**
 
 Topic:my-replicated-topic PartitionCount:1 ReplicationFactor:3 Configs:
