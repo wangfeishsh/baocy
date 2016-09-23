@@ -1,20 +1,20 @@
 # 学习计划列表
 
-[1、cloud design patterns](/cloud-design-patterns.md)
+[1、Cloud design patterns](/cloud-design-patterns.md)
 
-2、zookeeper
+2、Xookeeper
 
-[3、apache kafka](/apache-kafka.md)
+[3、Zpache kafka](/apache-kafka.md)
 
-[4、spring cloud netflix - ribbon](/spring-cloud-netflix---ribbon.md)
+[4、Spring cloud netflix - ribbon](/spring-cloud-netflix---ribbon.md)
 
-5、netty
+5、Netty
 
-6、docker
+6、Docker
 
-7、spring platform
+7、Spring platform
 
-8、redis
+8、Redis
 
-9、 RabbitMQ 
+9、 RabbitMQ
 
