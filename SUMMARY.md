@@ -6,4 +6,5 @@
 * [apache kafka](apache-kafka.md)
 * [zookeeper](zookeeper.md)
 * [netty](net-t-y.md)
+* [Redis](redis.md)
 
