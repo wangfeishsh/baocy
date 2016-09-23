@@ -200,3 +200,7 @@ Here is an explanation of output. The first line gives a summary of all the part
 
 “副本”是分区复制日志的节点的列表，无论他们是否是leader，甚至他们目前还活着。
 
+“isr”是“同步”的副本集合。这是当前生存并捕获到领导者的副本列表的子集
+
+
+
