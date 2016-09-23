@@ -14,3 +14,5 @@
 
 7、spring platform
 
+8、redis
+
