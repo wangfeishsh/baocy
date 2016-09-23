@@ -2,7 +2,7 @@
 
 http:\/\/lxw1234.com\/archives\/2015\/10\/538.htm  Kafka分区机制介绍与示例
 
-http:\/\/www.jasongj.com\/2015\/01\/02\/Kafka深度解析\/        
+http:\/\/www.jasongj.com\/2015\/01\/02\/Kafka深度解析\/
 
 ## 1. Getting Started
 
@@ -202,9 +202,10 @@ Here is an explanation of output. The first line gives a summary of all the part
 
 这里是一个输出的解释。第一行给出了所有的分区的摘要，每一个额外的行给出了一个分区的信息。由于这个主题只有一个分区，所以只有一行。
 
-“leader”是负责为给定的分区所有的读取和写入的节点。每个节点都将是随机选择部分的分区的leader。
+* “leader”是负责为给定的分区所有的读取和写入的节点。每个节点都将是随机选择部分的分区的leader。
 
-“副本”是分区复制日志的节点的列表，无论他们是否是leader，甚至他们目前还活着。
+* “副本”是分区复制日志的节点的列表，无论他们是否是leader，甚至他们目前还活着。
 
-“isr”是“同步”的副本集合。这是当前生存的、并被leader捕获到的副本子集
+* “isr”是“同步”的副本集合。这是当前生存的、并被leader捕获到的副本子集
+
 
