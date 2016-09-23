@@ -188,6 +188,29 @@ Now create a new topic with a replication factor of three:
 
 Okay but now that we have a cluster how can we know which broker is doing what? To see that run the "describe topics" command:
 
+Kafka中可以将Topic从物理上划分成一个或多个分区（Partition），每个分区在物理上对应一个文件夹，以”topicName\_partitionIndex”的命名方式命名，该文件夹下存储这个分区的所有消息\(.log\)和索引文件\(.index\)，这使得Kafka的吞吐率可以水平扩展。
+
+生产者在生产数据的时候，可以为每条消息指定Key，这样消息被发送到broker时，会根据分区规则选择被存储到哪一个分区中，如果分区规则设置的合理，那么所有的消息将会被均匀的分布到不同的分区中，这样就实现了负载均衡和水平扩展。另外，在消费者端，同一个消费组可以多线程并发的从多个分区中同时消费数据（后续将介绍这块）。
+
+上面所说的分区规则，是实现了kafka.producer.Partitioner接口的类，可以自定义。比如，下面的代码SimplePartitioner中，将消息的key做了hashcode，然后和分区数（numPartitions）做模运算，使得每一个key都可以分布到一个分区中：
+
+
+`import kafka.producer.Partitioner;`
+`import kafka.utils.VerifiableProperties;`
+
+`public class SimplePartitioner implements Partitioner {`
+
+`    public SimplePartitioner (VerifiableProperties props) {`
+`    }`
+
+`    @Override`
+`    public int partition(Object key, int numPartitions) {`
+`        int partition = 0;`
+`        String k = (String)key;`
+`        partition = Math.abs(k.hashCode()) % numPartitions;`
+`        return partition;`
+`    }`
+`}`
 在创建Topic时候可以使用–partitions &lt;numPartitions&gt;指定分区数。也可以在server.properties配置文件中配置参数num.partitions来指定默认的分区数。
 
 但有一点需要注意，为Topic创建分区时，分区数最好是broker数量的整数倍，这样才能是一个Topic的分区均匀的分布在整个Kafka集群中
