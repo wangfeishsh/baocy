@@ -1,3 +1,9 @@
+参考：
+
+http:\/\/lxw1234.com\/archives\/2015\/10\/538.htm  Kafka分区机制介绍与示例 
+
+http:\/\/www.jasongj.com\/2015\/01\/02\/Kafka深度解析\/        ＊＊＊＊＊
+
 ## 1. Getting Started
 
 ### 1.1 Introduction
