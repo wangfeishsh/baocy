@@ -196,5 +196,5 @@ Here is an explanation of output. The first line gives a summary of all the part
 
 这里是一个输出的解释。第一行给出了所有的分区的摘要，每一个额外的行给出了一个分区的信息。由于这个主题只有一个分区，所以只有一行。
 
-“leader”是负责为给定的分区所有的读取和写入的节点。每个节点都将是分区中随机选择的部分的leader。
+“leader”是负责为给定的分区所有的读取和写入的节点。每个节点都将是中随机选择部分的分区的leader。
 
