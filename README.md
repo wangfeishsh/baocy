@@ -12,3 +12,5 @@
 
 6、docker
 
+7、spring platform
+
