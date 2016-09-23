@@ -198,5 +198,5 @@ Here is an explanation of output. The first line gives a summary of all the part
 
 “leader”是负责为给定的分区所有的读取和写入的节点。每个节点都将是随机选择部分的分区的leader。
 
-“副本”是分区复制日志的节点的列表，无论他们是否是领导者，或即使他们目前还活着。
+“副本”是分区复制日志的节点的列表，无论他们是否是leader，甚至他们目前还活着。
 
