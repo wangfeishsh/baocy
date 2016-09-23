@@ -16,5 +16,5 @@
 
 8、Redis
 
-9、 RabbitMQ
+9、RabbitMQ
 
