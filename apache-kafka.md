@@ -251,3 +251,7 @@ Next, we'll start two connectors running in _standalone_ mode, which means they 
 
 下一步，我们将启动两个连接器在单机模式下运行，这意味着它们运行在一个单一的，本地的，专用的进程中。我们提供三个配置文件作为参数。第一个总是Kafka Connect 进程的配置，包含常见的参数如Kafka brokers连接、数据序列格式化。其余配置文件都指定要创建的连接器。这些文件包括一个唯一的连接器的名称，连接器类的实例化，和连接器所需的任何其他配置。
 
+&gt; **bin\/connect-standalone.sh config\/connect-standalone.properties config\/connect-file-source.properties config\/connect-file-sink.properties**
+
+These sample configuration files, included with Kafka, use the default local cluster configuration you started earlier and create two connectors: the first is a source connector that reads lines from an input file and produces each to a Kafka topic and the second is a sink connector that reads messages from a Kafka topic and produces each as a line in an output file. During startup you'll see a number of log messages, including some indicating that the connectors are being instantiated. Once the Kafka Connect process has started, the source connector should start reading lines from
+
