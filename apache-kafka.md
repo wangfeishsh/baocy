@@ -249,5 +249,5 @@ Writing data from the console and writing it back to the console is a convenient
 
 Next, we'll start two connectors running in _standalone_ mode, which means they run in a single, local, dedicated process. We provide three configuration files as parameters. The first is always the configuration for the Kafka Connect process, containing common configuration such as the Kafka brokers to connect to and the serialization format for data. The remaining configuration files each specify a connector to create. These files include a unique connector name, the connector class to instantiate, and any other configuration required by the connector.
 
-下一步，我们将启动两个连接器在单机模式下运行，这意味着它们运行在一个单一的，本地的，专用的进程中。我们提供三个配置文件作为参数。第一个总是Kafka Connect 进程的配置，包含常见的参数如Kafka brokers连接、数据序列格式化。其余配置文件都指定要创建的连接器。这些文件包括一个唯一的连接器的名称，连接器类的实例化，通过连接器所需的任何其他配置。
+下一步，我们将启动两个连接器在单机模式下运行，这意味着它们运行在一个单一的，本地的，专用的进程中。我们提供三个配置文件作为参数。第一个总是Kafka Connect 进程的配置，包含常见的参数如Kafka brokers连接、数据序列格式化。其余配置文件都指定要创建的连接器。这些文件包括一个唯一的连接器的名称，连接器类的实例化，和连接器所需的任何其他配置。
 
