@@ -255,3 +255,17 @@ Next, we'll start two connectors running in _standalone_ mode, which means they 
 
 These sample configuration files, included with Kafka, use the default local cluster configuration you started earlier and create two connectors: the first is a source connector that reads lines from an input file and produces each to a Kafka topic and the second is a sink connector that reads messages from a Kafka topic and produces each as a line in an output file. During startup you'll see a number of log messages, including some indicating that the connectors are being instantiated. Once the Kafka Connect process has started, the source connector should start reading lines from
 
+_test.txt_
+
+and producing them to the topic
+
+_connect-test_
+
+, and the sink connector should start reading messages from the topic
+
+_connect-test_
+
+and write them to the file
+
+_test.sink.txt_
+
