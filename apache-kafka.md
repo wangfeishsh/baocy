@@ -243,7 +243,7 @@ Step 7: Use Kafka Connect to import\/export data
 
 Writing data from the console and writing it back to the console is a convenient place to start, but you'll probably want to use data from other sources or export data from Kafka to other systems. For many systems, instead of writing custom integration code you can use Kafka Connect to import or export data. Kafka Connect is a tool included with Kafka that imports and exports data to Kafka. It is an extensible tool that runs _connectors_, which implement the custom logic for interacting with an external system. In this quickstart we'll see how to run Kafka Connect with simple connectors that import data from a file to a Kafka topic and export data from a Kafka topic to a file. First, we'll start by creating some seed data to test with:
 
-从控制台写入数据，并将其写入控制台是一个方便的开始，但你可能会希望使用其他来源的数据或从Kafka导出数据到其他系统。对于许多系统，而不是编写自定义的集成代码，您可以使用Kafka Connect导入或导出数据。Kafka Connect是一个工具，包括与卡夫卡的进口和出口数据到卡夫卡。它是一个可扩展的工具，运行连接器，它实现与外部系统交互的自定义逻辑。在这个示例中我们将看到怎样运行简单的连接器，进口数据从一个文件到一个卡夫卡的话题和出口数据从卡夫卡主题文件Kafka Connect。首先，我们将开始通过创建一些种子数据来测试
+从控制台写入数据，并将其写入控制台是一个方便的开始，但你可能会希望使用其他来源的数据或从Kafka导出数据到其他系统。对于许多系统，不需要编写自定义的集成代码，您可以使用Kafka Connect导入或导出数据。Kafka Connect是一个工具，包括与卡夫卡的进口和出口数据到卡夫卡。它是一个可扩展的工具，运行连接器，它实现与外部系统交互的自定义逻辑。在这个示例中我们将看到怎样运行简单的连接器，进口数据从一个文件到一个卡夫卡的话题和出口数据从卡夫卡主题文件Kafka Connect。首先，我们将开始通过创建一些种子数据来测试
 
 &gt; **echo -e "foo\nbar" &gt; test.txt**
 
