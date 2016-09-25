@@ -8,6 +8,8 @@
 
 [4、Spring cloud netflix - ribbon](/spring-cloud-netflix---ribbon.md)
 
+5、Spring cloud sleuth
+
 5、Netty
 
 6、Docker
