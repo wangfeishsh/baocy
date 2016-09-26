@@ -70,5 +70,11 @@
 
 3.10、Switch Statements Switch惊悚现身
 
+少用switch语句，可以考虑使用多态来替换它
+
+3.11、Parallel Inheritance Hierarchies 平行继承体系
+
+是Shotgun surgery的特殊情况，在这种情况下，每当你为某个类增加一个子类，必须也为另一个类相应增加一个子类。
+
 
 
