@@ -68,3 +68,7 @@
 
 3.9、Primitive Obsession 基本类型偏执
 
+3.10、Switch Statements Switch惊悚现身
+
+
+
