@@ -88,5 +88,15 @@
 
 3.16、Middle Man 中间人
 
+委托动作
+
+3.17、Inappropriate Intimacy 狎昵关系
+
+对于两个过于亲密的类
+
+3.18、Alternative Classes with Different Interfaces
+
+
+
 
 
