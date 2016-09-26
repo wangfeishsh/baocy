@@ -30,6 +30,8 @@
 
 3.1、Duplicated Code 重复代码
 
+设法将它们合而为一，程序会变得更好
+
 3.2、Long Method 过长函数
 
 
