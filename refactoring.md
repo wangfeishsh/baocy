@@ -44,5 +44,5 @@
 
 参数对象
 
-3.5、Divergent Change 发现式变化
+3.5、Divergent Change 发散式变化
 
