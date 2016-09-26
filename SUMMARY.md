@@ -10,4 +10,5 @@
 * [Redis](redis.md)
 * [Refactoring](refactoring.md)
 * [SonarQube](sonarqube.md)
+* [Raft](raft.md)
 
