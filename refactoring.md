@@ -28,3 +28,9 @@
 
 ### 第三章：代码的坏味道 code smell
 
+3.1、Duplicated Code 重复代码
+
+3.2、Long Method 过长函数
+
+
+
