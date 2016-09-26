@@ -108,5 +108,16 @@ junit
 
 ### 第五章 重构列表
 
+重构的记录格式
+
+* name名称
+
+* summary该要
+
+* motivation动机
+
+* mechanics做法
+
+* examples范例
 
 
