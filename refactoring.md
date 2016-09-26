@@ -80,3 +80,13 @@
 
 对于没怎么用的组件，可以以Inline Class对付
 
+3.13、Speculative Generality 夸夸其谈未来性
+
+3.14、Temporary Field 令人迷惑的暂时字段
+
+3.15、Mesage Chains 过度耦合的消息链
+
+3.16、Middle Man 中间人
+
+
+
