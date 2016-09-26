@@ -94,9 +94,7 @@
 
 对于两个过于亲密的类
 
-3.18、Alternative Classes with Different Interfaces
-
-
+3.18、Alternative Classes with Different Interfaces 异曲同工的类
 
 
 
