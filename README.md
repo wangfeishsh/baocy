@@ -2,7 +2,7 @@
 
 [1、Cloud design patterns](/cloud-design-patterns.md)
 
-2、Xookeeper
+2、Zookeeper
 
 [3、Zpache kafka](/apache-kafka.md)
 
