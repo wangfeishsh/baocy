@@ -20,6 +20,8 @@
 
 5、Spring Cloud Security
 
+5、Spring Cloud Stream
+
 5、Netty
 
 6、Docker
