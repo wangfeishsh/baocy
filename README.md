@@ -22,21 +22,21 @@
 
 5、Spring Cloud Stream
 
-5、Netty
+6、Netty
 
-6、Docker
+7、Docker
 
-7、Spring platform
+8、Spring platform
 
-8、Redis
+9、Redis
 
-9、RabbitMQ
+10、RabbitMQ
 
-10、Refactoring Improving the Design of Existing Code
+11、Refactoring Improving the Design of Existing Code
 
-11、SonarQube
+12、SonarQube
 
-12、Raft
+13、Raft
 
-13、TCC  Transaction
+14、TCC  Transaction
 
