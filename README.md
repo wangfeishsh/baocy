@@ -6,6 +6,8 @@
 
 [3、Apache Kafka](/apache-kafka.md)
 
+4、Spring platform
+
 [5、Spring Cloud Netflix － Ribbon](/spring-cloud-netflix---ribbon.md)
 
 5、Spring Cloud Netflix － Eureka
@@ -26,7 +28,7 @@
 
 7、Docker
 
-8、Spring platform
+8、TCC Transaction
 
 9、Redis
 
@@ -38,5 +40,5 @@
 
 13、Raft
 
-14、TCC  Transaction
+
 
