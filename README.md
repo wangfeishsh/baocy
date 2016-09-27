@@ -1,6 +1,6 @@
 # 学习计划列表
 
-[1、Cloud design patterns](/cloud-design-patterns.md)
+[1、Cloud Design Patterns](/cloud-design-patterns.md)
 
 2、Zookeeper
 
