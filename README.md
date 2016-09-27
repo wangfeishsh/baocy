@@ -4,7 +4,7 @@
 
 2、Zookeeper
 
-[3、Zpache kafka](/apache-kafka.md)
+[3、Apache Kafka](/apache-kafka.md)
 
 [5、Spring Cloud Netflix － Ribbon](/spring-cloud-netflix---ribbon.md)
 
