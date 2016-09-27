@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [cloud design patterns](cloud-design-patterns.md)
-* [spring cloud netflix - ribbon](spring-cloud-netflix---ribbon.md)
+* [Spring Cloud Netflix - Ribbon](spring-cloud-netflix---ribbon.md)
 * [spring cloud sleuth](spring-cloud-sleuth.md)
 * [Apache Kafka](apache-kafka.md)
 * [Zookeeper](zookeeper.md)
