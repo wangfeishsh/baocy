@@ -10,13 +10,15 @@
 
 5、Spring Cloud Netflix － Eureka
 
-5、Spring Cloud Netflix － Hystrix 
+5、Spring Cloud Netflix － Hystrix
 
-5、Spring Cloud Netflix － Zuul 
+5、Spring Cloud Netflix － Zuul
 
 5、Spring Cloud Sleuth
 
 5、Spring Cloud Config
+
+5、Spring Cloud Security
 
 5、Netty
 
