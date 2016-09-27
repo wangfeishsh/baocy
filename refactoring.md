@@ -123,5 +123,9 @@ junit
 
 ### 第六章 重新组织函数
 
+6.1、Extract Method 提炼函数
 
+6.2、Inline Method 内联函数
+
+6.3、Inline Temp 内联临时变量
 
