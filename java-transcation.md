@@ -272,7 +272,7 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 `public void updateTradeOrder(TradeOrderData order) throws Exception {`
 
-`DataSource ds = (DataSource)(new InitialContext()).lookup("jdbc/MasterDS"); `
+`DataSource ds = (DataSource)(new InitialContext()).lookup("jdbc/MasterDS");`
 
 `Connection conn = ds.getConnection();`
 
@@ -280,21 +280,47 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 `String sql = "update trade_order ... ";`
 
-`try { `
+`try {`
 
 `stmt.executeUpdate(sql);`
 
 `} catch (Exception e) {`
 
-` throw e;`
+`throw e;`
 
 `} finally {`
 
-` stmt.close();`
+`stmt.close();`
 
-`conn.close(); `
+`conn.close();`
+
+`}`
 
 `}`
 
-`}`
+上面的代码是可以正常工作的,因为方法中仅有一条产生更新的 SQL 语句。然而,当我们假 设同一方法中有多条更新语句执行的情形,像下面这样,情况就有所变化了:
+
+public void updateTradeOrder\(TradeOrderData order\) throws Exception {
+
+ double fee = calculateFee\(order\);
+
+ DataSource ds = \(DataSource\)
+
+\(new InitialContext\(\)\).lookup\("jdbc\/MasterDS"\); Connection conn = ds.getConnection\(\);
+
+ Statement stmt = conn.createStatement\(\);
+
+ String sqlOrder = "update trade\_order ... ";
+
+**String sqlTrade = "update trade\_fee ... ";**
+
+try { stmt.executeUpdate\(sqlOrder\); **stmt.executeUpdate\(sqlTrade\);**
+
+} catch \(Exception e\) { throw e;
+
+} finally { stmt.close\(\);
+
+conn.close\(\); }
+
+}
 
