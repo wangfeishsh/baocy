@@ -38,3 +38,27 @@ Java 事务服务\(JTS\)是 CORBA 中 OTS1.1 规范的 Java 版\(OTS 是 Object 
 
 总体上来说JTA更多的是从框架的角度来约定程序角色的接口，而JTS则是从具体实现的角度来约定程序角色之间的接口，两者各司其职。照这样看来，SUN搞出来的这两个名字还真有点艺术感，有点哲学的味道了。
 
+参考2:
+
+**JTA**
+
+ JTA定义了一套接口，其中约定了几种主要的角色：TransactionManager、UserTransaction、Transaction、XAResource，并定义了这些角色之间需要遵守的规范，如Transaction的委托给TransactionManager等。
+
+** JTS**
+
+ JTS也是一组规范，上面提到JTA中需要角色之间的交互，那应该如何交互？JTS就是约定了交互细节的规范。
+
+ 总体上来说JTA更多的是从框架的角度来约定程序角色的接口，而JTS则是从具体实现的角度来约定程序角色之间的接口，两者各司其职。
+
+ 因为JTA相对来说，更高层一些，我们主要关注JTA。
+
+** XA**
+
+ XA协议，规定事务管理器和资源管理器接口，采用二阶段提交协议。
+
+** 源码**
+
+ 规范的接口位于javax.transaction：
+
+![](http://img.blog.csdn.net/20140810110328712?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlkYXRnYg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
