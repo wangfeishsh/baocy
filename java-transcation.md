@@ -96,5 +96,31 @@ javax.transaction.TransactionManager 接口主要用于声明式事务模型。�
 
 **javax.transaction.TransactionManager.suspend\(\)**
 
-在声明式或编程式事务模型中,suspend\(\)方法用于暂停关联于当前线程的事务。该方法返回 当前事务的引用;如果没有事务和当前线程关联,则返回 null。在我们需要暂时停止当前事
+在声明式或编程式事务模型中,suspend\(\)方法用于暂停关联于当前线程的事务。该方法返回 当前事务的引用;如果没有事务和当前线程关联,则返回 null。在我们需要暂时停止当前事 务,执行一些不兼容 XA 的代码或存储过程时,这个方法是相当有用的。我们将会在本书的 第五章中看到有关这个方法的例子。 
+
+**javax.transaction.TransactionManager.resume\(\)**
+
+在声明式或编程式事务模型中,resume\(\)方法用于继续之前暂停的事务。该方法的传入参数 为之前暂停的事务 \*,将此事务和当前线程关联,随即继续此事务。
+
+**EJBContext **接口
+
+ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务管理,仅仅一个方法有用,
+
+这就是 setRollbackOnly\(\)。 **javax.ejb.EJBContext.setRollbackOnly\(\)**
+
+在声明式事务模型下,setRollbackOnly\(\)方法用于通知容器:当前事务仅可能产生的后果便 是回滚。有意思的是这个方法本身在被调用到的时候并不真正立即回滚事务;它只是标记事 务是“需要回滚”的,如果调用 getStatus\(\)方法,此时会返回 STATUS\_MARKED\_ROLLBACK 状态。 使用 TransactionManager.setRollbackOnly\(\)也会产生同样的结果。不过我们既已习惯使用了 SessionContext 或 MessageDrivenContext 等上下文对象,我们自然会使用\(EJBContext 提供的\) 这个方法。
+
+**Status **接口
+
+如前所述,我们能够通过 javax.transaction.Status 接口枚举值获取到事务的状态,这个值是 经由调用 UserTransaction.getStatus\(\)返回得到的。我花专门的一节来阐述这个问题,因为它 非常酷,它给我们提供了关于当前事务状态非常丰富的有用信息。Status 接口包括下面一些 枚举值:
+
+ STATUS\_ACTIVE
+
+ STATUS\_COMMITTED
+
+  STATUS\_COMMITTING
+
+  STATUS\_MARKED\_ROLLBACK  STATUS\_NO\_TRANSACTION  STATUS\_PREPARED
+
+  STATUS\_PREPARING
 
