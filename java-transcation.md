@@ -140,23 +140,27 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 有时候,看看当前事务是否已经和线程关联的状态是重要的。例如,出于调试或优化的目的, 我们也许需要在查询的过程中加入一个拦截器或切面,查看事务是否存在。使用这个切面和 状态值,我们能够侦测到当前事务设计策略可能的待优化点。另一种情况下,我们如果需要 暂停当前事务,或执行可能造成应用失败的代码\(例如在 XA 环境下执行带有 DDL 的存储过 程\),我们也会去检查这个状态。下面的代码片段展示了 STATUS\_ACTIVE 状态的使用:
 
+`...```` if (txn.getStatus() == ``Status.STATUS_ACTIVE``)`
+
+`     logger.info("在查询操作中事务是活动的"); `
+
+`...`
+
 此例的逻辑是,“如果我们在查询方法中发现有事务存在,则在日志文件中记录”。这可能意 味着我们虽然已具有事务,但实际上并不需要它。据此,可识别出一个可能的优化机会,或 暴露出我们事务设计整体策略中的问题。
 
 **STATUS\_MARKED\_ROLLBACK**
 
 在声明式事务模型下,这个状态常常是有用的。为了性能优化的需要,我们常常想要对之前 方法调用中被标记为回滚的事务进行跳过处理。因此,如果我们想要查看此事务是否被标记 回滚了,我们可以这样安排代码:
 
-| ...
+`...```` if (txn.getStatus() == ``Status.STATUS_ACTIVE``)`
 
- if \(txn.getStatus\(\) == **Status.STATUS\_ACTIVE**\) logger.info\("在查询操作中事务是活动的"\); ... |
-| --- |
-|  |
+`     logger.info("在查询操作中事务是活动的"); `
 
-| ...
+`...`
 
- if \(txn.getStatus\(\) == **Status.STATUS\_MARKED\_ROLLBACK**\) throw new Exception\( "后续处理因事务回滚而终止"\); ... |
-| --- |
-|  |
+if \(txn.getStatus\(\) == **Status.STATUS\_MARKED\_ROLLBACK**\) throw new Exception\( "后续处理因事务回滚而终止"\); ... \|
+\| --- \|
+\|  \|
 
 **STATUS\_NO\_TRANSACTION**
 
