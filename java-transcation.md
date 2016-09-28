@@ -62,13 +62,13 @@ XA协议，规定事务管理器和资源管理器接口，采用二阶段提交
 
 ![](http://img.blog.csdn.net/20140810110328712?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlkYXRnYg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-**UserTransaction **接口
+### **UserTransaction **接口
 
 UserTransaction 接口仅仅用于编程式事务模型,而且主要在 EJB 中使用。编程人员仅仅需要 关心其中的如下方法:
 
  begin\(\)
 
-  commit\(\)  rollback\(\)  getStatus\(\)
+ commit\(\)  rollback\(\)  getStatus\(\)
 
 **javax.transaction.UserTransaction.begin\(\)**
 
