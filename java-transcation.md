@@ -178,9 +178,17 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 后续三章将聚焦于三种不同的事务模型。本书主要使用 EJB 作为例子来阐述这些概念,我也 提供了一些 Spring 的例子。虽然不同的持久性框架设计到的所有完整的例子不再本书涵盖范 围之内,我强烈建议读者通过阅读本书去理解有关这些事务模型的各种概念、技巧、陷阱和 最佳实践,而后查阅您所专注的持久化框架的文档,去进一步了解实现细节
 
-
-
 ## 第二章 本地事务模型
 
 “本地事务”这个术语指的是这样一个事实:事务被底层数据库\(DBMS\)或在 JMS 中被底层 消息服务提供者所管理。从开发人员的角度来看,在本地事务模型中,我们所管理的并非“事 务”,而是“连接”。下面的代码展示了直接使用 JDBC 编码来进行本地事务模型管理的实例:
+
+| public void updateTradeOrder\(TradeOrderData order\) throws Exception {
+
+ DataSource ds = \(DataSource\)
+
+ \(new InitialContext\(\)\).lookup\("jdbc\/MasterDS"\); Connection conn = ds.getConnection\(\); **conn.setAutoCommit\(false\);** Statement stmt = conn.createStatement\(\); String sql = "update trade\_order ... ";
+
+ try { stmt.executeUpdate\(sql\); **conn.commit\(\);** } catch \(Exception e\) { **conn.rollback\(\);** throw e; } finally { stmt.close\(\); conn.close\(\); } } |
+| --- |
+|  |
 
