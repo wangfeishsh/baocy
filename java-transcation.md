@@ -24,9 +24,9 @@ ACID 是描述有关事 务的期望特性的字首缩写,这些特性分别是�
 
 ### **JTA **和 **JTS**
 
-Java 应用开发人员并不需要知道 Java 事务服务\(Java Transaction Service, JTS\)的幕后细节, 便能够有效地管理事务。然而,无论您采用 EJB 还是 Spring 框架,了解 Java 对分布式事务 处理的限制是非常重要的。
+Java 应用开发人员并不需要知道 **Java 事务服务\(Java Transaction Service, JTS\)**的幕后细节, 便能够有效地管理事务。然而,无论您采用 EJB 还是 Spring 框架,了解 Java 对分布式事务 处理的限制是非常重要的。
 
-无论使用何种框架,大多数企业 Java 应用使用 Java 事务接口\(Java Transaction API,JTA\)进 行事务管理。JTA 是开发人员用于事务管理的接口。与之对应,Java 事务服务\(JTS\),是被 大多数开源或商业应用服务器所使用的,实现了 JTA 的底层事务服务\(注意市场上也有 JTS 之外的其他事务服务软件,能够用于某些应用服务器\)。我们可以认为 JTA 和 JTS 的关系与 JDBC 和对应的底层数据库驱动类似。JTA 可以通过商业中间件本身,或通过开源的事务管理 器,例如 JBoss 事务服务\(http:\/\/www.jboss.com\/products\/transactions\)、JOTM \(http:\/\/jotm.objectweb.org\)等实现。
+无论使用何种框架,大多数企业 Java 应用使用 **Java 事务接口\(Java Transaction API,JTA\)**进 行事务管理。JTA 是开发人员用于事务管理的接口。与之对应,Java 事务服务\(JTS\),是被 大多数开源或商业应用服务器所使用的,实现了 JTA 的底层事务服务\(注意市场上也有 JTS 之外的其他事务服务软件,能够用于某些应用服务器\)。我们可以认为 JTA 和 JTS 的关系与 JDBC 和对应的底层数据库驱动类似。JTA 可以通过商业中间件本身,或通过开源的事务管理 器,例如 JBoss 事务服务\(http:\/\/www.jboss.com\/products\/transactions\)、JOTM \(http:\/\/jotm.objectweb.org\)等实现。
 
 Java 事务服务\(JTS\)是 CORBA 中 OTS1.1 规范的 Java 版\(OTS 是 Object Transaction Service 的缩写\)。对于一般开发人员,这并不特别重要——除非您具有打破砂锅问到底的嗜好,或 者要对付一次变态的面试。虽然 JTS 不是 J2EE 规范所要求必须实现的,但对于异构系统实现 间的分布式事务交互来说,JTS 是必须的。因为按照规范,JTA 必须同时支持 JTS 和非 JTS 的 实现,通常很难简单通过查看 JTA 接口的实现程度区分其支持的具体功能。例如,虽然 JTS 规范规定了对嵌套事务\(nest transaction\)的可选支持,J2EE 并不支持这一特性。您并不能 通过审查 JTA 体会到这个区别。幸运的是,在处理事务时,并没有很多接口是开发人员需要 真正关心的。例如,当使用编程式事务时,我们仅仅需要使用的唯一接口是 javax.transaction.UserTransaction。这个接口让我们能够显式的开始一个事务,提交一个事务, 回滚一个事务,并获取事务状态。当在 EJB 环境中使用声明式事务时,我们主要关心 EJBContext 接口中的 setRollbackOnly\(\)方法。我们诚然可以利用 javax.transaction 包中提供的 接口做很多事情,但开发人员实际上也不会怎么用到它们。例如我们将会在本书的后续章节 看到的一些直接访问事务管理器\(transaction manager\)的情况。这些情形发生在我们使用 声明式事务,然而需要手动暂停或继续事务的时候。我们当然也能够使用 TransactionManager 接口发起、提交或回滚一个特定的事务。
 
