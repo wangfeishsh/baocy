@@ -330,23 +330,39 @@ conn.close\(\); }
 
 public void updateTradeOrder\(TradeOrderData order\) throws Exception {
 
- double fee = calculateFee\(order\);
+double fee = calculateFee\(order\);
 
- DataSource ds = \(DataSource\)
+DataSource ds = \(DataSource\)\(new InitialContext\(\)\).lookup\("jdbc\/MasterDS"\); 
 
-\(new InitialContext\(\)\).lookup\("jdbc\/MasterDS"\); Connection conn = ds.getConnection\(\); **conn.setAutoCommit\(false\);**
+Connection conn = ds.getConnection\(\); 
 
-** **Statement stmt = conn.createStatement\(\);
+**conn.setAutoCommit\(false\);**
 
-String sqlOrder = "update trade\_order ... "; String sqlTrade = "update trade\_fee ... "; try {
+Statement stmt = conn.createStatement\(\);
 
-stmt.executeUpdate\(sqlOrder\); stmt.executeUpdate\(sqlTrade\); **conn.commit\(\);**
+String sqlOrder = "update trade\_order ... ";
+
+ String sqlTrade = "update trade\_fee ... "; 
+
+try {
+
+stmt.executeUpdate\(sqlOrder\); 
+
+stmt.executeUpdate\(sqlTrade\);
+
+ **conn.commit\(\);**
 
 } catch \(Exception e\) {
 
 **conn.rollback\(\);**
 
-throw e; } finally {
+throw e; 
 
-stmt.close\(\); conn.close\(\);
+} finally {
+
+stmt.close\(\); 
+
+conn.close\(\);
+
+} }
 
