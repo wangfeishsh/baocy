@@ -302,15 +302,15 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 public void updateTradeOrder\(TradeOrderData order\) throws Exception {
 
- double fee = calculateFee\(order\);
+double fee = calculateFee\(order\);
 
- DataSource ds = \(DataSource\)
+DataSource ds = \(DataSource\)
 
 \(new InitialContext\(\)\).lookup\("jdbc\/MasterDS"\); Connection conn = ds.getConnection\(\);
 
- Statement stmt = conn.createStatement\(\);
+Statement stmt = conn.createStatement\(\);
 
- String sqlOrder = "update trade\_order ... ";
+String sqlOrder = "update trade\_order ... ";
 
 **String sqlTrade = "update trade\_fee ... ";**
 
@@ -323,4 +323,8 @@ try { stmt.executeUpdate\(sqlOrder\); **stmt.executeUpdate\(sqlTrade\);**
 conn.close\(\); }
 
 }
+
+在此例中,我们加入了更多的代码,重新计算有关交易的费用\(fee\),而后更新有关table 以记录下与此交易单据\(trade order\)相关联的新的费用。虽然这样编写代码可以成功编译 和执行,但却不符合ACID特性。首先,因为自动提交标志是缺省设为true的,在第一个 executeUpdate\(\)执行后,连接将会被提交。如果第二个executeUpdate\(\)语句失败了,整个方 法将会抛出异常,但第一个SQL语句被提交的事实不会被改变,因此违反了ACID中的原子性 原则。其次,这两个语句造成的更新操作,作为一个逻辑工作单元\(LUW,Logic Unit of Work\), 并未与操作同一个table或同一些行\(row\)的其他处理过程相隔绝 \*,因此违反了ACID中的 独立性原则。 
+
+出于事务和逻辑工作单元的观点,要让上面的代码正常的工作,我们必须将自动提交标志设 置为 false,然后为代码加入提交和回滚的逻辑。通过设置自动提交标志为 false,我们告诉 底层 DBMS 我们将自行调用 commit\(\)和 rollback\(\)方法,自行管理连接。通过这样的方式,我 们能将更新的 SQL 聚集在一起,在单独的原子事 务中形成单个逻辑工作单元。下面列出了管 理多条更新语句的例子代码: 
 
