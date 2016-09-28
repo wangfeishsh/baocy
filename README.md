@@ -28,7 +28,7 @@
 
 7、Docker
 
-8、TCC Transaction
+8、Transaction
 
 9、Redis
 
