@@ -68,7 +68,11 @@ UserTransaction 接口仅仅用于编程式事务模型,而且主要在 EJB 中�
 
  begin\(\)
 
- commit\(\)  rollback\(\)  getStatus\(\)
+ commit\(\) 
+
+ rollback\(\) 
+
+ getStatus\(\)
 
 **javax.transaction.UserTransaction.begin\(\)**
 
