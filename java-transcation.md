@@ -96,15 +96,15 @@ javax.transaction.TransactionManager 接口主要用于声明式事务模型。�
 
 **javax.transaction.TransactionManager.suspend\(\)**
 
-在声明式或编程式事务模型中,suspend\(\)方法用于暂停关联于当前线程的事务。该方法返回 当前事务的引用;如果没有事务和当前线程关联,则返回 null。在我们需要暂时停止当前事 务,执行一些不兼容 XA 的代码或存储过程时,这个方法是相当有用的。我们将会在本书的 第五章中看到有关这个方法的例子。 
+在声明式或编程式事务模型中,suspend\(\)方法用于暂停关联于当前线程的事务。该方法返回 当前事务的引用;如果没有事务和当前线程关联,则返回 null。在我们需要暂时停止当前事 务,执行一些不兼容 XA 的代码或存储过程时,这个方法是相当有用的。我们将会在本书的 第五章中看到有关这个方法的例子。
 
 **javax.transaction.TransactionManager.resume\(\)**
 
 在声明式或编程式事务模型中,resume\(\)方法用于继续之前暂停的事务。该方法的传入参数 为之前暂停的事务 \*,将此事务和当前线程关联,随即继续此事务。
 
-**EJBContext **接口
+### **EJBContext **接口
 
- EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务管理,仅仅一个方法有用,
+EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务管理,仅仅一个方法有用,
 
 这就是 setRollbackOnly\(\)。 **javax.ejb.EJBContext.setRollbackOnly\(\)**
 
@@ -118,9 +118,19 @@ javax.transaction.TransactionManager 接口主要用于声明式事务模型。�
 
  STATUS\_COMMITTED
 
-  STATUS\_COMMITTING
+ STATUS\_COMMITTING
 
-  STATUS\_MARKED\_ROLLBACK  STATUS\_NO\_TRANSACTION  STATUS\_PREPARED
+ STATUS\_MARKED\_ROLLBACK 
 
-  STATUS\_PREPARING
+ STATUS\_NO\_TRANSACTION 
+
+ STATUS\_PREPARED
+
+ STATUS\_PREPARING
+
+ STATUS\_ROLLEDBACK
+
+ STATUS\_ROLLING\_BACK 
+
+ STATUS\_UNKNOWN
 
