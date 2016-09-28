@@ -188,33 +188,37 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 `(new InitialContext()).lookup("jdbc/MasterDS");`
 
-` Connection conn = ds.getConnection(); `
+`Connection conn = ds.getConnection();`
 
 `conn.setAutoCommit(false);`
 
-`Statement stmt = conn.createStatement(); `
+`Statement stmt = conn.createStatement();`
 
 `String sql = "update trade_order ... ";`
 
-`try { `
+`try {`
 
-`stmt.executeUpdate(sql); `
+`stmt.executeUpdate(sql);`
 
 `conn.commit();`
 
-` } catch (Exception e) {`
+`} catch (Exception e) {`
 
-` conn.rollback();`
+`conn.rollback();`
 
-` throw e; `
+`throw e;`
 
-`} finally { `
+`} finally {`
 
-`stmt.close(); `
+`stmt.close();`
 
-`conn.close(); `
-
-`} `
+`conn.close();`
 
 `}`
+
+`}`
+
+注意在上面的例子中,我们对 Connection.setAutoCommit\(false\)和 Connection.commit\(\)、 Connection.rollback\(\)等方法的结合使用。setAutoCommit\(\)方法是开发者控制的连接管理场景 中非常重要的部分。自动提交标志\(auto commit flag\)告诉底层数据库,在每个 SQL 语句执 行完毕后,是否应该立即提交连接。true 值让数据库在执行了每个 SQL 语句后立即提交或回 滚本连接,而 false 值将导致连接仍然处于活动状态,不被提交,直至一个显式的 commit\(\) 方法调用。一般来说,这个标志默认设置为 true。因此,如果我们有多条 update 的 SQL 语 句,每条语句将被单独执行,单独提交,彼此独立,在这样的情况下对 Connection.commit\(\) 和 Connection.rollback\(\)的调用将被忽略。 
+
+在 Spring 框架中,可以简单地以如下方式使用 org.springframework.jdbc.datasource.DataSourceUtils 接口进行针对 JDBC 的底层进行编码:
 
