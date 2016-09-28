@@ -154,11 +154,11 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 `...`
 
-`if (txn.getStatus() == ``Status.STATUS_MARKED_ROLLBACK``)`
+`if (txn.getStatus() == Status.STATUS_MARKED_ROLLBACK)`
 
-` throw new Exception( "后续处理因事务回滚而终止");`
+`throw new Exception( "后续处理因事务回滚而终止");`
 
-` ...`
+`...`
 
 这个状态非常重要,因为它是确定是否真的没有事务上下文的唯一途径。和 STATUS\_ACTIVE
 
