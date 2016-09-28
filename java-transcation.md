@@ -66,3 +66,31 @@ XA协议，规定事务管理器和资源管理器接口，采用二阶段提交
 
 UserTransaction 接口仅仅用于编程式事务模型,而且主要在 EJB 中使用。编程人员仅仅需要 关心其中的如下方法:
 
+ begin\(\)
+
+  commit\(\)  rollback\(\)  getStatus\(\)
+
+**javax.transaction.UserTransaction.begin\(\)**
+
+在编程式事务模型中,begin\(\)方法用于开启一个新的事务,并且将此事务与当前线程相关联。 如果某个事务已经与当前线程建立过关联,并且底层事务服务不支持嵌套事务,该方法会抛 出一个 NotSupportedException 异常。
+
+**javax.transaction.UserTransaction.commit\(\)**
+
+在编程式事务模型中,commit\(\)方法用于提交和当前线程关联的事务,并且终止该事务。这 个方法同时将此事务与当前线程解关联。在 Java 中,仅仅有一个事务能够与当前线程建立 关联。在 XA 环境下,这个方法可能抛出 HeuristicMixedException 或 HeuristicRollbackException, 表示资源管理器做出了独立于事务管理器的决定,在两阶段提交过程中回滚或者部分提交了 该事务。我们将在第五章对两阶段提交和“经验异常”处理做更深入的讨论。
+
+**javax.transaction.UserTransaction.rollback\(\)**
+
+在编程式事务模型中,rollback\(\)方法用于回滚和当前线程关联的事务,并终止该事务。这个 方法同时将此事务与当前线程解关联。
+
+**javax.transaction.UserTransaction.getStatus\(\)**
+
+在编程式事务模型中,getStatus\(\)方法返回一个整型数值,用以表示当前事务的状态。这个 整型返回值初看是没有什么意义的,不过我们可以使用 javax.transaction.Status 接口来确定 getStatus\(\)方法返回的值是什么含义。关于 javax.transaction.Status 接口的细节将在本章稍后 的部分讨论。
+
+**TransactionManager **接口
+
+javax.transaction.TransactionManager 接口主要用于声明式事务模型。在编程式事务下,使用 TransactionManager 接口,您能够做到使用 UserTransaction 接口基本上同样多的事情。然而, 对大多数方法而言,最好使用 UserTransaction,别去碰 TransactonManager 接口,除非您需 要暂停\(suspend\)或继续\(resume\)一个事务。
+
+**javax.transaction.TransactionManager.suspend\(\)**
+
+在声明式或编程式事务模型中,suspend\(\)方法用于暂停关联于当前线程的事务。该方法返回 当前事务的引用;如果没有事务和当前线程关联,则返回 null。在我们需要暂时停止当前事
+
