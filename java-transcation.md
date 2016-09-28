@@ -162,17 +162,15 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 **STATUS\_NO\_TRANSACTION**
 
-这个状态非常重要,因为它是确定是否真的没有事务上下文的唯一途径。和 STATUS\_ACTIVE 类似,它也可用来检查事务的存在与否,以便调试或优化。使用有关的切面或拦截器\(或内 联式代码\),我们能够监测到事务设计策略可能的漏洞,以便修改。下面例子代码说明了 STATUS\_NO\_TRANSACTION 的用法: 
+这个状态非常重要,因为它是确定是否真的没有事务上下文的唯一途径。和 STATUS\_ACTIVE 类似,它也可用来检查事务的存在与否,以便调试或优化。使用有关的切面或拦截器\(或内 联式代码\),我们能够监测到事务设计策略可能的漏洞,以便修改。下面例子代码说明了 STATUS\_NO\_TRANSACTION 的用法:
 
-| ...
+\|...
 
- if \(txn.getStatus\(\) == **Status.STATUS\_NO\_TRANSACTION**\) throw new Exception\(
+if \(txn.getStatus\(\) == **Status.STATUS\_NO\_TRANSACTION**\) throw new Exception\(
 
- "Transaction needed but none exists"\);
+"Transaction needed but none exists"\);
 
- ... |
-| --- |
-|  |
+...
 
 注意我们不能简单地检查状态是否等于 STATUS\_ACTIVE 来确定事务上下文的存在,因为状态 不等于 STATUS\_ACTIVE 并不意味着事务上下文不存在——事务上下文也可能处于以上列表中 的任何其他状态。
 
