@@ -300,71 +300,81 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 上面的代码是可以正常工作的,因为方法中仅有一条产生更新的 SQL 语句。然而,当我们假 设同一方法中有多条更新语句执行的情形,像下面这样,情况就有所变化了:
 
-public void updateTradeOrder\(TradeOrderData order\) throws Exception {
+`public void updateTradeOrder(TradeOrderData order) throws Exception {`
 
-double fee = calculateFee\(order\);
+`double fee = calculateFee(order);`
 
-DataSource ds = \(DataSource\)
+`DataSource ds = (DataSource)(new InitialContext()).lookup("jdbc/MasterDS"); `
 
-\(new InitialContext\(\)\).lookup\("jdbc\/MasterDS"\); Connection conn = ds.getConnection\(\);
+`Connection conn = ds.getConnection();`
 
-Statement stmt = conn.createStatement\(\);
+`Statement stmt = conn.createStatement();`
 
-String sqlOrder = "update trade\_order ... ";
+`String sqlOrder = "update trade_order ... ";`
 
-**String sqlTrade = "update trade\_fee ... ";**
+`String sqlTrade = "update trade_fee ... ";`
 
-try { stmt.executeUpdate\(sqlOrder\); **stmt.executeUpdate\(sqlTrade\);**
+`try { `
 
-} catch \(Exception e\) { throw e;
+`stmt.executeUpdate(sqlOrder); `
 
-} finally { stmt.close\(\);
+`stmt.executeUpdate(sqlTrade);`
 
-conn.close\(\); }
+`} catch (Exception e) { `
 
-}
+`throw e;`
+
+`} finally { `
+
+`stmt.close();`
+
+`conn.close();`
+
+` }`
+
+`}`
 
 在此例中,我们加入了更多的代码,重新计算有关交易的费用\(fee\),而后更新有关table 以记录下与此交易单据\(trade order\)相关联的新的费用。虽然这样编写代码可以成功编译 和执行,但却不符合ACID特性。首先,因为自动提交标志是缺省设为true的,在第一个 executeUpdate\(\)执行后,连接将会被提交。如果第二个executeUpdate\(\)语句失败了,整个方 法将会抛出异常,但第一个SQL语句被提交的事实不会被改变,因此违反了ACID中的原子性 原则。其次,这两个语句造成的更新操作,作为一个逻辑工作单元\(LUW,Logic Unit of Work\), 并未与操作同一个table或同一些行\(row\)的其他处理过程相隔绝 \*,因此违反了ACID中的 独立性原则。
 
 出于事务和逻辑工作单元的观点,要让上面的代码正常的工作,我们必须将自动提交标志设 置为 false,然后为代码加入提交和回滚的逻辑。通过设置自动提交标志为 false,我们告诉 底层 DBMS 我们将自行调用 commit\(\)和 rollback\(\)方法,自行管理连接。通过这样的方式,我 们能将更新的 SQL 聚集在一起,在单独的原子事 务中形成单个逻辑工作单元。下面列出了管 理多条更新语句的例子代码:
 
-public void updateTradeOrder\(TradeOrderData order\) throws Exception {
+`public void updateTradeOrder(TradeOrderData order) throws Exception {`
 
-double fee = calculateFee\(order\);
+`double fee = calculateFee(order);`
 
-DataSource ds = \(DataSource\)\(new InitialContext\(\)\).lookup\("jdbc\/MasterDS"\);
+`DataSource ds = (DataSource)(new InitialContext()).lookup("jdbc/MasterDS");`
 
-Connection conn = ds.getConnection\(\);
+`Connection conn = ds.getConnection();`
 
-**conn.setAutoCommit\(false\);**
+`conn.setAutoCommit(false);`
 
-Statement stmt = conn.createStatement\(\);
+`Statement stmt = conn.createStatement();`
 
-String sqlOrder = "update trade\_order ... ";
+`String sqlOrder = "update trade_order ... ";`
 
-String sqlTrade = "update trade\_fee ... ";
+`String sqlTrade = "update trade_fee ... ";`
 
-try {
+`try {`
 
-stmt.executeUpdate\(sqlOrder\);
+`stmt.executeUpdate(sqlOrder);`
 
-stmt.executeUpdate\(sqlTrade\);
+`stmt.executeUpdate(sqlTrade);`
 
-**conn.commit\(\);**
+`conn.commit();`
 
-} catch \(Exception e\) {
+`} catch (Exception e) {`
 
-**conn.rollback\(\);**
+`conn.rollback();`
 
-throw e;
+`throw e;`
 
-} finally {
+`} finally {`
 
-stmt.close\(\);
+`stmt.close();`
 
-conn.close\(\);
+`conn.close();`
 
-}
+`}`
 
- }
+`}`
 
