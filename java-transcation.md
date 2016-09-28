@@ -152,17 +152,11 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 在声明式事务模型下,这个状态常常是有用的。为了性能优化的需要,我们常常想要对之前 方法调用中被标记为回滚的事务进行跳过处理。因此,如果我们想要查看此事务是否被标记 回滚了,我们可以这样安排代码:
 
-`````...```` if (txn.getStatus() == ``Status.STATUS_ACTIVE``)`````
+| ...
 
-`logger.info("在查询操作中事务是活动的");`
-
-`...`
-
-if \(txn.getStatus\(\) == **Status.STATUS\_MARKED\_ROLLBACK**\) throw new Exception\( "后续处理因事务回滚而终止"\); ... \|
-\| --- \|
-\|  \|
-
-**STATUS\_NO\_TRANSACTION**
+ if \(txn.getStatus\(\) == **Status.STATUS\_MARKED\_ROLLBACK**\) throw new Exception\( "后续处理因事务回滚而终止"\); ... |
+| --- |
+|  |
 
 这个状态非常重要,因为它是确定是否真的没有事务上下文的唯一途径。和 STATUS\_ACTIVE
 
