@@ -248,3 +248,17 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 `}`
 
+在 Spring 环境下,数据源以及对应的业务逻辑对象可以在 Spring 配置文件中定义,举例如 下:
+
+`<bean id="datasource" class="org.springframework.jndi.JndiObjectFactoryBean">`
+
+`<property name="jndiName" value="jdbc/MasterDS"/> </bean>`
+
+`<bean id="TradingService"`
+
+`class="com.trading.server.TradingService"> <property name="dataSource">`
+
+`<ref local="datasource"/> </property>`
+
+`</bean>`
+
