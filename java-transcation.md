@@ -222,31 +222,29 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 在 Spring 框架中,可以简单地以如下方式使用 org.springframework.jdbc.datasource.DataSourceUtils 接口进行针对 JDBC 的底层进行编码:
 
-public void updateTradeOrder\(TradeOrderData order\) throws Exception {
+`public void updateTradeOrder(TradeOrderData order) throws Exception {`
 
- **Connection conn = DataSourceUtils**
+`Connection conn = DataSourceUtils.getConnection(dataSource);`
 
-**.getConnection\(dataSource\);**
+`conn.setAutoCommit(false);`
 
-**conn.setAutoCommit\(false\);**
+`Statement stmt = conn.createStatement(); String sql = "update trade_order ... ";`
 
-Statement stmt = conn.createStatement\(\); String sql = "update trade\_order ... ";
+`try {`
 
- try {
+`stmt.executeUpdate(sql);`
 
-stmt.executeUpdate\(sql\);
+`conn.commit();`
 
-**conn.commit\(\);**
+`} catch (Exception e) {`
 
-} catch \(Exception e\) {
+`conn.rollback();`
 
-**conn.rollback\(\);**
+`throw e; } finally {`
 
-throw e; } finally {
+`stmt.close();`
 
-stmt.close\(\);
+`conn.close(); }`
 
-conn.close\(\); }
-
-}
+`}`
 
