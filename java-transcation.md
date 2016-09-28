@@ -166,7 +166,7 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 `...`
 
-`if (txn.getStatus() == ``Status.STATUS_NO_TRANSACTION``) throw new Exception(`
+`if (txn.getStatus() == Status.STATUS_NO_TRANSACTION) throw new Exception(`
 
 `"Transaction needed but none exists");`
 
