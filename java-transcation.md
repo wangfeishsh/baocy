@@ -182,11 +182,39 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 “本地事务”这个术语指的是这样一个事实:事务被底层数据库\(DBMS\)或在 JMS 中被底层 消息服务提供者所管理。从开发人员的角度来看,在本地事务模型中,我们所管理的并非“事 务”,而是“连接”。下面的代码展示了直接使用 JDBC 编码来进行本地事务模型管理的实例:
 
-` public void updateTradeOrder(TradeOrderData order) throws Exception {`
+`public void updateTradeOrder(TradeOrderData order) throws Exception {`
 
 `DataSource ds = (DataSource)`
 
-`(new InitialContext()).lookup("jdbc/MasterDS"); Connection conn = ds.getConnection(); ``conn.setAutoCommit(false);`` Statement stmt = conn.createStatement(); String sql = "update trade_order ... ";`
+`(new InitialContext()).lookup("jdbc/MasterDS");`
 
-`try { stmt.executeUpdate(sql); ``conn.commit();`` } catch (Exception e) { ``conn.rollback();`` throw e; } finally { stmt.close(); conn.close(); } }`
+` Connection conn = ds.getConnection(); `
+
+`conn.setAutoCommit(false);`
+
+`Statement stmt = conn.createStatement(); `
+
+`String sql = "update trade_order ... ";`
+
+`try { `
+
+`stmt.executeUpdate(sql); `
+
+`conn.commit();`
+
+` } catch (Exception e) {`
+
+` conn.rollback();`
+
+` throw e; `
+
+`} finally { `
+
+`stmt.close(); `
+
+`conn.close(); `
+
+`} `
+
+`}`
 
