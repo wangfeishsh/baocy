@@ -164,7 +164,7 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 这个状态非常重要,因为它是确定是否真的没有事务上下文的唯一途径。和 STATUS\_ACTIVE 类似,它也可用来检查事务的存在与否,以便调试或优化。使用有关的切面或拦截器\(或内 联式代码\),我们能够监测到事务设计策略可能的漏洞,以便修改。下面例子代码说明了 STATUS\_NO\_TRANSACTION 的用法:
 
-\|...
+...
 
 if \(txn.getStatus\(\) == **Status.STATUS\_NO\_TRANSACTION**\) throw new Exception\(
 
