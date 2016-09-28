@@ -240,7 +240,9 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 
 `conn.rollback();`
 
-`throw e; } finally {`
+`throw e; `
+
+`} finally {`
 
 `stmt.close();`
 
@@ -261,4 +263,10 @@ EJBContext 接口使用在 EJB 环境下的声明式事务模型中,对于事务
 `<ref local="datasource"/> </property>`
 
 `</bean>`
+
+对于本章随后的代码示例,如果读者习惯于使用 Spring,可以将数据源查找部分和 getConnection\(\)方法部分替代为上面的代码。
+
+自动提交和连接\(**Connection**\)管理
+
+无论您使用 EJB 还是 Spring,自动提交标志\(auto commit flag\)在本地事务模型中都非常重 要。缺省地这个标志常常设置为 true,表示每条更新的 SQL 语句执行之后 DBMS 会提交\(或 者回滚\)有关连接。可参考下面的例子代码。代码中有一条单独的 SQL 更新语句,但没有任 何编程式的连接管理。因为自动提交标志缺省是设置为 true 的,底层 DBMS 会管理连接, 提交或者回滚有关更改。
 
