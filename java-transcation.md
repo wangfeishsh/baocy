@@ -60,7 +60,7 @@ EJB 和 Spring 均支持四种主要的隔离级别,这些设置\(隔离度从�
 
  TransactionRepeatableRead 可重复读
 
- TransactionSerializable 可序列化 
+ TransactionSerializable 可序列化
 
 **TransactionReadUncommitted**
 
