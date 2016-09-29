@@ -1,6 +1,6 @@
 参考：http:\/\/www.infoq.com\/cn\/minibooks\/JTDS
 
-          X\/Open XA 接口规范 :http:\/\/pubs.opengroup.org\/onlinepubs\/009680699\/toc.pdf
+X\/Open XA 接口规范 :http:\/\/pubs.opengroup.org\/onlinepubs\/009680699\/toc.pdf
 
 Java 中有三种可以 的事务模型,分别称作本地事务模型\(Local Transaction Model\),编程式事务模型 \(Programmatic Transaction Model\),和声明式事务模型\(Declarative Transaction Model\)。虽 然,在随后的章节将分别深入讲解,我想在这里还是有必要将它们分别概述一下。
 
@@ -103,6 +103,4 @@ EJB 和 Spring 均支持四种主要的隔离级别,这些设置\(隔离度从�
 X\/Open XA 接口是双向的系统接口,在事务管理器\(Transaction Manager\)以及一个或多个资源管理器\(Resource Manager\)之间形成通信桥梁。事务管理器控制着 JTA 事务,管理事务生命周期,并协调资源。在 JTA 中,事务管理器抽象为 javax.transaction.TransactionManager 接口,并通过底层事务服务\(即 JTS\)实现。资源管理器负责控制和管理实际资源\(如数据库或 JMS 队列\)。下图说明了事务管理器、资源管理器,以及典型 JTA 环境中客户端应用之间的关系:
 
 ![](/assets/5.png)
-
-
 
