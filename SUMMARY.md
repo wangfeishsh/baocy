@@ -17,6 +17,8 @@
     * [TCC](tcc.md)
     * [Java Transcation](java-transcation.md)
         * [事务模型](事务模型.md)
+        * 客户端拥有事务的设计模式
+        * 领域服务拥有事务的设计模式
 * [Block Chain](block-chain.md)
 * [Microservice](mi-c-ro-s-er-vi-ce.md)
 
