@@ -102,3 +102,7 @@ X\/Open XA 接口是双向的系统接口,在事务管理器\(Transaction Manage
 
 ![](/assets/5.png)
 
+
+
+ 考 X\/Open XA 接口规范 :http:\/\/pubs.opengroup.org\/onlinepubs\/009680699\/toc.pdf
+
