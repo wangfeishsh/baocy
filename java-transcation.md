@@ -104,3 +104,5 @@ X\/Open XA 接口是双向的系统接口,在事务管理器\(Transaction Manage
 
 ![](/assets/5.png)
 
+两阶段提交协议\(The two-phase commit protocol,2PC\)是 XA 用于在全局事务中协调多个 资源的机制。
+
