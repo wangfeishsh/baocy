@@ -127,5 +127,9 @@ JTA 暴露出的三种 JTA 经验异常为 HeuristicRollbackException,HeuristicC
 ```
 第一步:第一阶段处理(准备阶段)
 
+第二步:在第一阶段和第二阶段之间 
+
+第三步:第二阶段处理(提交阶段) 
+
 ```
 
