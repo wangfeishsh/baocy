@@ -1,5 +1,7 @@
 参考：http:\/\/www.infoq.com\/cn\/minibooks\/JTDS
 
+          X\/Open XA 接口规范 :http:\/\/pubs.opengroup.org\/onlinepubs\/009680699\/toc.pdf
+
 Java 中有三种可以 的事务模型,分别称作本地事务模型\(Local Transaction Model\),编程式事务模型 \(Programmatic Transaction Model\),和声明式事务模型\(Declarative Transaction Model\)。虽 然,在随后的章节将分别深入讲解,我想在这里还是有必要将它们分别概述一下。
 
 所谓“本地事务模型”,得名于事实上不是编程框架本身来管理事务,事务是交给本地资源管 理器\(local resource manager\)来管理的。资源管理器是用于通信的、事实上的数据源\(data source\)提供者。举例来说,对于数据库,资源管理器是通过数据库驱动和数据库管理系统 \(Database Management System,DBMS\)来实现的。对于 JMS,所谓资源管理器就是通过特 定的 JMS 提供者\(provider\)实现的队列\(queue\)或主题\(topic\)的连接工厂\(connection factory\)。经由本地事务模型,开发人员管理的是“连接\(connection\)”,而非 “事务”。DBMS 和 JMS 的提供者真正管理了本地事务。关于“本地事务模型”的细节将在第二章介绍。
@@ -103,6 +105,4 @@ X\/Open XA 接口是双向的系统接口,在事务管理器\(Transaction Manage
 ![](/assets/5.png)
 
 
-
- 考 X\/Open XA 接口规范 :http:\/\/pubs.opengroup.org\/onlinepubs\/009680699\/toc.pdf
 
