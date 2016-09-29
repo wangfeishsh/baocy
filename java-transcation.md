@@ -94,9 +94,11 @@ EJB 和 Spring 均支持四种主要的隔离级别,这些设置\(隔离度从�
 
 注意事务 B 将一直挂起,直到事务 A 完成。虽然所有的数据库厂商都支持这一设置选项, Oracle 处理该设置稍有不同。由于 Oracle 使用数据版本\(data versioning\)技术,它实际上 并不真正挂起事务 B。反之,如果在事务 B 的进行过程中,事务 B 试图访问目标数据,Oracle 将抛出 ORA-08177 错误,指出对该事务无法序列化访问数据。
 
-### ......
+......
 
 **XA **接口详解
 
-X\/Open XA 接口是双向的系统接口,在事务管理器\(Transaction Manager\)以及一个或多个 资源管理器\(Resource Manager\)之间形成通信桥梁。事务管理器控制着 JTA 事务,管理事 务生命周期,并协调资源。在 JTA 中,事务管理器抽象为 javax.transaction.TransactionManager 接口,并通过底层事务服务\(即 JTS\)实现。资源管理器负责控制和管理实际资源\(如数据 库或 JMS 队列\)。下图说明了事务管理器、资源管理器,以及典型 JTA 环境中客户端应用之 间的关系:
+X\/Open XA 接口是双向的系统接口,在事务管理器\(Transaction Manager\)以及一个或多个资源管理器\(Resource Manager\)之间形成通信桥梁。事务管理器控制着 JTA 事务,管理事务生命周期,并协调资源。在 JTA 中,事务管理器抽象为 javax.transaction.TransactionManager 接口,并通过底层事务服务\(即 JTS\)实现。资源管理器负责控制和管理实际资源\(如数据库或 JMS 队列\)。下图说明了事务管理器、资源管理器,以及典型 JTA 环境中客户端应用之间的关系:
+
+![](/assets/5.png)
 
