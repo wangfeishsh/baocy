@@ -14,8 +14,8 @@
 * [Refactoring](refactoring.md)
 * [SonarQube](sonarqube.md)
 * [Transcation](tcc-transcation.md)
-    * [TCC](tcc.md)
-    * [Java Transcation](java-transcation.md)
+    * [Java Transcation](tcc.md)
+    * [简介](java-transcation.md)
         * [事务模型](事务模型.md)
         * 客户端拥有事务的设计模式
         * 领域服务拥有事务的设计模式
