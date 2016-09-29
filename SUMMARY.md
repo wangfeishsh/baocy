@@ -15,10 +15,11 @@
 * [SonarQube](sonarqube.md)
 * [Transcation](tcc-transcation.md)
     * [Java Transcation](tcc.md)
-    * [简介](java-transcation.md)
         * [事务模型](事务模型.md)
         * 客户端拥有事务的设计模式
-        * 领域服务拥有事务的设计模式
+        * [领域服务拥有事务的设计模式](领域服务拥有事务的设计模式.md)
+        * [服务器端代理拥有事务的设计模式](服务器端代理拥有事务的设计模式.md)
+    * [简介](java-transcation.md)
 * [Block Chain](block-chain.md)
 * [Microservice](mi-c-ro-s-er-vi-ce.md)
 
