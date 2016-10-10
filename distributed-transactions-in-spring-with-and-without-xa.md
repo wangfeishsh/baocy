@@ -76,6 +76,8 @@ Being a system interface, XA is an enabling technology that most developers neve
 
 If the application is Spring-enabled, it uses the Spring JtaTransactionManager and Spring declarative transaction management to hide the details of the underlying synchronization. The difference for the developer between using XA and not using XA is all about configuring the factory resources: the DataSource instances, and the transaction manager for the application. This article includes a sample application \(the atomikos-db project\) that illustrates this configuration. The DataSource instances and the transaction manager are the only XA- or JTA-specific elements of the application.
 
+如果应用程序是Spring启用，它采用Spring JtaTransactionManager和Spring声明式事务管理隐藏底层的同步的细节。对于开发者来说，使用XA和不使用XA是所有关于配置工厂资源的区别：DataSource实例和应用程序的事务管理器。这篇文章包含了一个示例应用程序（atomikos DB项目），展示说明该配置。DataSource实例和事务管理器是唯一的XA -或JTA的特定应用的元素。
+
 To see the sample working, run the unit tests under com.springsource.open.db. A simple MulipleDataSourceTests class just inserts data into two data sources and then uses the Spring integration support features to roll back the transaction, as shown in Listing 1:
 
 **Listing 1. Transaction rollback**
