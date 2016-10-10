@@ -58,7 +58,11 @@ The important feature of both timelines is that they are _atomic_, forming a sin
 
 But what guarantees that the timeline looks like either of these sequences? Some synchronization between the transactional resources must occur, so that if one commits they both do, and vice versa. Otherwise, the whole transaction is not atomic. The transaction is distributed because multiple resources are involved, and without synchronization it will not be atomic. The technical and conceptual difficulties with distributed transactions all relate to the synchronization of the resources \(or lack of it\).
 
+但是，什么保证时间线看起来像这些结果中的任一个？事务资源之间的一些同步必须发生，所以如果一个提交他们都这样做，反之亦然。否则，整个交易不是原子性的。事务是分布式的，因为涉及到多个资源，并且没有同步，它不会被原子化的。分布式事务的技术和概念上的困难都涉及到资源的同步（或缺乏）。
+
 The first three patterns discussed below are based on the XA protocol. Because these patterns have been widely covered, I won't go into much detail about them here. Those familiar with XA patterns may want to skip ahead to the [Shared Transaction Resource pattern](http://www.javaworld.com/article/2077963/open-source-tools/distributed-transactions-in-spring--with-and-without-xa.html?page=3#strp).
+
+下面的前三种模式讨论是基于XA协议。因为这些模式已被广泛覆盖，我不会在这里很详细地谈论他们。那些熟悉XA模式可能想跳过前面到事务资源共享模式。
 
 **Full XA with 2PC**
 
