@@ -162,6 +162,8 @@ Another effective use of this pattern is the case of message-driven update of a 
 
 Not all vendors make this easy. An alternative, which works for almost any database, is to use [Apache ActiveMQ](http://activemq.apache.org/) for messaging and plug a storage strategy into the message broker. This is fairly easy to configure once you know the trick. It's demonstrated in this article's shared-jms-db samples project. The application code \(unit tests in this case\) does not need to be aware that this pattern is in use, because it is all enabled declaratively in Spring configuration.
 
+并不是所有的供应商都很容易。另一种，它适合几乎任何数据库，是使用Apache ActiveMQ消息并插入一个存储策略的消息代理。这是相当容易配置一旦你知道的把戏。这是本文的样本项目展示了JMS数据库共享。应用程序代码（在这种情况下，单元测试）不需要意识到，这种模式是在使用，因为它是可以在Spring中声明式配置启用。
+
 A unit test in the sample called SynchronousMessageTriggerAndRollbackTests verifies that everything is working with synchronous message reception. The testReceiveMessageUpdateDatabase method receives two messages and uses them to insert two records in the database. When this method exits, the test framework rolls back the transaction, so you can verify that the messages and the database updates are both rolled back, as shown in Listing 3:
 
 **Listing 3. Verifying rollback of messages and database updates**
