@@ -82,17 +82,6 @@ assertEquals\(1, count\);
 
 }
 
-**POPULAR ON JAVAWORLD**
-
-* 
-* [**Eclipse, NetBeans, or IntelliJ? Choose your Java IDE**](http://www.javaworld.com/article/3114167/development-tools/choosing-your-java-ide.html)
-
-* 
-* [**Android Studio for beginners: Code the app**](http://www.javaworld.com/article/3104621/mobile-java/android-studio-for-beginners-part-2-explore-and-code-the-app.html)
-
-* 
-* [**Open source Java projects: Docker Swarm**](http://www.javaworld.com/article/3094782/open-source-tools/open-source-java-projects-docker-swarm.html)
-
 Then MulipleDataSourceTests verifies that the two operations were both rolled back, as shown in Listing 2:
 
 **Listing 2. Verifying rollback**
