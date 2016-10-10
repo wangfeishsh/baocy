@@ -46,5 +46,13 @@
 
 16、支付平台
 
-16、Microservice
+17、Microservice
+
+Infoq迷你书
+
+http:\/\/www.infoq.com\/cn\/minibooks\/12
+
+架构师特刊：推荐系统（实践篇）
+
+架构师特刊：推荐系统（理论篇）
 
