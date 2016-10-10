@@ -10,7 +10,11 @@ While it's common to use the Java Transaction API and the XA protocol for distri
 
 The Spring Framework's support for the Java Transaction API \(JTA\) enables applications to use distributed transactions and the XA protocol [without running in a Java EE container](http://www.javaworld.com/javaworld/jw-04-2007/jw-04-xa.html). Even with this support, however, XA is expensive and can be unreliable or cumbersome to administrate. It may come as a welcome surprise, then, that a certain class of applications can avoid the use of XA altogether.
 
+Spring框架支持java事务API（JTA）可以使用分布式事务和XA协议在没有java EE容器中运行。即使有这样的支持，然而，XA是昂贵的，也可能是不可靠的或笨重的管理。它可能会成为一个受欢迎的惊喜，那么，这一类的应用程序可以完全避免使用XA。
+
 To help you understand the considerations involved in various approaches to distributed transactions, I'll analyze seven transaction-processing patterns, providing code samples to make them concrete. I'll present the patterns in reverse order of safety or reliability, starting with those with the highest guarantee of data integrity and atomicity under the most general circumstances. As you move down the list, more caveats and limitations will apply. The patterns are also roughly in reverse order of runtime cost \(starting with the most expensive\). The patterns are all architectural, or technical, as opposed to business patterns, so I don't focus on the business use case, only on the minimal amount of code to see each pattern working.
+
+为了帮助您了解分布式事务所涉及的各种方法的考虑，我将分析七个事务处理模式，提供代码示例，使它们成为具体的。我会倒序展示这些模式，在安全性或可靠性方面，从那些具有最高保证数据的完整性和原子性的最普通的情况下开始。当你移动到列表，更多的警告和限制将适用。模式也大致在运行时成本的相反顺序（从最昂贵的开始）。模式是所有的架构，或技术，而不是商业模式，所以我不专注于业务用例，只有在最小数量的代码，看看每一个模式的工作。
 
 Note that only the first three patterns involve XA, and those might not be available or acceptable on performance grounds. I don't discuss the XA patterns as extensively as the others because they are covered elsewhere, though I do provide a simple demonstration of the first one. By reading this article you'll learn what you can and can't do with distributed transactions and how and when to avoid the use of XA -- and when not to.
 
