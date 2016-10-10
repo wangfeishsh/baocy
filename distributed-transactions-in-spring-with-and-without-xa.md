@@ -36,17 +36,6 @@ If a database error such as a constraint violation occurred on the update, the d
 
 In this case, the message goes back to the middleware after the last rollback and returns at some point to be received in another transaction. This is usually a good thing, because otherwise you might have no record that a failure occurred. \(Mechanisms to deal with automatic retry and handling exceptions are out of this article's scope.\)
 
-**SIMILAR ARTICLES**
-
-* 
-* **[Java 9 proposal could speed some apps, but slow others](http://www.javaworld.com/article/3127145/core-java/java-9-proposal-could-speed-some-apps-but-slow-others.html)**
-
-* 
-* **[Open source Java projects: Jenkins with Docker, Part 1](http://www.javaworld.com/article/3123117/development-tools/open-source-java-projects-jenkins-with-docker-part-1.html)**
-
-* 
-* **[Java microservices group seeks less Oracle control](http://www.javaworld.com/article/3126049/java-language/java-microservices-group-seeks-less-oracle-control.html)**
-
 The important feature of both timelines is that they are _atomic_, forming a single logical transaction that either succeeds completely or fails completely.
 
 But what guarantees that the timeline looks like either of these sequences? Some synchronization between the transactional resources must occur, so that if one commits they both do, and vice versa. Otherwise, the whole transaction is not atomic. The transaction is distributed because multiple resources are involved, and without synchronization it will not be atomic. The technical and conceptual difficulties with distributed transactions all relate to the synchronization of the resources \(or lack of it\).
@@ -96,13 +85,13 @@ assertEquals\(1, count\);
 **POPULAR ON JAVAWORLD**
 
 * 
-* **[Eclipse, NetBeans, or IntelliJ? Choose your Java IDE](http://www.javaworld.com/article/3114167/development-tools/choosing-your-java-ide.html)**
+* [**Eclipse, NetBeans, or IntelliJ? Choose your Java IDE**](http://www.javaworld.com/article/3114167/development-tools/choosing-your-java-ide.html)
 
 * 
-* **[Android Studio for beginners: Code the app](http://www.javaworld.com/article/3104621/mobile-java/android-studio-for-beginners-part-2-explore-and-code-the-app.html)**
+* [**Android Studio for beginners: Code the app**](http://www.javaworld.com/article/3104621/mobile-java/android-studio-for-beginners-part-2-explore-and-code-the-app.html)
 
 * 
-* **[Open source Java projects: Docker Swarm](http://www.javaworld.com/article/3094782/open-source-tools/open-source-java-projects-docker-swarm.html)**
+* [**Open source Java projects: Docker Swarm**](http://www.javaworld.com/article/3094782/open-source-tools/open-source-java-projects-docker-swarm.html)
 
 Then MulipleDataSourceTests verifies that the two operations were both rolled back, as shown in Listing 2:
 
