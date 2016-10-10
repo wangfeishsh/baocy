@@ -138,9 +138,13 @@ For a better understanding of how Spring transaction management works and how to
 
 This pattern is an optimization that many transaction managers use to avoid the overhead of 2PC if the transaction includes a single resource. You would expect your application server to be able to figure this out.
 
-**XA and the Last Resource Gambit**
+这种模式是一种优化，许多事务管理器使用以避免提交的开销，如果事务包括一个单一的资源。您希望您的应用程序服务器能够解决这个。
+
+**XA and the Last Resource Gambit **策略
 
 Another feature of many XA transaction managers is that they can still provide the same recovery guarantees when all but one resource is XA-capable as they can when they all are. They do this by ordering the resources and using the non-XA resource as a casting vote. If it fails to commit, then all the other resources can be rolled back. It is close to 100 percent bulletproof -- but is not quite that. And when it fails, it fails without leaving much of a trace unless extra steps are taken \(as is done in some of the top-end implementations\).
+
+许多XA事务管理的另一个特点是，他们仍然可以提供相同的恢复保证当只有一个资源是XA能力他们能当他们都。他们这样做是通过有序的资源和使用非XA资源投票。如果它没有提交，那么所有其他资源可以回滚。这是接近百分之100防弹-但不是很。当它失败时，没有留下太多的痕迹，除非采取额外的步骤（如在一些高端实现）。
 
 **Shared Transaction Resource pattern**
 
