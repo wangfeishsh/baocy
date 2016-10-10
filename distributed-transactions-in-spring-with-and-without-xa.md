@@ -54,33 +54,33 @@ To see the sample working, run the unit tests under com.springsource.open.db. A 
 
 **Listing 1. Transaction rollback**
 
-@Transactional
+`@Transactional`
 
-@Test
+`@Test`
 
-public void testInsertIntoTwoDataSources\(\) throws Exception {
+`public void testInsertIntoTwoDataSources() throws Exception {`
 
-int count = getJdbcTemplate\(\).update\(
+`int count = getJdbcTemplate().update(`
 
-"INSERT into T\_FOOS \(id,name,foo\_date\) values \(?,?,null\)", 0,
+`"INSERT into T_FOOS (id,name,foo_date) values (?,?,null)", 0,`
 
-"foo"\);
+`"foo");`
 
-assertEquals\(1, count\);
+`assertEquals(1, count);`
 
-count = getOtherJdbcTemplate\(\)
+`count = getOtherJdbcTemplate()`
 
-.update\(
+`.update(`
 
-"INSERT into T\_AUDITS \(id,operation,name,audit\_date\) values \(?,?,?,?\)",
+`"INSERT into T_AUDITS (id,operation,name,audit_date) values (?,?,?,?)",`
 
-0, "INSERT", "foo", new Date\(\)\);
+`0, "INSERT", "foo", new Date());`
 
-assertEquals\(1, count\);
+`assertEquals(1, count);`
 
-\/\/ Changes will roll back after this method exits
+`// Changes will roll back after this method exits`
 
-}
+`}`
 
 Then MulipleDataSourceTests verifies that the two operations were both rolled back, as shown in Listing 2:
 
