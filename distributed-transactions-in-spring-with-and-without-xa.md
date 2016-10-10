@@ -50,7 +50,11 @@ If a database error such as a constraint violation occurred on the update, the d
 
 In this case, the message goes back to the middleware after the last rollback and returns at some point to be received in another transaction. This is usually a good thing, because otherwise you might have no record that a failure occurred. \(Mechanisms to deal with automatic retry and handling exceptions are out of this article's scope.\)
 
+在这种情况下，消息在最后一次回滚后返回到中间件，并在另一个事务中接收到某个点上的返回。这通常是一件好事，因为否则你可能没有记录发生故障。（处理自动重试和处理异常的机制是在这篇文章的范围。）
+
 The important feature of both timelines is that they are _atomic_, forming a single logical transaction that either succeeds completely or fails completely.
+
+这两个时间线的重要特征是，它们是原子的，形成一个单一的逻辑事务，要么成功完全或完全失败。
 
 But what guarantees that the timeline looks like either of these sequences? Some synchronization between the transactional resources must occur, so that if one commits they both do, and vice versa. Otherwise, the whole transaction is not atomic. The transaction is distributed because multiple resources are involved, and without synchronization it will not be atomic. The technical and conceptual difficulties with distributed transactions all relate to the synchronization of the resources \(or lack of it\).
 
