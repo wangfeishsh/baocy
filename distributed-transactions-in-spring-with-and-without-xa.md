@@ -4,8 +4,6 @@ http:\/\/www.javaworld.com\/article\/2077963\/open-source-tools\/distributed-tra
 
 **Seven transaction-processing patterns for Spring applications**
 
-
-
 While it's common to use the Java Transaction API and the XA protocol for distributed transactions in Spring, you do have other options. The optimum implementation depends on the types of resources your application uses and the trade-offs you're willing to make between performance, safety, reliability, and data integrity. In this JavaWorld feature, SpringSource's David Syer guides you through seven patterns for distributed transactions in Spring applications, three of them with XA and four without. _Level: Intermediate_
 
 The Spring Framework's support for the Java Transaction API \(JTA\) enables applications to use distributed transactions and the XA protocol [without running in a Java EE container](http://www.javaworld.com/javaworld/jw-04-2007/jw-04-xa.html). Even with this support, however, XA is expensive and can be unreliable or cumbersome to administrate. It may come as a welcome surprise, then, that a certain class of applications can avoid the use of XA altogether.
@@ -14,87 +12,9 @@ To help you understand the considerations involved in various approaches to dist
 
 Note that only the first three patterns involve XA, and those might not be available or acceptable on performance grounds. I don't discuss the XA patterns as extensively as the others because they are covered elsewhere, though I do provide a simple demonstration of the first one. By reading this article you'll learn what you can and can't do with distributed transactions and how and when to avoid the use of XA -- and when not to.
 
-
-
-
-
 **Distributed transactions and atomicity**
 
 A _distributed transaction_ is one that involves more than one transactional resource. Examples of transactional resources are the connectors for communicating with relational databases and messaging middleware. Often such a resource has an API that looks something like begin\(\), rollback\(\), commit\(\). In the Java world, a transactional resource usually shows up as the product of a factory provided by the underlying platform: for a database, it's a Connection \(produced by DataSource\) or [Java Persistence API](http://www.javaworld.com/javaworld/jw-01-2008/jw-01-jpa1.html) \(JPA\) EntityManager; for [Java Message Service](http://www.javaworld.com/jw-01-1999/jw-01-jms.html) \(JMS\), it's a Session.
-
-DFP Creative ID: 113061423176 wrapper header Ad Tags for VMWare vCloud Air Nanolite SMSSF11542 REFRESH CHINESE Base size of ad: 300x250 Placements: 1 Placement: VMWare vCloud Air Nanolite SMSSF11542 REFRESH CHINESE TN Placement ID: a861e41b-9548-454f-af1f-2e0a2030e25f Placement Size: 300x250 Ad Server: DFP
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-‹ 扩展
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;a style="text-decoration:none;display:block;border:0;" href="\/\/r.flite.com\/syndication\/backuplink\/i\/a861e41b-9548-454f-af1f-2e0a2030e25f?ct=http:\/\/adclick.g.doubleclick.net\/pcs\/click%253Fxai%253DAKAOjsuUY-h17Rj8E4GQsMAXs3rjWkD8072f5NnpN-5v3L3ITnsCtwtnb\_lbwdAAOiHyakGULfG2LCE57NQIRUO7qQV7SPQct5v4LTi9YLPYJyDr4uK1UcBMqtCggRLlg189R-TYnmwPR0q0bQ3PdBMF9VvlvvUtAd84Duki9DL23cYohi3m-3sgjwGuc5kmwFoSJSJZ29fZotbFvk8ptzWgLkcL0MFx6PhzehrkqKwL7FfVgP\_ujOCqUoI\_eILOTtI4Dr151NIUJEQDZbNqXjKkE-onicBfCdg%2526sig%253DCg0ArKJSzNaKqX9g2cSKEAE%2526urlfix%253D1%2526adurl%253D" target="\_blank"&gt; &lt;img border="0" src="\/\/r.flite.com\/syndication\/backupimage\/i\/a861e41b-9548-454f-af1f-2e0a2030e25f?at="\/&gt; &lt;\/a&gt;
 
 In a typical example, a JMS message triggers a database update. Broken down into a timeline, a successful interaction goes something like this:
 
@@ -119,21 +39,13 @@ In this case, the message goes back to the middleware after the last rollback an
 **SIMILAR ARTICLES**
 
 * 
-* [**Java 9 proposal could speed some apps, but slow others**](http://www.javaworld.com/article/3127145/core-java/java-9-proposal-could-speed-some-apps-but-slow-others.html)
-
-
-* 
-* [**Open source Java projects: Jenkins with Docker, Part 1**](http://www.javaworld.com/article/3123117/development-tools/open-source-java-projects-jenkins-with-docker-part-1.html)
-
+* **[Java 9 proposal could speed some apps, but slow others](http://www.javaworld.com/article/3127145/core-java/java-9-proposal-could-speed-some-apps-but-slow-others.html)**
 
 * 
-* [**Java microservices group seeks less Oracle control**](http://www.javaworld.com/article/3126049/java-language/java-microservices-group-seeks-less-oracle-control.html)
+* **[Open source Java projects: Jenkins with Docker, Part 1](http://www.javaworld.com/article/3123117/development-tools/open-source-java-projects-jenkins-with-docker-part-1.html)**
 
-
-
-
-
-
+* 
+* **[Java microservices group seeks less Oracle control](http://www.javaworld.com/article/3126049/java-language/java-microservices-group-seeks-less-oracle-control.html)**
 
 The important feature of both timelines is that they are _atomic_, forming a single logical transaction that either succeeds completely or fails completely.
 
@@ -155,62 +67,42 @@ To see the sample working, run the unit tests under com.springsource.open.db. A 
 
 @Transactional
 
- @Test
+@Test
 
- public void testInsertIntoTwoDataSources\(\) throws Exception {
+public void testInsertIntoTwoDataSources\(\) throws Exception {
 
+int count = getJdbcTemplate\(\).update\(
 
+"INSERT into T\_FOOS \(id,name,foo\_date\) values \(?,?,null\)", 0,
 
+"foo"\);
 
+assertEquals\(1, count\);
 
- int count = getJdbcTemplate\(\).update\(
+count = getOtherJdbcTemplate\(\)
 
- "INSERT into T\_FOOS \(id,name,foo\_date\) values \(?,?,null\)", 0,
+.update\(
 
- "foo"\);
+"INSERT into T\_AUDITS \(id,operation,name,audit\_date\) values \(?,?,?,?\)",
 
- assertEquals\(1, count\);
+0, "INSERT", "foo", new Date\(\)\);
 
+assertEquals\(1, count\);
 
+\/\/ Changes will roll back after this method exits
 
-
-
- count = getOtherJdbcTemplate\(\)
-
- .update\(
-
- "INSERT into T\_AUDITS \(id,operation,name,audit\_date\) values \(?,?,?,?\)",
-
- 0, "INSERT", "foo", new Date\(\)\);
-
- assertEquals\(1, count\);
-
-
-
-
-
- \/\/ Changes will roll back after this method exits
-
-
-
-
-
- }
+}
 
 **POPULAR ON JAVAWORLD**
 
 * 
-* [**Eclipse, NetBeans, or IntelliJ? Choose your Java IDE**](http://www.javaworld.com/article/3114167/development-tools/choosing-your-java-ide.html)
-
-
-* 
-* [**Android Studio for beginners: Code the app**](http://www.javaworld.com/article/3104621/mobile-java/android-studio-for-beginners-part-2-explore-and-code-the-app.html)
-
+* **[Eclipse, NetBeans, or IntelliJ? Choose your Java IDE](http://www.javaworld.com/article/3114167/development-tools/choosing-your-java-ide.html)**
 
 * 
-* [**Open source Java projects: Docker Swarm**](http://www.javaworld.com/article/3094782/open-source-tools/open-source-java-projects-docker-swarm.html)
+* **[Android Studio for beginners: Code the app](http://www.javaworld.com/article/3104621/mobile-java/android-studio-for-beginners-part-2-explore-and-code-the-app.html)**
 
-
+* 
+* **[Open source Java projects: Docker Swarm](http://www.javaworld.com/article/3094782/open-source-tools/open-source-java-projects-docker-swarm.html)**
 
 Then MulipleDataSourceTests verifies that the two operations were both rolled back, as shown in Listing 2:
 
@@ -218,33 +110,21 @@ Then MulipleDataSourceTests verifies that the two operations were both rolled ba
 
 @AfterTransaction
 
- public void checkPostConditions\(\) {
+public void checkPostConditions\(\) {
 
+int count = getJdbcTemplate\(\).queryForInt\("select count\(\*\) from T\_FOOS"\);
 
+\/\/ This change was rolled back by the test framework
 
+assertEquals\(0, count\);
 
+count = getOtherJdbcTemplate\(\).queryForInt\("select count\(\*\) from T\_AUDITS"\);
 
- int count = getJdbcTemplate\(\).queryForInt\("select count\(\*\) from T\_FOOS"\);
+\/\/ This rolled back as well because of the XA
 
- \/\/ This change was rolled back by the test framework
+assertEquals\(0, count\);
 
- assertEquals\(0, count\);
-
-
-
-
-
- count = getOtherJdbcTemplate\(\).queryForInt\("select count\(\*\) from T\_AUDITS"\);
-
- \/\/ This rolled back as well because of the XA
-
- assertEquals\(0, count\);
-
-
-
-
-
- }
+}
 
 For a better understanding of how Spring transaction management works and how to configure it generally, see the [Spring Reference Guide](http://static.springframework.org/spring/docs/2.5.x/reference/new-in-2.html#new-in-2-middle-tier).
 
@@ -257,10 +137,6 @@ This pattern is an optimization that many transaction managers use to avoid the 
 Another feature of many XA transaction managers is that they can still provide the same recovery guarantees when all but one resource is XA-capable as they can when they all are. They do this by ordering the resources and using the non-XA resource as a casting vote. If it fails to commit, then all the other resources can be rolled back. It is close to 100 percent bulletproof -- but is not quite that. And when it fails, it fails without leaving much of a trace unless extra steps are taken \(as is done in some of the top-end implementations\).
 
 DFP Creative ID: 113063034296 wrapper header Placement: IDGInfluencerNetwork\_300x250\_contentmarketingnetwork\_jw Placement ID: 23a70175-9616-4257-a46b-f0152e45f982 Placement Size: 300x250 Ad Server: DFP
-
-
-
-
 
 &lt;a style="text-decoration:none;display:block;border:0;" href="\/\/r.flite.com\/syndication\/backuplink\/i\/23a70175-9616-4257-a46b-f0152e45f982?ct=http:\/\/adclick.g.doubleclick.net\/pcs\/click%253Fxai%253DAKAOjsvX\_9XYyKzmS2dBnsQ4s6uIyWTV-cAQ2FzX2QXORBBiyMip3E2k1A\_5uopC-fYxr68zk1T7YOgk8TRf5n212yz9Fknt2LwozJst4P-mrMgHDKDPDI4MQZS3mAWE\_oFYXkPu4vtM0ueUt9SH9R48yGLkhvIJb2uZThVRcbSA7QQMK7wtjeH7Q8ldfETE1ixSgHGGUdGiWxChnO\_VPTLeU9UWbqBOhE7OYG2uVtDxlcaTjy9FOPbZjbQ7HX0aCozcYIzntaJ0xLHXAw3An6zqMpVYgUJwOg%2526sig%253DCg0ArKJSzDzvK0SFmz\_JEAE%2526urlfix%253D1%2526adurl%253D" target="\_blank"&gt; &lt;img border="0" src="\/\/r.flite.com\/syndication\/backupimage\/i\/23a70175-9616-4257-a46b-f0152e45f982?at="\/&gt; &lt;\/a&gt;
 
@@ -276,10 +152,6 @@ Not all vendors make this easy. An alternative, which works for almost any datab
 
 DFP Creative ID: 113063034056 wrapper header Placement: IDGInfluencerNetwork\_300x250\_techinfluncercommunity\_jw Placement ID: 3d184d82-280f-473e-8b89-b7cad67c1fce Placement Size: 300x250 Ad Server: DFP
 
-
-
-
-
 &lt;a style="text-decoration:none;display:block;border:0;" href="\/\/r.flite.com\/syndication\/backuplink\/i\/3d184d82-280f-473e-8b89-b7cad67c1fce?ct=http:\/\/adclick.g.doubleclick.net\/pcs\/click%253Fxai%253DAKAOjss8bqpX6S\_9fMwvReQp36EPSSAjEKBR6BnLEWID29reLCm4km9U7hiG7KdK\_IQs2ulUhjVFmuVBeovmofirY8c-dJ93OpGFPM4E6lNXIkr6sUq0fLDwghtsP4yxzQvav\_JnDLsJkkStBI0qTbgAoJM-qfejDs0HS2D2\_Kp2399VOEvxYkHqhXZPSEo\_t6U53xmaKyyxLdsO9NUWXIpPTj54n68QG53J12h8INrRMMltAhdqZ8q9YbcI4gE8-sJUHGMWcoB2-iuF53rkrOJryy6pqNn1FA%2526sig%253DCg0ArKJSzI9DebL2G0hxEAE%2526urlfix%253D1%2526adurl%253D" target="\_blank"&gt; &lt;img border="0" src="\/\/r.flite.com\/syndication\/backupimage\/i\/3d184d82-280f-473e-8b89-b7cad67c1fce?at="\/&gt; &lt;\/a&gt;
 
 A unit test in the sample called SynchronousMessageTriggerAndRollbackTests verifies that everything is working with synchronous message reception. The testReceiveMessageUpdateDatabase method receives two messages and uses them to insert two records in the database. When this method exits, the test framework rolls back the transaction, so you can verify that the messages and the database updates are both rolled back, as shown in Listing 3:
@@ -290,19 +162,11 @@ A unit test in the sample called SynchronousMessageTriggerAndRollbackTests verif
 
 public void checkPostConditions\(\) {
 
+assertEquals\(0, SimpleJdbcTestUtils.countRowsInTable\(jdbcTemplate, "T\_FOOS"\)\);
 
+List&lt;String&gt; list = getMessages\(\);
 
-
-
- assertEquals\(0, SimpleJdbcTestUtils.countRowsInTable\(jdbcTemplate, "T\_FOOS"\)\);
-
- List&lt;String&gt; list = getMessages\(\);
-
- assertEquals\(2, list.size\(\)\);
-
-
-
-
+assertEquals\(2, list.size\(\)\);
 
 }
 
@@ -312,57 +176,41 @@ The most important features of the configuration are the ActiveMQ persistence st
 
 &lt;bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"
 
- depends-on="brokerService"&gt;
+depends-on="brokerService"&gt;
 
- &lt;property name="brokerURL" value="vm:\/\/localhost?async=false" \/&gt;
+&lt;property name="brokerURL" value="vm:\/\/localhost?async=false" \/&gt;
 
 &lt;\/bean&gt;
-
-
-
-
 
 &lt;bean id="brokerService" class="org.apache.activemq.broker.BrokerService" init-method="start"
 
- destroy-method="stop"&gt;
+destroy-method="stop"&gt;
 
- ...
+...
 
- &lt;property name="persistenceAdapter"&gt;
+&lt;property name="persistenceAdapter"&gt;
 
- &lt;bean class="org.apache.activemq.store.jdbc.JDBCPersistenceAdapter"&gt;
+&lt;bean class="org.apache.activemq.store.jdbc.JDBCPersistenceAdapter"&gt;
 
- &lt;property name="dataSource"&gt;
+&lt;property name="dataSource"&gt;
 
- &lt;bean class="com.springsource.open.jms.JmsTransactionAwareDataSourceProxy"&gt;
+&lt;bean class="com.springsource.open.jms.JmsTransactionAwareDataSourceProxy"&gt;
 
- &lt;property name="targetDataSource" ref="dataSource"\/&gt;
+&lt;property name="targetDataSource" ref="dataSource"\/&gt;
 
- &lt;property name="jmsTemplate" ref="jmsTemplate"\/&gt;
-
- &lt;\/bean&gt;
-
- &lt;\/property&gt;
-
- &lt;property name="createTablesOnStartup" value="true" \/&gt;
-
- &lt;\/bean&gt;
-
- &lt;\/property&gt;
+&lt;property name="jmsTemplate" ref="jmsTemplate"\/&gt;
 
 &lt;\/bean&gt;
 
+&lt;\/property&gt;
 
+&lt;property name="createTablesOnStartup" value="true" \/&gt;
 
+&lt;\/bean&gt;
 
+&lt;\/property&gt;
 
-
-
-
-
-
-
-
+&lt;\/bean&gt;
 
 Listing 5 shows the flag on the Spring JmsTemplate that is used to receive the messages:
 
@@ -370,11 +218,11 @@ Listing 5 shows the flag on the Spring JmsTemplate that is used to receive the m
 
 &lt;bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate"&gt;
 
- ...
+...
 
- &lt;!-- This is important... --&gt;
+&lt;!-- This is important... --&gt;
 
- &lt;property name="sessionTransacted" value="true" \/&gt;
+&lt;property name="sessionTransacted" value="true" \/&gt;
 
 &lt;\/bean&gt;
 
