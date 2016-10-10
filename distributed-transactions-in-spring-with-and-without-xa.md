@@ -24,7 +24,11 @@ Note that only the first three patterns involve XA, and those might not be avail
 
 A _distributed transaction_ is one that involves more than one transactional resource. Examples of transactional resources are the connectors for communicating with relational databases and messaging middleware. Often such a resource has an API that looks something like begin\(\), rollback\(\), commit\(\). In the Java world, a transactional resource usually shows up as the product of a factory provided by the underlying platform: for a database, it's a Connection \(produced by DataSource\) or [Java Persistence API](http://www.javaworld.com/javaworld/jw-01-2008/jw-01-jpa1.html) \(JPA\) EntityManager; for [Java Message Service](http://www.javaworld.com/jw-01-1999/jw-01-jms.html) \(JMS\), it's a Session.
 
+分布式事务是一个涉及多个事务资源的事务。事务性资源的例子是用于与关系数据库和消息中间件进行通信的连接器。通常这些资源有一个API，看上去有点像begin\(\)，rollback\(\)，commit\(\)。在java的世界，一个事务资源通常显示为一个工厂的底层平台提供的产品：一个数据库，它是一个连接（由数据源）或java持久化API（JPA EntityManager）；对于java消息服务（JMS），这是一个会话。
+
 In a typical example, a JMS message triggers a database update. Broken down into a timeline, a successful interaction goes something like this:
+
+在一个典型的例子，一个JMS消息触发数据库更新。分解成一个时间线，一个成功的交互，像这样的：
 
 1. Start messaging transaction
 2. **Receive message**
@@ -34,6 +38,8 @@ In a typical example, a JMS message triggers a database update. Broken down into
 6. Commit messaging transaction
 
 If a database error such as a constraint violation occurred on the update, the desirable sequence would look like this:
+
+如果更新时发生的数据库错误，如约束冲突，则期望的后果将是这样的：
 
 1. Start messaging transaction
 2. **Receive message**
