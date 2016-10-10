@@ -18,6 +18,8 @@ To help you understand the considerations involved in various approaches to dist
 
 Note that only the first three patterns involve XA, and those might not be available or acceptable on performance grounds. I don't discuss the XA patterns as extensively as the others because they are covered elsewhere, though I do provide a simple demonstration of the first one. By reading this article you'll learn what you can and can't do with distributed transactions and how and when to avoid the use of XA -- and when not to.
 
+请注意，只有前三个模式涉及XA，这些模式可能由于性能的理由变的不可用或不可接受。我不讨论XA模式和其他一些模式一样广泛，因为他们在其他地方，虽然我也提供一个简单的第一个示范。通过阅读这篇文章，你会了解你使用分布式事务能做什么和不能做，以及何时如何避免使用XA的--当不。
+
 **Distributed transactions and atomicity**
 
 A _distributed transaction_ is one that involves more than one transactional resource. Examples of transactional resources are the connectors for communicating with relational databases and messaging middleware. Often such a resource has an API that looks something like begin\(\), rollback\(\), commit\(\). In the Java world, a transactional resource usually shows up as the product of a factory provided by the underlying platform: for a database, it's a Connection \(produced by DataSource\) or [Java Persistence API](http://www.javaworld.com/javaworld/jw-01-2008/jw-01-jpa1.html) \(JPA\) EntityManager; for [Java Message Service](http://www.javaworld.com/jw-01-1999/jw-01-jms.html) \(JMS\), it's a Session.
