@@ -86,23 +86,23 @@ Then MulipleDataSourceTests verifies that the two operations were both rolled ba
 
 **Listing 2. Verifying rollback**
 
-@AfterTransaction
+`@AfterTransaction`
 
-public void checkPostConditions\(\) {
+`public void checkPostConditions() {`
 
-int count = getJdbcTemplate\(\).queryForInt\("select count\(\*\) from T\_FOOS"\);
+`int count = getJdbcTemplate().queryForInt("select count(*) from T_FOOS");`
 
-\/\/ This change was rolled back by the test framework
+`// This change was rolled back by the test framework`
 
-assertEquals\(0, count\);
+`assertEquals(0, count);`
 
-count = getOtherJdbcTemplate\(\).queryForInt\("select count\(\*\) from T\_AUDITS"\);
+`count = getOtherJdbcTemplate().queryForInt("select count(*) from T_AUDITS");`
 
-\/\/ This rolled back as well because of the XA
+`// This rolled back as well because of the XA`
 
-assertEquals\(0, count\);
+`assertEquals(0, count);`
 
-}
+`}`
 
 For a better understanding of how Spring transaction management works and how to configure it generally, see the [Spring Reference Guide](http://static.springframework.org/spring/docs/2.5.x/reference/new-in-2.html#new-in-2-middle-tier).
 
@@ -128,73 +128,73 @@ A unit test in the sample called SynchronousMessageTriggerAndRollbackTests verif
 
 **Listing 3. Verifying rollback of messages and database updates**
 
-@AfterTransaction
+`@AfterTransaction`
 
-public void checkPostConditions\(\) {
+`public void checkPostConditions() {`
 
-assertEquals\(0, SimpleJdbcTestUtils.countRowsInTable\(jdbcTemplate, "T\_FOOS"\)\);
+`assertEquals(0, SimpleJdbcTestUtils.countRowsInTable(jdbcTemplate, "T_FOOS"));`
 
-List&lt;String&gt; list = getMessages\(\);
+`List<String> list = getMessages();`
 
-assertEquals\(2, list.size\(\)\);
+`assertEquals(2, list.size());`
 
-}
+`}`
 
 The most important features of the configuration are the ActiveMQ persistence strategy, linking the messaging system to the same DataSource as the business data, and the flag on the Spring JmsTemplate used to receive the messages. Listing 4 shows how to configure the ActiveMQ persistence strategy:
 
 **Listing 4. Configuring ActiveMQ persistence**
 
-&lt;bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"
+`<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"`
 
-depends-on="brokerService"&gt;
+`depends-on="brokerService">`
 
-&lt;property name="brokerURL" value="vm:\/\/localhost?async=false" \/&gt;
+`<property name="brokerURL" value="vm://localhost?async=false" />`
 
-&lt;\/bean&gt;
+`</bean>`
 
-&lt;bean id="brokerService" class="org.apache.activemq.broker.BrokerService" init-method="start"
+`<bean id="brokerService" class="org.apache.activemq.broker.BrokerService" init-method="start"`
 
-destroy-method="stop"&gt;
+`destroy-method="stop">`
 
-...
+`...`
 
-&lt;property name="persistenceAdapter"&gt;
+`<property name="persistenceAdapter">`
 
-&lt;bean class="org.apache.activemq.store.jdbc.JDBCPersistenceAdapter"&gt;
+`<bean class="org.apache.activemq.store.jdbc.JDBCPersistenceAdapter">`
 
-&lt;property name="dataSource"&gt;
+`<property name="dataSource">`
 
-&lt;bean class="com.springsource.open.jms.JmsTransactionAwareDataSourceProxy"&gt;
+`<bean class="com.springsource.open.jms.JmsTransactionAwareDataSourceProxy">`
 
-&lt;property name="targetDataSource" ref="dataSource"\/&gt;
+`<property name="targetDataSource" ref="dataSource"/>`
 
-&lt;property name="jmsTemplate" ref="jmsTemplate"\/&gt;
+`<property name="jmsTemplate" ref="jmsTemplate"/>`
 
-&lt;\/bean&gt;
+`</bean>`
 
-&lt;\/property&gt;
+`</property>`
 
-&lt;property name="createTablesOnStartup" value="true" \/&gt;
+`<property name="createTablesOnStartup" value="true" />`
 
-&lt;\/bean&gt;
+`</bean>`
 
-&lt;\/property&gt;
+`</property>`
 
-&lt;\/bean&gt;
+`</bean>`
 
 Listing 5 shows the flag on the Spring JmsTemplate that is used to receive the messages:
 
 **Listing 5. Setting up the **JmsTemplate** for transactional use**
 
-&lt;bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate"&gt;
+`<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">`
 
-...
+`...`
 
-&lt;!-- This is important... --&gt;
+`<!-- This is important... -->`
 
-&lt;property name="sessionTransacted" value="true" \/&gt;
+`<property name="sessionTransacted" value="true" />`
 
-&lt;\/bean&gt;
+`</bean>`
 
 Without sessionTransacted=true, the JMS session transaction API calls will never be made and the message reception cannot be rolled back. The important ingredients here are the embedded broker with a special async=false parameter and a wrapper for the DataSource that together ensure that ActiveMQ uses the same transactional JDBC Connection as Spring.
 
