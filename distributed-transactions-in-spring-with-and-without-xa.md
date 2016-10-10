@@ -68,7 +68,11 @@ The first three patterns discussed below are based on the XA protocol. Because t
 
 If you need close-to-bulletproof guarantees that your application's transactions will recover after an outage, including a server crash, then Full XA is your only choice. The shared resource that is used to synchronize the transaction in this case is a special transaction manager that coordinates information about the process using the XA protocol. In Java, from the developer's point of view, the protocol is exposed through a JTA UserTransaction.
 
+如果你需要接近防弹保证应用程序的事务中断后恢复，包括服务器崩溃，那么Full XA是你唯一的选择。共享资源，用于在这种情况下，事务同步是一种特殊的事务管理，协调使用XA协议的过程信息。在java中，从开发者的角度来看，该协议通过JTA UserTransaction暴露。
+
 Being a system interface, XA is an enabling technology that most developers never see. They need to know is that it's there, what it enables, what it costs, and the implications for how they use transactional resources. The cost comes from the [two-phase commit](http://www.javaworld.com/jw-07-2000/jw-0714-transaction.html) \(2PC\) protocol that the transaction manager uses to ensure that all resources agree on the outcome of a transaction before it ends.
+
+作为一个系统接口，XA是一个有利的技术，大多数开发者不会看到。他们需要知道的是，它的存在，它可以做什么，它的成本，以及它们如何使用事务性资源的影响。成本来自于两阶段提交（2PC）协议，事务管理器以确保所有资源达成事务的结果在它结束之前。
 
 If the application is Spring-enabled, it uses the Spring JtaTransactionManager and Spring declarative transaction management to hide the details of the underlying synchronization. The difference for the developer between using XA and not using XA is all about configuring the factory resources: the DataSource instances, and the transaction manager for the application. This article includes a sample application \(the atomikos-db project\) that illustrates this configuration. The DataSource instances and the transaction manager are the only XA- or JTA-specific elements of the application.
 
