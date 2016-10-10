@@ -20,6 +20,7 @@
         * 客户端拥有事务的设计模式
         * [领域服务拥有事务的设计模式](领域服务拥有事务的设计模式.md)
         * [服务器端代理拥有事务的设计模式](服务器端代理拥有事务的设计模式.md)
+    * [Distributed transactions in Spring, with and without XA](distributed-transactions-in-spring-with-and-without-xa.md)
 * [Block Chain](block-chain.md)
 * [Microservice](mi-c-ro-s-er-vi-ce.md)
 * [Spring Framework](spring-framework.md)
