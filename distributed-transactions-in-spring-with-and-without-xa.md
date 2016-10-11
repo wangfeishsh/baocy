@@ -252,6 +252,8 @@ Some people in the ActiveMQ community claim that the JDBCPersistenceAdapter crea
 
 Another shared-resource technique in a nonmessaging scenario \(multiple databases\) is to use the Oracle database link feature to link two database schemas together at the level of the RDBMS platform \(see Resources\). This may require changes to application code, or the creation of synonyms, because the table name aliases that refer to a linked database include the name of the link.
 
+另一个共享资源技术在nonmessaging场景（多个数据库）是使用Oracle数据库链接功能链接两个数据库架构在数据库平台的水平（参见参考资料）。这可能需要更改应用程序代码，或同义词的创作，因为表名别名引用链接数据库包含链接的名字
+
 ### **Best Efforts 1PC pattern**
 
 The Best Efforts 1PC pattern is fairly general but can fail in some circumstances that the developer must be aware of. This is a non-XA pattern that involves a synchronized single-phase commit of a number of resources. Because the 2PC is not used, it can never be as safe as an XA transaction, but is often good enough if the participants are aware of the compromises. Many high-volume, high-throughput transaction-processing systems are set up this way to improve performance.
@@ -456,7 +458,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. _**[\*\*](mailto:david.syer@springsource.com)**_[David Syer](mailto:david.syer@springsource.com)_**[\*\*](mailto:david.syer@springsource.com)**_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. _[**\*\***](mailto:david.syer@springsource.com)[_David Syer_](mailto:david.syer@springsource.com)[**\*\***](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
@@ -479,6 +481,7 @@ _Dr. _**[\*\*](mailto:david.syer@springsource.com)**_[David Syer](mailto:david.s
 * "[How to create a database link in Oracle](http://searchoracle.techtarget.com/tip/0,289483,sid41_gci1263933,00.html)" \(Elisa Gabbert, SearchOracle.com, January 2004\) explains how to create an Oracle database link.
 
 * Weigh in on the [Provide a "best efforts" 1PC transaction manager out of the box](http://jira.springframework.org/browse/SPR-3844) proposal for the Spring Framework.
+
 
 **More from JavaWorld**
 
