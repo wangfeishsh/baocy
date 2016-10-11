@@ -434,7 +434,7 @@ I'll conclude by analyzing the pros and cons of the patterns introduced, to help
 
 If you haven't recognized the distributed transaction, you have probably implemented the **Wing-and-a-Prayer** pattern. Sooner or later you will see data that should have been rolled back but wasn't. Probably when you see the effect it will be a long way downstream from the actual failure, and quite hard to trace back. The Wing-and-a-Prayer can also be inadvertently used by developers who believe they are protected by XA but haven't configured the underlying resources to participate in the transaction. I worked on a project once where the database had been installed by another group, and they had switched off the XA support in the installation process. Everything ran just fine for a few months and then strange failures started to creep into the business process. It took a long time to diagnose the problem.
 
-如果你还没有认识到分布式事务，你可能已经实现了自求多福（俚语）模式。迟早你会看到数据应该已经回滚，但是没有。可能当你看到的影响是实际错误已经经历很长路径的下游，很难追溯。Wing-and-a-Prayer也可以在不经意间使用的开发商们相信他们是受XA但还没有配置相关资源参与交易。我做过一个项目，一旦在数据库已经被另一组安装，他们关闭了在安装过程中的XA支持。一切都运行好几个月，然后奇怪的失败开始蠕变到业务流程。花了很长时间来诊断这个问题。
+如果你还没有认识到分布式事务，你可能已经实现了自求多福（俚语）模式。迟早你会看到数据应该已经回滚，但是没有。可能当你看到的影响是实际错误已经经历很长路径的下游，很难追溯。Wing-and-a-Prayer也可能在不经意间使用，开发者相信他们是受XA保护，但没有配置相关资源参与事务。我做过一个项目，数据库已经被另一组安装，他们在安装过程中关闭了XA支持。一切都运行好几个月，然后奇怪的失败开始蠕变到业务流程。花了很长时间来诊断这个问题。
 
 If your use cases with mixed resources are simple enough and you can afford to do the analysis and perhaps some refactoring, then the **Nontransactional Resource** pattern might be an option. This works best when one of the resources is read-mostly, and the write operations can be guarded with checks for duplicates. The data in the nontransactional resource must make sense in business terms even after a failure. Audit, versioning, and logging information typically fits into this category. Failures will be relatively common \(any time anything in the real transaction rolls back\), but you can be confident that there are no side effects.
 
@@ -448,7 +448,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. _[**_David Syer_**](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. __**[David Syer](mailto:david.syer@springsource.com)**__ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
@@ -457,6 +457,7 @@ _Dr. _[**_David Syer_**](mailto:david.syer@springsource.com)_ is a Principal Con
 * Learn more about javax.transaction from the Java docs for [JTA](http://java.sun.com/javaee/5/docs/api/javax/transaction/package-frame.html) and [XAResource](http://java.sun.com/javase/6/docs/api/javax/transaction/xa/XAResource.html).
 
 * "[XA transactions using Spring](http://www.javaworld.com/javaworld/jw-04-2007/jw-04-xa.html)" \(Murali Kosaraju, JavaWorld, April 2007\) explains how to set up Spring with JTA outside a Java EE container.
+
 * "[XA Exposed, Part I](http://jroller.com/pyrasun/category/XA)" \(Mike Spille, Pyrasun, The Spille Blog, April 2004\) is an excellent and entertaining resource for learning about 2PC in more detail.
 * Learn more about how Spring transaction management works and how to configure it generally by reading the _Spring Reference Guide_, [Chapter 9. Transaction management](http://static.springframework.org/spring/docs/2.5.x/reference/transaction.html).
 * "[Transaction management for J2EE 1.2](http://www.javaworld.com/jw-07-2000/jw-0714-transaction.html)" \(Sanjay Mahapatra, JavaWorld, July 2000\) defines the ACID properties of a transaction, including atomicity.
