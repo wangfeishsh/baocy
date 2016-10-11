@@ -2,6 +2,8 @@
 
 http:\/\/www.jasongj.com\/2015\/01\/02\/Kafka深度解析\/
 
+http:\/\/kafka.apache.org\/quickstart
+
 ## 1. Getting Started
 
 ### 1.1 Introduction
