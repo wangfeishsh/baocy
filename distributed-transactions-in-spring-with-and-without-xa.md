@@ -270,6 +270,8 @@ To help you understand the pattern better and analyze the consequences of failur
 
 The two resources in this transaction are counted in and counted out. The message transaction is started before the database one, and they end \(either commit or rollback\) in reverse order. So the sequence in the case of success might be the same as the one in at the beginning of this article:
 
+本次事务中的两种资源进行了统计和计算。消息事务在数据库一开始之前启动，并且它们以相反的顺序结束（或提交或回滚）。因此，在成功的情况下的序列可能是相同的一个在这篇文章的开头：
+
 1. Start messaging transaction
 2. **Receive message**
 3. Start database transaction
@@ -278,6 +280,8 @@ The two resources in this transaction are counted in and counted out. The messag
 6. Commit messaging transaction
 
 Actually, the order of the first four steps isn't crucial, except that the message must be received before the database is updated, and each transaction must start before its corresponding resource is used. So this sequence is just as valid:
+
+事实上，前四个步骤的顺序并不是至关重要的，除非在更新数据库之前必须接收消息，并且每次事务必须在使用它的相应资源之前开始。因此，这个序列是有效的：
 
 1. Start messaging transaction
 2. Start database transaction
@@ -464,7 +468,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. _**[\*\*](mailto:david.syer@springsource.com)**_[David Syer](mailto:david.syer@springsource.com)_**[\*\*](mailto:david.syer@springsource.com)**_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. _[**\*\***](mailto:david.syer@springsource.com)[_David Syer_](mailto:david.syer@springsource.com)[**\*\***](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
