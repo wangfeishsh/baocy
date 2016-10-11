@@ -64,7 +64,7 @@ The first three patterns discussed below are based on the XA protocol. Because t
 
 下面的前三种模式讨论是基于XA协议。因为这些模式已被广泛覆盖，我不会在这里很详细地谈论他们。那些熟悉XA模式可能想跳过前面到事务资源共享模式。
 
-**Full XA with 2PC**
+### **Full XA with 2PC**
 
 If you need close-to-bulletproof guarantees that your application's transactions will recover after an outage, including a server crash, then Full XA is your only choice. The shared resource that is used to synchronize the transaction in this case is a special transaction manager that coordinates information about the process using the XA protocol. In Java, from the developer's point of view, the protocol is exposed through a JTA UserTransaction.
 
@@ -146,7 +146,7 @@ Another feature of many XA transaction managers is that they can still provide t
 
 许多XA事务管理的另一个特点是，他们仍然可以提供相同的恢复保证当只有一个资源是XA能力他们能当他们都。他们这样做是通过有序的资源和使用非XA资源投票。如果它没有提交，那么所有其他资源可以回滚。这是接近百分之100防弹-但不是很。当它失败时，没有留下太多的痕迹，除非采取额外的步骤（如在一些高端实现）。
 
-**Shared Transaction Resource pattern**
+### **Shared Transaction Resource pattern**
 
 A great pattern for decreasing complexity and increasing throughput in some systems is to remove the need for XA altogether by ensuring that all the transactional resources in the system are actually backed by the same resource. This is clearly not possible in all processing use cases, but it is just as solid as XA and usually much faster. The Shared Transaction Resource pattern is bulletproof but specific to certain platforms and processing scenarios.
 
@@ -162,7 +162,7 @@ Another effective use of this pattern is the case of message-driven update of a 
 
 Not all vendors make this easy. An alternative, which works for almost any database, is to use [Apache ActiveMQ](http://activemq.apache.org/) for messaging and plug a storage strategy into the message broker. This is fairly easy to configure once you know the trick. It's demonstrated in this article's shared-jms-db samples project. The application code \(unit tests in this case\) does not need to be aware that this pattern is in use, because it is all enabled declaratively in Spring configuration.
 
-并不是所有的供应商都很容易。另一种，它适合几乎任何数据库，是使用Apache ActiveMQ消息并插入一个存储策略的消息代理。这是相当容易配置一旦你知道的把戏。这是本文的样本项目展示了JMS数据库共享。应用程序代码（在这种情况下，单元测试）不需要意识到，这种模式是在使用，因为它是可以在Spring中声明式配置启用。
+并不是所有的供应商都使之简易可行。另一种，它适合几乎任何数据库，是使用Apache ActiveMQ消息并插入一个存储策略的消息代理。这是相当容易配置一旦你知道的把戏。这是本文的样本项目展示了JMS数据库共享。应用程序代码（在这种情况下，单元测试）不需要意识到，这种模式是在使用，因为它是可以在Spring中声明式配置启用。
 
 A unit test in the sample called SynchronousMessageTriggerAndRollbackTests verifies that everything is working with synchronous message reception. The testReceiveMessageUpdateDatabase method receives two messages and uses them to insert two records in the database. When this method exits, the test framework rolls back the transaction, so you can verify that the messages and the database updates are both rolled back, as shown in Listing 3:
 
@@ -450,7 +450,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. __****[David Syer](mailto:david.syer@springsource.com)****__ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. _[******_David Syer_******](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
@@ -465,6 +465,7 @@ _Dr. __****[David Syer](mailto:david.syer@springsource.com)****__ is a Principal
 * Learn more about how Spring transaction management works and how to configure it generally by reading the _Spring Reference Guide_, [Chapter 9. Transaction management](http://static.springframework.org/spring/docs/2.5.x/reference/transaction.html).
 
 * "[Transaction management for J2EE 1.2](http://www.javaworld.com/jw-07-2000/jw-0714-transaction.html)" \(Sanjay Mahapatra, JavaWorld, July 2000\) defines the ACID properties of a transaction, including atomicity.
+
 * In "[To XA or not to XA](http://guysblogspot.blogspot.com/2006/10/to-xa-or-not-to-xa.html)" \(Guy's Blog, October 2006\), Atomikos CTO Guy Pardon advocates for using XA.
 * Check out the [Atomikos documentation](http://www.atomikos.com/Documentation/WebHome) to learn about this open source transaction manager.
 * "[How to create a database link in Oracle](http://searchoracle.techtarget.com/tip/0,289483,sid41_gci1263933,00.html)" \(Elisa Gabbert, SearchOracle.com, January 2004\) explains how to create an Oracle database link.
