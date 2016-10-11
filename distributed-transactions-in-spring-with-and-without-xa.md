@@ -262,6 +262,8 @@ Best Efforts 1PC模式是相当普遍，但开发人员必须注意到在某些�
 
 The basic idea is to delay the commit of all resources as late as possible in a transaction so that the only thing that can go wrong is an infrastructure failure \(not a business-processing error\). Systems that rely on Best Efforts 1PC reason that infrastructure failures are rare enough that they can afford to take the risk in return for higher throughput. If business-processing services are also designed to be idempotent, then little can go wrong in practice.
 
+基本的想法是尽可能在一个事务中延迟提交所有资源，，使唯一可能出错的是基础设施故障（而不是一个业务处理错误）。系统依靠Best Efforts 1PC原因，基础设施故障是罕见的，他们可以在高吞吐量的回报承担风险。如果业务处理服务的设计也是幂等的，再小的可以在实践中出错。
+
 To help you understand the pattern better and analyze the consequences of failure, I'll use the message-driven database update as an example.
 
 The two resources in this transaction are counted in and counted out. The message transaction is started before the database one, and they end \(either commit or rollback\) in reverse order. So the sequence in the case of success might be the same as the one in at the beginning of this article:
@@ -460,7 +462,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. _[**\*\***](mailto:david.syer@springsource.com)[_David Syer_](mailto:david.syer@springsource.com)[**\*\***](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. _**[\*\*](mailto:david.syer@springsource.com)**_[David Syer](mailto:david.syer@springsource.com)_**[\*\*](mailto:david.syer@springsource.com)**_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
