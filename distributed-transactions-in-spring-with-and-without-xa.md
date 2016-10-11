@@ -248,6 +248,8 @@ A shared database resource can sometimes be synthesized from existing separate r
 
 Some people in the ActiveMQ community claim that the JDBCPersistenceAdapter creates performance problems. However, many projects and live systems use ActiveMQ with a relational database. In these cases the received wisdom is that a journaled version of the adapter should be used to improve performance. This is not amenable to the shared-resource pattern \(because the journal itself is a new transactional resource\). However, the jury may still be out on the JDBCPersistenceAdapter. And indeed there are reasons to think that the use of a shared resource might _improve_ performance over the journaled case. This is an area of active research among the Spring and ActiveMQ engineering teams.
 
+一些人在ActiveMQ社区声称JDBCPersistenceAdapter造成性能问题。然而，许多项目和live系统使用ActiveMQ与关系数据库。在这些情况下，收到的智慧是一种日志版本的适配器可以用来提高性能。这是不适合的共享资源模式（因为日记本身是一个新的事务资源）。然而，陪审团仍可能在JDBCPersistenceAdapter之外。确实有理由认为，共享资源的使用可以提高日志的情况下的性能。这是Spring和ActiveMQ工程团队之间的一个活跃的研究领域。
+
 Another shared-resource technique in a nonmessaging scenario \(multiple databases\) is to use the Oracle database link feature to link two database schemas together at the level of the RDBMS platform \(see Resources\). This may require changes to application code, or the creation of synonyms, because the table name aliases that refer to a linked database include the name of the link.
 
 ### **Best Efforts 1PC pattern**
@@ -454,7 +456,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. _[**\*\***](mailto:david.syer@springsource.com)[_David Syer_](mailto:david.syer@springsource.com)[**\*\***](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. _**[\*\*](mailto:david.syer@springsource.com)**_[David Syer](mailto:david.syer@springsource.com)_**[\*\*](mailto:david.syer@springsource.com)**_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
@@ -475,6 +477,7 @@ _Dr. _[**\*\***](mailto:david.syer@springsource.com)[_David Syer_](mailto:david.
 * Check out the [Atomikos documentation](http://www.atomikos.com/Documentation/WebHome) to learn about this open source transaction manager.
 
 * "[How to create a database link in Oracle](http://searchoracle.techtarget.com/tip/0,289483,sid41_gci1263933,00.html)" \(Elisa Gabbert, SearchOracle.com, January 2004\) explains how to create an Oracle database link.
+
 * Weigh in on the [Provide a "best efforts" 1PC transaction manager out of the box](http://jira.springframework.org/browse/SPR-3844) proposal for the Spring Framework.
 
 **More from JavaWorld**
