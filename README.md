@@ -48,6 +48,8 @@
 
 17、Microservice
 
+18、http协议
+
 Infoq迷你书
 
 http:\/\/www.infoq.com\/cn\/minibooks\/12
@@ -56,7 +58,7 @@ http:\/\/www.infoq.com\/cn\/minibooks\/12
 
 架构师特刊：推荐系统（理论篇）
 
-推荐算法通常被分为四大类\(1-4\): 
+推荐算法通常被分为四大类\(1-4\):
 
 协同过滤推荐算法;
 
@@ -64,7 +66,7 @@ http:\/\/www.infoq.com\/cn\/minibooks\/12
 
 混合推荐算法;
 
-流行度推荐算法。 
+流行度推荐算法。
 
 除了这些种类以外,还有一些高级非传统的推荐算法\(5\)。
 
