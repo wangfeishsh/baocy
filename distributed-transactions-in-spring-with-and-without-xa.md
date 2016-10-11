@@ -238,6 +238,8 @@ Listing 5 shows the flag on the Spring JmsTemplate that is used to receive the m
 
 Without sessionTransacted=true, the JMS session transaction API calls will never be made and the message reception cannot be rolled back. The important ingredients here are the embedded broker with a special async=false parameter and a wrapper for the DataSource that together ensure that ActiveMQ uses the same transactional JDBC Connection as Spring.
 
+没有sessionTransacted = true，JMS会话事务API将不会调用并且消息接收不能回滚。这里最重要的成分是内置的broker通过一个特殊的async = false参数和包装数据源一起确保ActiveMQ与Spring使用相同的事务的JDBC连接。
+
 A shared database resource can sometimes be synthesized from existing separate resources, especially if they are all in the same RDBMS platform. Enterprise-level database vendors all support the notion of synonyms \(or the equivalent\), where tables in one schema \(to use the Oracle terminology\) are declared as synonyms in another. In that way data that is partitioned physically in the platform can be addressed transactionally from the same Connection in a JDBC client. For example, the implementation of the shared-resource pattern with ActiveMQ in a real system \(as opposed to the sample\) would usually involve creating synonyms for the messaging and business data.
 
 **Performance and the JDBCPersistenceAdapter**
@@ -450,7 +452,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. _[******_David Syer_******](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. _**[\*\*](mailto:david.syer@springsource.com)**_[David Syer](mailto:david.syer@springsource.com)_**[\*\*](mailto:david.syer@springsource.com)**_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
@@ -467,6 +469,7 @@ _Dr. _[******_David Syer_******](mailto:david.syer@springsource.com)_ is a Princ
 * "[Transaction management for J2EE 1.2](http://www.javaworld.com/jw-07-2000/jw-0714-transaction.html)" \(Sanjay Mahapatra, JavaWorld, July 2000\) defines the ACID properties of a transaction, including atomicity.
 
 * In "[To XA or not to XA](http://guysblogspot.blogspot.com/2006/10/to-xa-or-not-to-xa.html)" \(Guy's Blog, October 2006\), Atomikos CTO Guy Pardon advocates for using XA.
+
 * Check out the [Atomikos documentation](http://www.atomikos.com/Documentation/WebHome) to learn about this open source transaction manager.
 * "[How to create a database link in Oracle](http://searchoracle.techtarget.com/tip/0,289483,sid41_gci1263933,00.html)" \(Elisa Gabbert, SearchOracle.com, January 2004\) explains how to create an Oracle database link.
 * Weigh in on the [Provide a "best efforts" 1PC transaction manager out of the box](http://jira.springframework.org/browse/SPR-3844) proposal for the Spring Framework.
