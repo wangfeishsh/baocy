@@ -54,7 +54,7 @@ In this case, the message goes back to the middleware after the last rollback an
 
 The important feature of both timelines is that they are _atomic_, forming a single logical transaction that either succeeds completely or fails completely.
 
-这两个时间线的重要特征是，它们是原子的，形成一个单一的逻辑事务，要么成功完全或完全失败。
+这两个时间线的重要特征是，它们是原子的，形成一个单一的逻辑事务，要么完全成功或完全失败。
 
 But what guarantees that the timeline looks like either of these sequences? Some synchronization between the transactional resources must occur, so that if one commits they both do, and vice versa. Otherwise, the whole transaction is not atomic. The transaction is distributed because multiple resources are involved, and without synchronization it will not be atomic. The technical and conceptual difficulties with distributed transactions all relate to the synchronization of the resources \(or lack of it\).
 
@@ -450,7 +450,7 @@ The [sample code](http://images.techhive.com/downloads/idge/imported/article/jvw
 
 **Full XA with 2PC** is generic and will always give the highest confidence and greatest protection against failures where multiple, diverse resources are being used. The downside is that it is expensive because of additional I\/O prescribed by the protocol \(but don't write it off until you try it\) and requires special-purpose platforms. There are open source JTA implementations that can provide a way to break free of the application server, but many developers consider them second best, still. It is certainly the case that more people use JTA and XA than need to if they could spend more time thinking about the transaction boundaries in their systems. At least if they use Spring their business logic doesn't need to be aware of how the transactions are handled, so platform choices can be deferred.
 
-_Dr. _[****_David Syer_****](mailto:david.syer@springsource.com)_ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
+_Dr. __****[David Syer](mailto:david.syer@springsource.com)****__ is a Principal Consultant with SpringSource, based in the UK. He is a founder and lead engineer on the Spring Batch project, an open source framework for building and configuring offline and batch-processing applications. He is a frequent presenter at conferences on Enterprise Java and commentator on the industry. Recent publications appeared in The Server Side, InfoQ and the SpringSource blog._
 
 **Learn more about this topic**
 
@@ -463,6 +463,7 @@ _Dr. _[****_David Syer_****](mailto:david.syer@springsource.com)_ is a Principal
 * "[XA Exposed, Part I](http://jroller.com/pyrasun/category/XA)" \(Mike Spille, Pyrasun, The Spille Blog, April 2004\) is an excellent and entertaining resource for learning about 2PC in more detail.
 
 * Learn more about how Spring transaction management works and how to configure it generally by reading the _Spring Reference Guide_, [Chapter 9. Transaction management](http://static.springframework.org/spring/docs/2.5.x/reference/transaction.html).
+
 * "[Transaction management for J2EE 1.2](http://www.javaworld.com/jw-07-2000/jw-0714-transaction.html)" \(Sanjay Mahapatra, JavaWorld, July 2000\) defines the ACID properties of a transaction, including atomicity.
 * In "[To XA or not to XA](http://guysblogspot.blogspot.com/2006/10/to-xa-or-not-to-xa.html)" \(Guy's Blog, October 2006\), Atomikos CTO Guy Pardon advocates for using XA.
 * Check out the [Atomikos documentation](http://www.atomikos.com/Documentation/WebHome) to learn about this open source transaction manager.
