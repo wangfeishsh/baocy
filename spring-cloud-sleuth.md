@@ -28,6 +28,8 @@ Visualization of what **Span** and **Trace** will look in a system together with
 
 span在不断的启动和停止，同时记录了时间信息，当你创建了一个span，你必须在未来的某个时刻停止它。
 
+注意：初始的span开始一个trace叫做根span。span ID的值与trace Id的值一样。
+
 **Trace：**一系列spans组成的一个树状结构，例如，如果你正在跑一个分布式大数据工程，你可能需要创建一个trace。
 
 **Annotation：**用来及时记录一个事件的存在，一些核心annotations用来定义一个请求的开始和结束
