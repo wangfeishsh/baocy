@@ -55,3 +55,5 @@ That means that the current span has **Trace-Id** set to **X**, **Span-Id** set 
 
 This is how the visualization of the parent \/ child relationship of spans would look like:
 
+![](https://raw.githubusercontent.com/spring-cloud/spring-cloud-sleuth/master/docs/src/main/asciidoc/images/parents.png)
+
