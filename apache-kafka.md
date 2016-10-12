@@ -4,6 +4,10 @@ http:\/\/www.jasongj.com\/2015\/01\/02\/Kafka深度解析\/
 
 http:\/\/kafka.apache.org\/quickstart
 
+https:\/\/github.com\/quantifind\/KafkaOffsetMonitor
+
+http:\/\/blog.csdn.net\/dabokele\/article\/details\/52373960   Kafka系列之-Kafka监控工具KafkaOffsetMonitor配置及使用 
+
 ## 1. Getting Started
 
 ### 1.1 Introduction
