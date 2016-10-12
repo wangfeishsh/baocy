@@ -43,3 +43,15 @@ span在不断的启动和停止，同时记录了时间信息，当你创建了�
 
 ![](https://raw.githubusercontent.com/spring-cloud/spring-cloud-sleuth/master/docs/src/main/asciidoc/images/trace-id.png)
 
+Each color of a note signifies a span \(7 spans - from **A** to **G**\). If you have such information in the note:
+
+`Trace Id = X`
+
+`Span Id = D`
+
+`Client Sent`
+
+That means that the current span has **Trace-Id** set to **X**, **Span-Id** set to **D**. It also has emitted **Client Sent** event.
+
+This is how the visualization of the parent \/ child relationship of spans would look like:
+
