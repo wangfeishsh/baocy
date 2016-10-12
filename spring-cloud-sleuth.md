@@ -9,6 +9,8 @@ Spring Cloud Sleuth features:
 * Instruments common ingress and egress points from Spring applications \(servlet filter, rest template, scheduled actions, message channels, zuul filters, feign client\).
 * If spring-cloud-sleuth-zipkin is available then the app will generate and collect Zipkin-compatible traces via HTTP. By default it sends them to a Zipkin collector service on localhost \(port 9411\). Configure the location of the service using spring.zipkin.baseUrl.
 
+添加trace和span的ids到slf4j MDC，所以你可以从日志聚合器中提取一个给定的trace or span所有日志。
+
 提供了一个抽象常见的分布式跟踪数据模型：traces，spans（形成一个DAG），注释，注释的关键值。基于HTrace，但兼容Zipkin（Dapper）。
 
 Spring应用程序常见的入口和出口点 \(servlet filter, rest template, scheduled actions, message channels, zuul filters, feign client\).
