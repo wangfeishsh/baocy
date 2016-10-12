@@ -24,7 +24,7 @@ Spans are started and stopped, and they keep track of their timing information. 
 
 Visualization of what **Span** and **Trace** will look in a system together with the Zipkin annotations:
 
-**Span：**基本工作单元，例如，在一个新建的span中发送一个RPC等同于发送一个回应请求给RPC，span通过一个64位ID唯一标识，trace以另一个64位ID表示，span还有其他数据信息，比如摘要、时间戳事件、关键值注释\(tags\)、span的ID、以及进度ID\(通常是IP地址\)
+**Span：**基本工作单元，例如，调用一个RPC从请求到响应都是同一个span，span通过一个64位ID唯一标识，trace以另一个64位ID表示，span还有其他数据信息，比如摘要、时间戳事件、关键值注释\(tags\)、span的ID、以及进度ID\(通常是IP地址\)
 
 span在不断的启动和停止，同时记录了时间信息，当你创建了一个span，你必须在未来的某个时刻停止它。
 
@@ -40,4 +40,6 @@ span在不断的启动和停止，同时记录了时间信息，当你创建了�
 * **cr** - Client Received - 表明span的结束，客户端成功接收到服务端的回复，如果cr减去cs时间戳便可得到客户端从服务端获取回复的所有所需时间
 
 将Span和Trace在一个系统中使用Zipkin注解的过程图形化：
+
+![](https://raw.githubusercontent.com/spring-cloud/spring-cloud-sleuth/master/docs/src/main/asciidoc/images/trace-id.png)
 
