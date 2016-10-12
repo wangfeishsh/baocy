@@ -15,7 +15,7 @@ Spring Cloud Sleuth features:
 
 Spring应用程序常见的入口和出口点 \(servlet filter, rest template, scheduled actions, message channels, zuul filters, feign client\).
 
-如果spring-cloud-sleuth-zipkin可用，那么应用程序将通过HTTP产生和收集Zipkin-compatible trace。默认情况下，将它们发送到本地主机上的Zipkin收集服务（端口9411）。配置服务的位置使用spring.zipkin.baseurl
+如果spring-cloud-sleuth-zipkin可用，那么应用程序将通过HTTP产生和收集Zipkin-compatible trace。默认情况下，将它们发送到本地主机上的Zipkin收集服务（端口9411）。配置服务的地址使用spring.zipkin.baseurl
 
 .......
 
