@@ -12,7 +12,6 @@
 * [Spring Cloud Sleuth](spring-cloud-sleuth.md)
 * [Apache Kafka](apache-kafka.md)
 * [Zookeeper](zookeeper.md)
-* Spring Boot
 * [Redis](redis.md)
 * [Refactoring](refactoring.md)
 * [SonarQube](sonarqube.md)
