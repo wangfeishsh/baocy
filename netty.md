@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -103,5 +103,5 @@ As you read, you might have more questions about the classes introduced in this 
 
 6.你有没有注意到option\(\)和childOption\(\)？option\(\)是接受传入连接的[NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html)。childOption\(\)是[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)s的通过父[ServerChannel](http://netty.io/4.0/api/io/netty/channel/ServerChannel.html)接受，这是在这种情况下，[NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html)。
 
-7.我们现在准备好了。剩下的是绑定到端口并启动服务器。在这里，我们把机器所有的网卡绑定到端口8080（网络接口卡）。你现在可以叫（）方法很多你想要的东西（不同的绑定地址。）
+7.我们现在准备好了。剩下的是绑定到端口并启动服务器。在这里，我们把机器所有的网卡绑定到端口8080（网络接口卡）。你现在可以任意调用bind（）方法（通过不同的绑定地址。）
 
