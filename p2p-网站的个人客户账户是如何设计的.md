@@ -110,3 +110,5 @@ P2P平台的账户，应该分为三个层面：即平台虚拟账户，平台�
 > 
 > ![](https://pic3.zhimg.com/d03efeb6ab989d777b5426a217d9ada2_b.jpg)
 
+http:\/\/wiki.nonobank.com\/bin\/view\/A.技术中心\/payment-and-settlement-system-of-china
+
