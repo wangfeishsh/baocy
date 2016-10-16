@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -90,4 +90,18 @@ As you read, you might have more questions about the classes introduced in this 
 5. You can also set the parameters which are specific to the Channel implementation. We are writing a TCP\/IP server, so we are allowed to set the socket options such as tcpNoDelay and keepAlive. Please refer to the apidocs of [ChannelOption](http://netty.io/4.0/api/io/netty/channel/ChannelOption.html) and the specific [ChannelConfig](http://netty.io/4.0/api/io/netty/channel/ChannelConfig.html) implementations to get an overview about the supported ChannelOptions.
 6. Did you notice option\(\) and childOption\(\)? option\(\) is for the [NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html) that accepts incoming connections. childOption\(\) is for the [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)s accepted by the parent [ServerChannel](http://netty.io/4.0/api/io/netty/channel/ServerChannel.html), which is [NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html) in this case.
 7. We are ready to go now. What's left is to bind to the port and to start the server. Here, we bind to the port 8080 of all NICs \(network interface cards\) in the machine. You can now call the bind\(\) method as many times as you want \(with different bind addresses.\)
+
+nioeventloopgroup是一个多线程的事件循环处理I\/O操作。Netty提供不同种类的传输各种eventloopgroup实现。我们在这个例子中，服务器端应用程序的实现，因此将使用两nioeventloopgroup。第一个，经常被称为“老板”，接受一个传入的连接。第二个，通常被称为“工人”，处理所接受的连接的流量，一旦老板接受连接，并注册接受的连接到工人。多线程的使用和它们是如何映射到创建渠道，取决于eventloopgroup实现，甚至可通过构造函数。
+
+serverbootstrap是一个辅助类，设置了一个服务器。您可以直接使用通道设置服务器。然而，请注意，这是一个繁琐的过程，你不需要这样做，在大多数情况下。
+
+在这里，我们指定要使用的nioserversocketchannel类进行实例化一个新的渠道来接受传入的连接。
+
+这里指定的处理程序将永远由一个新接受的信道进行评估。是一种特殊的channelinitializer处理器，旨在帮助用户配置一个新的通道。这是最有可能的，你想添加一些程序如discardserverhandler实施你的网络应用程序配置的新通道ChannelPipeline。由于应用程序变得复杂，它很可能是您将添加更多的处理程序到管道中，并最终将这个匿名类提取到一个顶级类中。
+
+还可以设置特定于信道实现的参数。我们写一个TCP \/ IP的服务器，所以我们允许设置套接字选项如tcpnodelay和KeepAlive。请参阅channeloption的apidocs和具体channelconfig实现得到支持的channeloptions概述。
+
+你有没有注意到option\(\)和childoption\(\)？option\(\)是接受传入连接的nioserversocketchannel。childoption\(\)是频道的母serverchannel接受，这是在这种情况下，nioserversocketchannel。
+
+我们现在准备好了。剩下的是绑定到端口并启动服务器。在这里，我们所有的网卡绑定到端口8080（网络接口卡）在机。你现在可以叫（）方法很多你想要的东西（不同的绑定地址。）
 
