@@ -16,11 +16,21 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
 'Quick and easy' does not mean that a resulting application will suffer from a maintainability or a performance issue. Netty has been designed carefully with the experiences earned from the implementation of a lot of protocols such as FTP, SMTP, HTTP, and various binary and text-based legacy protocols. As a result, Netty has succeeded to find a way to achieve ease of development, performance, stability, and flexibility without a compromise.
 
 Some users might already have found other network application framework that claims to have the same advantage, and you might want to ask what makes Netty so different from them. The answer is the philosophy it is built on. Netty is designed to give you the most comfortable experience both in terms of the API and the implementation from the day one. It is not something tangible but you will realize that this philosophy will make your life much easier as you read this guide and play with Netty.
+
+解决方案
+
+网状项目致力于提供一个异步事件驱动的可维护性能·高扩展性协议服务器和客户端的快速发展，网络应用框架和工具。
+
+换句话说，网络是一个NIO客户端\/服务器框架，使网络应用如协议服务器和客户端的快速和容易的发展。它大大简化了网络编程，如TCP和UDP套接字服务器的开发。
+
+“快速和简单”并不意味着一个最终的应用程序将遭受一个可维护性或性能问题。网络已被精心设计，从大量的协议，如FTP、SMTP、HTTP的实施获得的经验，以及各种二进制和文本的传统协议。因此，网络已成功地找到一种方法来达到缓解的发展，性能，稳定性，和不妥协的灵活性。
+
+有些用户可能已经找到了其他的网络应用框架，声称有同样的优势，你可能想问是什么让他们如此不同的网状。答案是它是建立在哲学上的。网状设计，给你最舒适的体验都在API和实现条件从一开始。它不是有形的东西，你会认识到，这种哲学将使你的生活更容易为你和Netty阅读本指南和玩。
 
