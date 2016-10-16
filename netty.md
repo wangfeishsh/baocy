@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,11 +26,23 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
 “快速和简单”并不意味着一个最终的应用程序将遭受一个可维护性或性能问题。Netty已被精心设计，从大量的协议，如FTP、SMTP、HTTP的实施获得的经验，以及各种二进制和文本的传统协议。因此，Netty已成功地找到一种方法来达到缓解开发，性能，稳定性，灵活性，并不妥协。
 
 有些用户可能已经找到了其他的网络应用框架，声称有同样的优势，你可能想问是什么让Netty如此不同。答案是它是建立在哲学上的。Netty设计，从一开始在API和实现上都给你最舒适的体验。它不是有形的东西但你会认识到，当你阅读本指南并使用Netty时，这种哲学将使你的生活更容易。
+
+Getting Started
+
+This chapter tours around the core constructs of Netty with simple examples to let you get started quickly. You will be able to write a client and a server on top of Netty right away when you are at the end of this chapter.
+
+If you prefer top-down approach in learning something, you might want to start from Chapter 2, Architectural Overview and get back here.
+
+Before Getting Started
+
+The minimum requirements to run the examples which are introduced in this chapter are only two; the latest version of Netty and JDK 1.6 or above. The latest version of Netty is available in [the project download page](http://netty.io/downloads.html). To download the right version of JDK, please refer to your preferred JDK vendor's web site.
+
+As you read, you might have more questions about the classes introduced in this chapter. Please refer to the API reference whenever you want to know more about them. All class names in this document are linked to the online API reference for your convenience. Also, please don't hesitate to [contact the Netty project community](http://netty.io/community.html) and let us know if there's any incorrect information, errors in grammar and typo, and if you have a good idea to improve the documentation.
 
