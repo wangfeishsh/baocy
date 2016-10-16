@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -78,7 +78,7 @@ As you read, you might have more questions about the classes introduced in this 
 
 3. 要实现DISCARD协议，handler必须忽略接收的消息。[ByteBuf](http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html)是引用计数的对象通过显式release\(\)方法已被释放。请记住，它是handler的责任，释放任何传递给handler的引用计数的对象。通常，channelread\(\)处理实现方法如下
 
-4. exceptioncaught\(\)事件处理程序方法在抛出异常时调用，由网状由于I\/O错误或处理程序执行被处理事件时引发的异常。在大多数情况下，捕获的异常应该被记录，并且它的相关的通道应该被关闭，虽然这个方法的实现可能会有所不同，这取决于你想做什么来处理一个特殊的情况。例如，您可能希望在关闭连接之前发送一个错误代码的响应消息
+4. exceptioncaught\(\)事件处理程序方法在抛出异常时调用，由Netty由于I\/O错误或handler的实现类在处理事件时引发的异常。在大多数情况下，捕获的异常应该被记录，并且它的相关的通道应该被关闭，虽然这个方法的实现可能会有所不同，这取决于你想做什么来处理一个异常的情况。例如，您可能希望在关闭连接之前发送一个错误代码的响应消息
 
   ......
 
