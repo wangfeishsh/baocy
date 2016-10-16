@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -82,4 +82,12 @@ As you read, you might have more questions about the classes introduced in this 
 
   ......
 
+
+1. [NioEventLoopGroup](http://netty.io/4.0/api/io/netty/channel/nio/NioEventLoopGroup.html) is a multithreaded event loop that handles I\/O operation. Netty provides various [EventLoopGroup](http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html) implementations for different kind of transports. We are implementing a server-side application in this example, and therefore two [NioEventLoopGroup](http://netty.io/4.0/api/io/netty/channel/nio/NioEventLoopGroup.html) will be used. The first one, often called 'boss', accepts an incoming connection. The second one, often called 'worker', handles the traffic of the accepted connection once the boss accepts the connection and registers the accepted connection to the worker. How many Threads are used and how they are mapped to the created [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)s depends on the [EventLoopGroup](http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html) implementation and may be even configurable via a constructor.
+2. [ServerBootstrap](http://netty.io/4.0/api/io/netty/bootstrap/ServerBootstrap.html) is a helper class that sets up a server. You can set up the server using a [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html) directly. However, please note that this is a tedious process, and you do not need to do that in most cases.
+3. Here, we specify to use the [NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html) class which is used to instantiate a new [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html) to accept incoming connections.
+4. The handler specified here will always be evaluated by a newly accepted [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html). The [ChannelInitializer](http://netty.io/4.0/api/io/netty/channel/ChannelInitializer.html) is a special handler that is purposed to help a user configure a new [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html). It is most likely that you want to configure the [ChannelPipeline](http://netty.io/4.0/api/io/netty/channel/ChannelPipeline.html) of the new [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html) by adding some handlers such as DiscardServerHandler to implement your network application. As the application gets complicated, it is likely that you will add more handlers to the pipeline and extract this anonymous class into a top level class eventually.
+5. You can also set the parameters which are specific to the Channel implementation. We are writing a TCP\/IP server, so we are allowed to set the socket options such as tcpNoDelay and keepAlive. Please refer to the apidocs of [ChannelOption](http://netty.io/4.0/api/io/netty/channel/ChannelOption.html) and the specific [ChannelConfig](http://netty.io/4.0/api/io/netty/channel/ChannelConfig.html) implementations to get an overview about the supported ChannelOptions.
+6. Did you notice option\(\) and childOption\(\)? option\(\) is for the [NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html) that accepts incoming connections. childOption\(\) is for the [Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)s accepted by the parent [ServerChannel](http://netty.io/4.0/api/io/netty/channel/ServerChannel.html), which is [NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html) in this case.
+7. We are ready to go now. What's left is to bind to the port and to start the server. Here, we bind to the port 8080 of all NICs \(network interface cards\) in the machine. You can now call the bind\(\) method as many times as you want \(with different bind addresses.\)
 
