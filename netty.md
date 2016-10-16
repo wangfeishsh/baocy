@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -53,4 +53,22 @@ The minimum requirements to run the examples which are introduced in this chapte
 As you read, you might have more questions about the classes introduced in this chapter. Please refer to the API reference whenever you want to know more about them. All class names in this document are linked to the online API reference for your convenience. Also, please don't hesitate to [contact the Netty project community](http://netty.io/community.html) and let us know if there's any incorrect information, errors in grammar and typo, and if you have a good idea to improve the documentation.
 
 在开始之前
+
+......
+
+1. DiscardServerHandler extends [ChannelInboundHandlerAdapter](http://netty.io/4.0/api/io/netty/channel/ChannelInboundHandlerAdapter.html), which is an implementation of [ChannelInboundHandler](http://netty.io/4.0/api/io/netty/channel/ChannelInboundHandler.html). [ChannelInboundHandler](http://netty.io/4.0/api/io/netty/channel/ChannelInboundHandler.html) provides various event handler methods that you can override. For now, it is just enough to extend [ChannelInboundHandlerAdapter](http://netty.io/4.0/api/io/netty/channel/ChannelInboundHandlerAdapter.html) rather than to implement the handler interface by yourself.
+2. We override the channelRead\(\) event handler method here. This method is called with the received message, whenever new data is received from a client. In this example, the type of the received message is [ByteBuf](http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html).
+3. To implement the DISCARD protocol, the handler has to ignore the received message. [ByteBuf](http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html) is a reference-counted object which has to be released explicitly via the release\(\) method. Please keep in mind that it is the handler's responsibility to release any reference-counted object passed to the handler. Usually, channelRead\(\) handler method is implemented like the following:
+
+   @Override
+  public void channelRead\(ChannelHandlerContext ctx, Object msg\) {
+  try {
+  \/\/ Do something with msg
+  } finally {
+  ReferenceCountUtil.release\(msg\);
+  }
+  }
+
+
+4. The exceptionCaught\(\) event handler method is called with a Throwable when an exception was raised by Netty due to an I\/O error or by a handler implementation due to the exception thrown while processing events. In most cases, the caught exception should be logged and its associated channel should be closed here, although the implementation of this method can be different depending on what you want to do to deal with an exceptional situation. For example, you might want to send a response message with an error code before closing the connection.
 
