@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -93,7 +93,7 @@ As you read, you might have more questions about the classes introduced in this 
 
 1.[NioEventLoopGroup](http://netty.io/4.0/api/io/netty/channel/nio/NioEventLoopGroup.html)是一个处理I\/O操作的多线程的事件循环。Netty提供不同种类的传输的各种[EventLoopGroup](http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html)实现。这个例子中，我们实现了服务器端应用程序，因此将使用两[NioEventLoopGroup](http://netty.io/4.0/api/io/netty/channel/nio/NioEventLoopGroup.html)。第一个，经常被称为“boss”，接受一个传入的连接。第二个，通常被称为“worker”，一旦boss接受连接，worker处理所接受的连接的负载，并注册接受的连接到worker。多少线程的使用和它们是如何映射到创建[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)s，取决于[EventLoopGroup](http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html)实现，甚至可通过构造函数来配置。
 
-2.[ServerBootstrap](http://netty.io/4.0/api/io/netty/bootstrap/ServerBootstrap.html)是一个辅助类，建立了一个服务器。您可以直接使用通道设置服务器。然而，请注意，这是一个繁琐的过程，你不需要这样做，在大多数情况下。
+2.[ServerBootstrap](http://netty.io/4.0/api/io/netty/bootstrap/ServerBootstrap.html)是一个辅助类，建立了一个服务器。您可以直接使用[Channel建立](http://netty.io/4.0/api/io/netty/channel/Channel.html)服务器。然而，请注意，这是一个繁琐的过程，你不需要这样做，在大多数情况下。
 
 在这里，我们指定要使用的nioserversocketchannel类进行实例化一个新的渠道来接受传入的连接。
 
