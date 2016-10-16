@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -97,7 +97,7 @@ As you read, you might have more questions about the classes introduced in this 
 
 3.在这里，我们指定要使用[NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html)类进行实例化一个新的[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)来接受传入的连接。
 
-4.这里指定的handler将永远由一个新接受的[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)进行评估。[ChannelInitializer](http://netty.io/4.0/api/io/netty/channel/ChannelInitializer.html)是一种特殊的handler，旨在帮助用户配置一个新的[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)。这是最有可能的，你想添加一些程序如discardserverhandler实施你的网络应用程序配置的新通道ChannelPipeline。由于应用程序变得复杂，它很可能是您将添加更多的处理程序到管道中，并最终将这个匿名类提取到一个顶级类中。
+4.这里指定的handler将永远由一个新接受的[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)进行评估。[ChannelInitializer](http://netty.io/4.0/api/io/netty/channel/ChannelInitializer.html)是一种特殊的handler，旨在帮助用户配置一个新的[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)。这像似你想配置新的[Channel的](http://netty.io/4.0/api/io/netty/channel/Channel.html)[ChannelPipeline，通过](http://netty.io/4.0/api/io/netty/channel/ChannelPipeline.html)添加一些handlers如DiscardServerHandler去实现你的网络应用程序。由于应用程序变得复杂，它很可能是您将添加更多的处理程序到管道中，并最终将这个匿名类提取到一个顶级类中。
 
 还可以设置特定于信道实现的参数。我们写一个TCP \/ IP的服务器，所以我们允许设置套接字选项如tcpnodelay和KeepAlive。请参阅channeloption的apidocs和具体channelconfig实现得到支持的channeloptions概述。
 
