@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,9 +26,9 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-网状项目致力于提供一个异步事件驱动的可维护性能·高扩展性协议服务器和客户端的快速发展，网络应用框架和工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
-换句话说，网络是一个NIO客户端\/服务器框架，使网络应用如协议服务器和客户端的快速和容易的发展。它大大简化了网络编程，如TCP和UDP套接字服务器的开发。
+换句话说，网络是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
 “快速和简单”并不意味着一个最终的应用程序将遭受一个可维护性或性能问题。网络已被精心设计，从大量的协议，如FTP、SMTP、HTTP的实施获得的经验，以及各种二进制和文本的传统协议。因此，网络已成功地找到一种方法来达到缓解的发展，性能，稳定性，和不妥协的灵活性。
 
