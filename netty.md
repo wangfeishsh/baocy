@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -131,6 +131,31 @@ Because we are going to ignore any received data but to send a message as soon a
 在本节中实现的协议是时间协议。它不同于以前的示例，它发送一个消息，包含一个32位的整数，而不接收任何请求，并一旦消息被发送则关闭连接。在这个示例中，您将学习如何构建和发送一个消息，并完全的关闭连接。
 
 因为我们要忽略所有收到的数据，但一旦建立了连接就发送消息，我们不能在这个时候使用channelRead\(\)方法。相反，我们应该重写channelActive\(\)方法。以下是实现：
+
+......
+
+1. As explained, the channelActive\(\) method will be invoked when a connection is established and ready to generate traffic. Let's write a 32-bit integer that represents the current time in this method.
+2. To send a new message, we need to allocate a new buffer which will contain the message. We are going to write a 32-bit integer, and therefore we need a [ByteBuf](http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html) whose capacity is at least 4 bytes. Get the current [ByteBufAllocator](http://netty.io/4.0/api/io/netty/buffer/ByteBufAllocator.html) via ChannelHandlerContext.alloc\(\) and allocate a new buffer.
+3. As usual, we write the constructed message.
+
+   But wait, where's the flip? Didn't we used to call java.nio.ByteBuffer.flip\(\) before sending a message in NIO? ByteBuf does not have such a method because it has two pointers; one for read operations and the other for write operations. The writer index increases when you write something to a ByteBuf while the reader index does not change. The reader index and the writer index represents where the message starts and ends respectively.
+
+   In contrast, NIO buffer does not provide a clean way to figure out where the message content starts and ends without calling the flip method. You will be in trouble when you forget to flip the buffer because nothing or incorrect data will be sent. Such an error does not happen in Netty because we have different pointer for different operation types. You will find it makes your life much easier as you get used to it -- a life without flipping out!
+
+   Another point to note is that the ChannelHandlerContext.write\(\) \(and writeAndFlush\(\)\) method returns a [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html). A [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html) represents an I\/O operation which has not yet occurred. It means, any requested operation might not have been performed yet because all operations are asynchronous in Netty. For example, the following code might close the connection even before a message is sent:
+
+   Channel ch = ...;
+4. ch.writeAndFlush\(message\);
+5. ch.close\(\);
+
+   
+
+   Therefore, you need to call the close\(\) method after the [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html) is complete, which was returned by the write\(\) method, and it notifies its listeners when the write operation has been done. Please note that, close\(\) also might not close the connection immediately, and it returns a [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html).
+6. How do we get notified when a write request is finished then? This is as simple as adding a [ChannelFutureListener](http://netty.io/4.0/api/io/netty/channel/ChannelFutureListener.html) to the returned ChannelFuture. Here, we created a new anonymous [ChannelFutureListener](http://netty.io/4.0/api/io/netty/channel/ChannelFutureListener.html) which closes the Channel when the operation is done.
+
+   Alternatively, you could simplify the code using a pre-defined listener:
+
+   f.addListener\(ChannelFutureListener.CLOSE\);
 
 ......
 
