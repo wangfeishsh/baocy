@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -172,7 +172,11 @@ Therefore, you need to call the close\(\) method after the [ChannelFuture](http:
 
 Alternatively, you could simplify the code using a pre-defined listener:
 
-f.addListener\(ChannelFutureListener.CLOSE\);
+当一个写请求完成时，我们如何得到通知？简单的做法是加入[ChannelFutureListener到](http://netty.io/4.0/api/io/netty/channel/ChannelFutureListener.html)ChannelFuture。在这里，我们创建了一个新的匿名[ChannelFutureListener，它将](http://netty.io/4.0/api/io/netty/channel/ChannelFutureListener.html)关闭通道当操作完成。
+
+或者，你可以使用一个预定义的侦听器来简化代码：
+
+`f.addListener(ChannelFutureListener.CLOSE);`
 
 ......
 
