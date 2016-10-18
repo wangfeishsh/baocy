@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -247,4 +247,12 @@ The simplistic solution is to create an internal cumulative buffer and wait unti
 3、然后，处理器必须检查buf是否有足够的数据，在这个例子中是4个字节，并进行实际的业务逻辑。否则，有更多的数据到达时，Netty会调用channelRead\(\)方法时，最终将累积所有4字节。
 
 ......
+
+### Speaking in POJO instead of ByteBuf
+
+All the examples we have reviewed so far used a [ByteBuf](http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html) as a primary data structure of a protocol message. In this section, we will improve the TIME protocol client and server example to use a POJO instead of a [ByteBuf](http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html).
+
+The advantage of using a POJO in your [ChannelHandler](http://netty.io/4.0/api/io/netty/channel/ChannelHandler.html)s is obvious; your handler becomes more maintainable and reusable by separating the code which extracts information from ByteBuf out from the handler. In the TIME client and server examples, we read only one 32-bit integer and it is not a major issue to use ByteBuf directly. However, you will find it is necessary to make the separation as you implement a real world protocol.
+
+First, let us define a new type called UnixTime.
 
