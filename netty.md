@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -163,9 +163,9 @@ Therefore, you need to call the close\(\) method after the [ChannelFuture](http:
 
 但是等待，flip在哪里？我们不是通常在NIO发送消息之前调用java.nio.ByteBuffer.flip\(\) ？ByteBuf没有这样的方法，因为它有两个指针；读操作和写操作。在你写消息到ByteBuf时，写索引上升而读索引不改变。读索引和写索引表示消息的开始和结束的位置。
 
-与此相反，不通过调用flip方法，NiO缓冲不提供清晰的方式去找出消息内容的开始与结束。当你忘记了缓冲缓冲区，因为没有什么或不正确的数据将被发送，你会有麻烦。这样的错误不会发生在网状的因为我们有不同的操作类型不同的指针。你会发现它使你的生活变得更容易，因为你习惯了它-一个没有翻转的生活！
+与此相反，不通过调用flip方法，NiO缓冲不提供清晰的方式去找出消息内容的开始与结束。当你忘记了flip缓冲区，因为没有什么或不正确的数据将被发送，你会有麻烦。这样的错误在Netty中不会发生，因为不同的操作类型有不同的指针。你会发现它使你的生活变得更容易，因为你习惯了它-一个没有翻转的生活！
 
-还有一点要注意的是，channelhandlercontext。write\(\)（和writeandflush\(\)）方法返回一个channelfuture。一个channelfuture代表一个I\/O操作，尚未发生。这意味着，任何请求的操作不可能尚未进行的所有操作都是异步的，网状。例如，下面的代码可能在发送消息之前关闭连接：
+还有一点要注意的是，ChannelHandlerContext.write\(\) \(and writeAndFlush\(\)\)方法返回一个[ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html)。一个[ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html)代表一个尚未发生的I\/O操作。这意味着，任何请求的操作不可能尚未进行的所有操作都是异步的，网状。例如，下面的代码可能在发送消息之前关闭连接：
    4. How do we get notified when a write request is finished then? This is as simple as adding a [ChannelFutureListener](http://netty.io/4.0/api/io/netty/channel/ChannelFutureListener.html) to the returned ChannelFuture. Here, we created a new anonymous [ChannelFutureListener](http://netty.io/4.0/api/io/netty/channel/ChannelFutureListener.html) which closes the Channel when the operation is done.
 
 Alternatively, you could simplify the code using a pre-defined listener:
