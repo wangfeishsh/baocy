@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -196,7 +196,7 @@ As you can see, it is not really different from the the server-side code. What a
 
 不同DISCARD和ECHO服务器，我们需要一个TIME协议的客户端，因为人类不能将一个32位二进制数据转换成一个日历上的日期。在这一部分中，我们讨论了如何确保服务器正常工作和学习如何用Netty写的一个客户端。
 
-服务器和客户端在网络之间最大的和唯一的区别是，使用不同的引导和通道的实现。请看下面的代码：
+服务器和客户端在Netty之间最大的和唯一的区别是，使用不同的[Bootstrap](http://netty.io/4.0/api/io/netty/bootstrap/Bootstrap.html)和[Channel](http://netty.io/4.0/api/io/netty/channel/Channel.html)的实现。请看下面的代码：
 
 Bootstrap类似serverbootstrap除了它的非服务器渠道如客户端或连接的通道。
 
