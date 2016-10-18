@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -115,10 +115,8 @@ As you read, you might have more questions about the classes introduced in this 
 
 1. A [ChannelHandlerContext](http://netty.io/4.0/api/io/netty/channel/ChannelHandlerContext.html) object provides various operations that enable you to trigger various I\/O events and operations. Here, we invoke write\(Object\) to write the received message in verbatim. Please note that we did not release the received message unlike we did in the DISCARD example. It is because Netty releases it for you when it is written out to the wire.
 2. ctx.write\(Object\) does not make the message written out to the wire. It is buffered internally, and then flushed out to the wire by ctx.flush\(\). Alternatively, you could call ctx.writeAndFlush\(msg\) for brevity.
-3. 
+3. 一个[ChannelHandlerContext](http://netty.io/4.0/api/io/netty/channel/ChannelHandlerContext.html)对象提供了各种操作可以触发各种I\/O事件和操作。在这里，我们调用write\(Object\)在逐字写收到的消息。请注意，我们没有释放收到的消息，不像我们在DISCARD的例子。这是因为当它被写出到wire时，Netty为你释放它。
 
-4. 一个[ChannelHandlerContext](http://netty.io/4.0/api/io/netty/channel/ChannelHandlerContext.html)对象提供了各种操作可以触发各种I\/O事件和操作。在这里，我们调用write\(Object\)在逐字写收到的消息。请注意，我们没有释放收到的消息，不像我们在DISCARD的例子。这是因为当它被写出到wire时，Netty为你释放它。
-
-5. ctx.write\(Object\)不把消息写出到wire。这是内部缓冲，然后ctx.flush\(\)刷新到wire中。或者，你可以简洁的调用ctx.writeAndFlush\(msg\)。
+4. ctx.write\(Object\)不把消息写出到wire。这是内部缓冲，然后ctx.flush\(\)刷新到wire中。或者，你可以简洁的调用ctx.writeAndFlush\(msg\)。
 
 
