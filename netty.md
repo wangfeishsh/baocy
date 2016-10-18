@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -202,9 +202,9 @@ As you can see, it is not really different from the the server-side code. What a
 
 2、如果你只指定一个[EventLoopGroup](http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html)，它将作为一个boss和worker组同时使用。虽然在客户端boss与worker并不被使用。
 
-3、而nioserversocketchannel，niosocketchannel被用来创建一个客户端信道。
+3、替代[NioServerSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioServerSocketChannel.html)，[NioSocketChannel](http://netty.io/4.0/api/io/netty/channel/socket/nio/NioSocketChannel.html)被用来创建一个客户端信道。
 
-4、请注意，我们不使用childoption\(\)这里不像我们做serverbootstrap因为客户端SocketChannel没有父。
+4、请注意，我们在这里不使用childOption\(\)，不像我们做ServerBootstrap因为客户端SocketChannel没有父节点。
 
 5、我们应该叫connect\(\)法代替的（）方法。
 
