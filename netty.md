@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -150,10 +150,11 @@ Because we are going to ignore any received data but to send a message as soon a
 
   Another point to note is that the ChannelHandlerContext.write\(\) \(and writeAndFlush\(\)\) method returns a [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html). A [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html) represents an I\/O operation which has not yet occurred. It means, any requested operation might not have been performed yet because all operations are asynchronous in Netty. For example, the following code might close the connection even before a message is sent:
 
-  Channel ch = ...;
+  `Channel ch = ...;`
 
-  ch.writeAndFlush\(message\);
-  ch.close\(\);
+  `ch.writeAndFlush(message);`
+
+  `ch.close();`
 
 
 Therefore, you need to call the close\(\) method after the [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html) is complete, which was returned by the write\(\) method, and it notifies its listeners when the write operation has been done. Please note that, close\(\) also might not close the connection immediately, and it returns a [ChannelFuture](http://netty.io/4.0/api/io/netty/channel/ChannelFuture.html).
