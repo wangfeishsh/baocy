@@ -16,7 +16,7 @@ Nowadays we use general purpose applications or libraries to communicate with ea
 
 The Solution
 
-_[The Netty project](http://netty.io/)_ is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
+[_The Netty project_](http://netty.io/) is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.
 
 In other words, Netty is an NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.
 
@@ -26,7 +26,7 @@ Some users might already have found other network application framework that cla
 
 解决方案
 
-_[The Netty project](http://netty.io/)_ 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
+[_The Netty project_](http://netty.io/) 致力于提供一个异步事件驱动网络应用框架，它为快速发展的服务器和客户端之间提供可维护高性能·高扩展性协议工具。
 
 换句话说，Netty是一个NIO客户端\/服务器框架，使如服务器和客户端协议的网络应用开发快速且容易。它大大简化高效了网络编程，如TCP和UDP套接字服务器的开发。
 
@@ -239,6 +239,12 @@ The simplistic solution is to create an internal cumulative buffer and wait unti
 1. A [ChannelHandler](http://netty.io/4.0/api/io/netty/channel/ChannelHandler.html) has two life cycle listener methods: handlerAdded\(\) and handlerRemoved\(\). You can perform an arbitrary \(de\)initialization task as long as it does not block for a long time.
 2. First, all received data should be cumulated into buf.
 3. And then, the handler must check if buf has enough data, 4 bytes in this example, and proceed to the actual business logic. Otherwise, Netty will call the channelRead\(\) method again when more data arrives, and eventually all 4 bytes will be cumulated.
+
+[1、ChannelHandler](http://netty.io/4.0/api/io/netty/channel/ChannelHandler.html)有两个生命周期侦听器方法：handlerAdded\(\)和handlerRemoved\(\)。你可以执行一个任意（取消）初始化任务，只要它不阻塞很长一段时间。
+
+2、首先，所有接收到的数据应该被累积到buf。
+
+3、然后，处理器必须检查buf是否有足够的数据，在这个例子中是4个字节，并进行实际的业务逻辑。否则，有更多的数据到达时，Netty会调用channelRead\(\)方法时，最终将累积所有4字节。
 
 ......
 
