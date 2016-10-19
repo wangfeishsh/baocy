@@ -54,6 +54,8 @@
 
 19、阿里云产品V5.0
 
+20、react native
+
 Infoq迷你书
 
 http:\/\/www.infoq.com\/cn\/minibooks\/12
