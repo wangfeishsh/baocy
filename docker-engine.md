@@ -52,11 +52,15 @@ Step 1: Tag and push the image
 
 _Notice that currently, the \`REPOSITORY\` shows the repo name \`docker-whale\`_
 
-_but not the namespace. You need to include the \`namespace\` __**for**__ Docker Hub to_
+_but not the namespace. You need to include the \`namespace\` _****_for_****_ Docker Hub to_
 
-_associate it __**with**__ your account. The \`namespace\` is the same __**as**__ your Docker_
+_associate it _****_with_****_ your account. The \`namespace\` is the same _****_as_****_ your Docker_
 
 _Hub account name. You need to rename the image to_
 
 _\`YOUR\_DOCKERHUB\_NAME\/docker-whale\`._
+
+![](https://docs.docker.com/engine/getstarted/tutimg/tagger.png)
+
+
 
