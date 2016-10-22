@@ -32,5 +32,7 @@ Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and y
 
 1.将代码与它的依赖放入Docker容器：
 
-写一个[Dockerfile](https://docs.docker.com/engine/getstarted/step_four/)
+写一个Dockerfile指定执行环境并放进你的代码中
+
+
 
