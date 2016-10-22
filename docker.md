@@ -55,9 +55,9 @@ Components
 
 Docker for Mac
 
-Docker for  Windows 
+Docker for  Windows
 
-Docker for  Linux 
+Docker for  Linux
 
 Docker Engine
 
@@ -67,13 +67,21 @@ As of v1.12.0, Engine includes [swarm mode](https://docs.docker.com/engine/swarm
 
 Docker Hub
 
+A hosted registry service for managing and building images.
+
 Docker Cloud
+
+A hosted service for building, testing, and deploying Docker images to your hosts.
 
 Docker Trusted Registry
 
-Dokcer Universal Control Plane
+\(DTR\) stores and signs your images.
 
-Dokcer Machine
+Docker Universal Control Plane
+
+\(UCP\) Manage a cluster of on-premises Docker hosts as if they were a single machine.
+
+Docker Machine
 
 Docker Compose
 
