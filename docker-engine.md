@@ -26,9 +26,9 @@ In this step, you use your favorite text editor to write a short Dockerfile. A D
 
 Dockerfile
 
-`FROM`` docker/whalesay:latest`
+`FROM docker/whalesay:latest`
 
-`RUN`` apt-get -y update && apt-get install -y fortunes`
+`RUN apt-get -y update && apt-get install -y fortunes`
 
-`CMD`` /usr/games/fortune -a | cowsay`
+`CMD /usr/games/fortune -a | cowsay`
 
