@@ -20,3 +20,5 @@ Build your own image
 
 Step 1: Write a Dockerfile
 
+In this step, you use your favorite text editor to write a short Dockerfile. A Dockerfile describes the software that is “baked” into an image. It isn’t just ingredients tho, it can tell the software what environment to use or what commands to run. Your recipe is going to be very short.
+
