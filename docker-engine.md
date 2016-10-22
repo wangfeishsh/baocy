@@ -38,3 +38,5 @@ The fortunes program has a command that prints out wise sayings for our whale to
 
 This line tells the fortune program to pass a nifty quote to the cowsay program.
 
+Step 2: Build an image from your Dockerfile
+
