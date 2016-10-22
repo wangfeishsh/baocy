@@ -6,7 +6,7 @@ Docker提供了一种方式在容器中安全隔离的来运行应用程序，�
 
 Typical Docker Platform Workflow
 
-Get your code and its dependencies into Docker [containers](https://docs.docker.com/engine/getstarted/step_two/):
+1. Get your code and its dependencies into Docker [containers](https://docs.docker.com/engine/getstarted/step_two/):
 
 * [Write a Dockerfile](https://docs.docker.com/engine/getstarted/step_four/) that specifies the execution environment and pulls in your code.
 
@@ -16,4 +16,10 @@ Get your code and its dependencies into Docker [containers](https://docs.docker.
 
 * Build, then run your containers on a virtual host via [Docker Machine](https://docs.docker.com/machine/overview/) as you develop.
 
+
+Configure [networking](https://docs.docker.com/engine/tutorials/networkingcontainers/) and [storage](https://docs.docker.com/engine/tutorials/dockervolumes/) for your solution, if needed. 
+
+Upload builds to a registry \([ours](https://docs.docker.com/engine/tutorials/dockerrepos/), [yours](https://docs.docker.com/docker-trusted-registry/), or your cloud provider’s\), to collaborate with your team.
+
+If you’re gonna need to scale your solution across multiple hosts \(VMs or physical machines\), [plan for how you’ll set up your Swarm cluster](https://docs.docker.com/engine/swarm/key-concepts/) and [scale it to meet demand](https://docs.docker.com/engine/swarm/swarm-tutorial/).
 
