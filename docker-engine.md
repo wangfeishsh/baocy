@@ -52,9 +52,9 @@ Step 1: Tag and push the image
 
 _Notice that currently, the \`REPOSITORY\` shows the repo name \`docker-whale\`_
 
-_but not the namespace. You need to include the \`namespace\` _****_for_****_ Docker Hub to_
+_but not the namespace. You need to include the \`namespace\` __****for****__ Docker Hub to_
 
-_associate it _****_with_****_ your account. The \`namespace\` is the same _****_as_****_ your Docker_
+_associate it __****with****__ your account. The \`namespace\` is the same __****as****__ your Docker_
 
 _Hub account name. You need to rename the image to_
 
@@ -62,5 +62,13 @@ _\`YOUR\_DOCKERHUB\_NAME\/docker-whale\`._
 
 ![](https://docs.docker.com/engine/getstarted/tutimg/tagger.png)
 
+Step 2: Pull your new image
 
+Use the docker rmi to remove the maryatdocker\/docker-whale and docker-whale images.
+
+You can use an ID or the name to remove an image.
+
+ $ docker rmi -f 7d9495d03763
+
+ $ docker rmi -f docker-whale
 
