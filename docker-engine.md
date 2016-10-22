@@ -18,7 +18,7 @@ Docker Engine provides the core Docker technology that enables images and contai
 
 Build your own image
 
-Step 1: Write a Dockerfile
+**Step 1: Write a Dockerfile**
 
 In this step, you use your favorite text editor to write a short Dockerfile. A Dockerfile describes the software that is “baked” into an image. It isn’t just ingredients tho, it can tell the software what environment to use or what commands to run. Your recipe is going to be very short.
 
@@ -38,5 +38,5 @@ The fortunes program has a command that prints out wise sayings for our whale to
 
 This line tells the fortune program to pass a nifty quote to the cowsay program.
 
-Step 2: Build an image from your Dockerfile
+**Step 2: Build an image from your Dockerfile**
 
