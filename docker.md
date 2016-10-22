@@ -45,3 +45,9 @@ Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and y
 
 3.上传构建到注册列表上（我们的，你们的，或你云提供者的），与你的团队合作
 
+4.如果你想要扩展你的方案跨多主机（VMs或物理机器），计划如何建立你的Swarm集群并扩展去满足需求
+
+注意：使用[Universal Control Plane](https://docs.docker.com/ucp/overview/)并且你可以使用友好的UI管理你的Swarm集群
+
+5.最后，部署你涉及到的云提供者（或冗余的多个的云提供者）到Docker Cloud。或者使用Docker Datacenter，并部署到你自己的预置的硬件上
+
