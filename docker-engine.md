@@ -42,3 +42,9 @@ This line tells the fortune program to pass a nifty quote to the cowsay program.
 
 Now, build your new image by typing the docker build -t docker-whale . command in your terminal \(don’t forget the . period\).
 
+**Step 3: Learn about the build process**
+
+**Step 4: Run your new docker-whale**
+
+Tag, push, and pull your image
+
