@@ -83,15 +83,23 @@ Docker Trusted Registry
 
 \(DTR\) stores and signs your images.
 
+存储并标识镜像
+
 Docker Universal Control Plane
 
 \(UCP\) Manage a cluster of on-premises Docker hosts as if they were a single machine.
+
+管理预置Docker主机集群当它们是一个独立机器时
 
 Docker Machine
 
 Automate container provisioning on your network or in the cloud. Available for Windows, macOS, or Linux.
 
+自动化容器供应
+
 Docker Compose
 
 Define applications built using multiple containers.
+
+定义使用多容器构建的应用程序
 
