@@ -18,3 +18,5 @@ Docker Engine provides the core Docker technology that enables images and contai
 
 Build your own image
 
+Step 1: Write a Dockerfile
+
