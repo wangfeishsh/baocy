@@ -28,3 +28,9 @@ Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and y
 
 5.Finally, deploy to your preferred cloud provider \(or, for redundancy, multiple cloud providers\) with [Docker Cloud](https://docs.docker.com/docker-cloud/overview/). Or, use [Docker Datacenter](https://www.docker.com/products/docker-datacenter), and deploy to your own on-premise hardware.
 
+主要Docker平台流程
+
+1.将代码与它的依赖放入Docker容器：
+
+写一个[Dockerfile](https://docs.docker.com/engine/getstarted/step_four/)
+
