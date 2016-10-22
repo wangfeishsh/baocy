@@ -71,6 +71,8 @@ Docker Hub
 
 A hosted registry service for managing and building images.
 
+为管理和构建镜像的主机注册服务
+
 Docker Cloud
 
 A hosted service for building, testing, and deploying Docker images to your hosts.
