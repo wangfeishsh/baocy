@@ -24,3 +24,11 @@ In this step, you use your favorite text editor to write a short Dockerfile. A D
 
 在这一步中，您可以使用您喜爱的文本编辑器来编写一个简短的Dockerfile。一个Dockerfile描述软件是如何“烘培”制成一个镜像。它不只是组成部份，它还可以告诉软件什么环境下使用或什么命令来运行。你的描述（食谱）应该会很短。
 
+Dockerfile
+
+**FROM** docker\/whalesay:latest
+
+ **RUN** apt-get -y update && apt-get install -y fortunes
+
+ **CMD** \/usr\/games\/fortune -a \| cowsay
+
