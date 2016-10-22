@@ -50,13 +50,13 @@ Tag, push, and pull your image
 
 Step 1: Tag and push the image
 
-Notice that currently, the \`REPOSITORY\` shows the repo name \`docker-whale\`
+_Notice that currently, the \`REPOSITORY\` shows the repo name \`docker-whale\`_
 
- but not the namespace. You need to include the \`namespace\` **for** Docker Hub to
+_but not the namespace. You need to include the \`namespace\` __**for**__ Docker Hub to_
 
- associate it **with** your account. The \`namespace\` is the same **as** your Docker
+_associate it __**with**__ your account. The \`namespace\` is the same __**as**__ your Docker_
 
- Hub account name. You need to rename the image to
+_Hub account name. You need to rename the image to_
 
- \`YOUR\_DOCKERHUB\_NAME\/docker-whale\`.
+_\`YOUR\_DOCKERHUB\_NAME\/docker-whale\`._
 
