@@ -52,9 +52,9 @@ Step 1: Tag and push the image
 
 _Notice that currently, the \`REPOSITORY\` shows the repo name \`docker-whale\`_
 
-_but not the namespace. You need to include the \`namespace\` _******_for_******_ Docker Hub to_
+_but not the namespace. You need to include the \`namespace\` _**\*\***_for_**\*\***_ Docker Hub to_
 
-_associate it _******_with_******_ your account. The \`namespace\` is the same _******_as_******_ your Docker_
+_associate it _**\*\***_with_**\*\***_ your account. The \`namespace\` is the same _**\*\***_as_**\*\***_ your Docker_
 
 _Hub account name. You need to rename the image to_
 
@@ -71,4 +71,6 @@ You can use an ID or the name to remove an image.
 `$ docker rmi -f 7d9495d03763`
 
 `$ docker rmi -f docker-whale`
+
+Learning more
 
