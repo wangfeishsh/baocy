@@ -41,3 +41,7 @@ Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and y
 * 但你开发时，构建，然后通过Docker Machine在虚拟机上运行你的容器
 
 
+2.如果你的方案需要的话，配置网络和存储
+
+3.上传构建到注册列表上（我们的，你们的，或你云提供者的），与你的团队合作
+
