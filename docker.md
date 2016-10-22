@@ -32,11 +32,12 @@ Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and y
 
 1.将代码与它的依赖放入Docker容器：
 
-写一个Dockerfile指定执行环境并放进你的代码中
+* 写一个Dockerfile指定执行环境并放进你的代码中
 
-如果你的app依赖于外部程序（例如Redis，或者MySql），简单的方式是从注册列表找到它例如Docker Hub，并关联它们到Docker组合文件中，通过程序引用，它们会一起同时运行。
+* 如果你的app依赖于外部程序（例如Redis，或者MySql），简单的方式是从注册列表找到它例如Docker Hub，并关联它们到Docker组合文件中，通过程序引用，它们会一起同时运行。
 
-软件也通过Docker Store提供分布式付费软件
+  软件也通过Docker Store提供分布式付费软件
 
-构建，然后运行
+* 但你开发时，构建，然后通过Docker Machine在虚拟机上运行你的容器
+
 
