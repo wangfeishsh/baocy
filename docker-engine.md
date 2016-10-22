@@ -22,3 +22,5 @@ Step 1: Write a Dockerfile
 
 In this step, you use your favorite text editor to write a short Dockerfile. A Dockerfile describes the software that is “baked” into an image. It isn’t just ingredients tho, it can tell the software what environment to use or what commands to run. Your recipe is going to be very short.
 
+在这一步中，您可以使用您喜爱的文本编辑器来编写一个简短的Dockerfile。一个Dockerfile描述软件是如何“烘培”制成一个镜像。它不只是组成部份，它还可以告诉软件什么环境下使用或什么命令来运行。你的描述（食谱）应该会很短。
+
