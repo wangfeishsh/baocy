@@ -83,5 +83,9 @@ Docker Universal Control Plane
 
 Docker Machine
 
+Automate container provisioning on your network or in the cloud. Available for Windows, macOS, or Linux.
+
 Docker Compose
+
+Define applications built using multiple containers.
 
