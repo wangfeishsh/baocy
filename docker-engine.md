@@ -40,3 +40,5 @@ This line tells the fortune program to pass a nifty quote to the cowsay program.
 
 **Step 2: Build an image from your Dockerfile**
 
+Now, build your new image by typing the docker build -t docker-whale . command in your terminal \(don’t forget the . period\).
+
