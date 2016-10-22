@@ -65,6 +65,8 @@ Create Docker images and run Docker containers.
 
 As of v1.12.0, Engine includes [swarm mode](https://docs.docker.com/engine/swarm/) container orchestration features
 
+创建Docker镜像并运行Docker容器，v1.12.0后，引擎包含[swarm mode](https://docs.docker.com/engine/swarm/)容器编排功能
+
 Docker Hub
 
 A hosted registry service for managing and building images.
