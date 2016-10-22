@@ -51,3 +51,29 @@ Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and y
 
 5.最后，部署你涉及到的云提供者（或冗余的多个的云提供者）到Docker Cloud。或者使用Docker Datacenter，并部署到你自己的预置的硬件上
 
+Components
+
+Docker for Mac
+
+Docker for  Windows 
+
+Docker for  Linux 
+
+Docker Engine
+
+Create Docker images and run Docker containers.
+
+As of v1.12.0, Engine includes [swarm mode](https://docs.docker.com/engine/swarm/) container orchestration features
+
+Docker Hub
+
+Docker Cloud
+
+Docker Trusted Registry
+
+Dokcer Universal Control Plane
+
+Dokcer Machine
+
+Docker Compose
+
