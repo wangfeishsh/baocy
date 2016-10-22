@@ -32,3 +32,9 @@ Dockerfile
 
 `CMD /usr/games/fortune -a | cowsay`
 
+The FROM keyword tells Docker which image your image is based on. Whalesay is cute and has the cowsay program already, so we’ll start there.
+
+The fortunes program has a command that prints out wise sayings for our whale to say. So, the first step is to install it. This line installs the software into the image.
+
+This line tells the fortune program to pass a nifty quote to the cowsay program.
+
