@@ -77,6 +77,8 @@ Docker Cloud
 
 A hosted service for building, testing, and deploying Docker images to your hosts.
 
+构建、测试和部署镜像到你主机的主机服务
+
 Docker Trusted Registry
 
 \(DTR\) stores and signs your images.
