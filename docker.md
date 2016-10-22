@@ -7,6 +7,7 @@ Docker提供了一种方式在容器中安全隔离的来运行应用程序，�
 Typical Docker Platform Workflow
 
 1. Get your code and its dependencies into Docker [containers](https://docs.docker.com/engine/getstarted/step_two/):
+
   * [Write a Dockerfile](https://docs.docker.com/engine/getstarted/step_four/) that specifies the execution environment and pulls in your code.
 
   * If your app depends on external applications \(such as Redis, or MySQL\), simply [find them on a registry such as Docker Hub](https://docs.docker.com/docker-hub/repos/), and refer to them in [a Docker Compose file](https://docs.docker.com/compose/overview/), along with a reference to your application, so they’ll run simultaneously.
@@ -16,14 +17,14 @@ Typical Docker Platform Workflow
   * Build, then run your containers on a virtual host via [Docker Machine](https://docs.docker.com/machine/overview/) as you develop.
 
 
+2. Configure [networking](https://docs.docker.com/engine/tutorials/networkingcontainers/) and [storage](https://docs.docker.com/engine/tutorials/dockervolumes/) for your solution, if needed.
 
-Configure [networking](https://docs.docker.com/engine/tutorials/networkingcontainers/) and [storage](https://docs.docker.com/engine/tutorials/dockervolumes/) for your solution, if needed.
+3. Upload builds to a registry \([ours](https://docs.docker.com/engine/tutorials/dockerrepos/), [yours](https://docs.docker.com/docker-trusted-registry/), or your cloud provider’s\), to collaborate with your team.
 
-Upload builds to a registry \([ours](https://docs.docker.com/engine/tutorials/dockerrepos/), [yours](https://docs.docker.com/docker-trusted-registry/), or your cloud provider’s\), to collaborate with your team.
+4. If you’re gonna need to scale your solution across multiple hosts \(VMs or physical machines\), [plan for how you’ll set up your Swarm cluster](https://docs.docker.com/engine/swarm/key-concepts/) and [scale it to meet demand](https://docs.docker.com/engine/swarm/swarm-tutorial/).
 
-If you’re gonna need to scale your solution across multiple hosts \(VMs or physical machines\), [plan for how you’ll set up your Swarm cluster](https://docs.docker.com/engine/swarm/key-concepts/) and [scale it to meet demand](https://docs.docker.com/engine/swarm/swarm-tutorial/).
+5. Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and you can manage your Swarm cluster using a friendly UI!
 
-Note: Use [Universal Control Plane](https://docs.docker.com/ucp/overview/) and you can manage your Swarm cluster using a friendly UI!
+6. Finally, deploy to your preferred cloud provider \(or, for redundancy, multiple cloud providers\) with [Docker Cloud](https://docs.docker.com/docker-cloud/overview/). Or, use [Docker Datacenter](https://www.docker.com/products/docker-datacenter), and deploy to your own on-premise hardware.
 
-Finally, deploy to your preferred cloud provider \(or, for redundancy, multiple cloud providers\) with [Docker Cloud](https://docs.docker.com/docker-cloud/overview/). Or, use [Docker Datacenter](https://www.docker.com/products/docker-datacenter), and deploy to your own on-premise hardware
 
