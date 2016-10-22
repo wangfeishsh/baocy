@@ -48,3 +48,5 @@ Now, build your new image by typing the docker build -t docker-whale . command i
 
 Tag, push, and pull your image
 
+Step 1: Tag and push the image
+
