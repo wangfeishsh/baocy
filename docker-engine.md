@@ -82,3 +82,5 @@ Learning more
 
 `docker stop`
 
+`docker version`
+
