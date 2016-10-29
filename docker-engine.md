@@ -84,7 +84,7 @@ Learning more
 
 `docker version`
 
-`docker ``run`` -d -P training/webapp python app.py`
+```docker ``run`` -d -P training/webapp python app.py```
 
 Review what the command did. You’ve specified two flags: -d and -P. You’ve already seen the -d flag which tells Docker to run the container in the background. The -P flag is new and tells Docker to map any required network ports inside our container to our host. This lets us view our web application.
 
@@ -98,5 +98,5 @@ In this case Docker has exposed port 5000 \(the default Python Flask port\) on p
 
 Network port bindings are very configurable in Docker. In our last example the -P flag is a shortcut for -p 5000 that maps port 5000 inside the container to a high port \(from ephemeral port range which typically ranges from 32768 to 61000\) on the local Docker host. We can also bind Docker containers to specific ports using the -p flag, for example:
 
-docker **run** -d -p 80:5000 training\/webapp python app.py
+`docker ``run`` -d -p 80:5000 training/webapp python app.py`
 
