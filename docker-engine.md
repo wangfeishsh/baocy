@@ -84,3 +84,5 @@ Learning more
 
 `docker version`
 
+docker **run** -d -P training\/webapp python app.py
+
