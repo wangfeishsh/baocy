@@ -126,9 +126,9 @@ In this case you’d browse to http:\/\/192.168.99.100:49155 for the above examp
 
 `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nostalgic_morse`
 
-`docker ``stop`` nostalgic_morse`
+`docker stop nostalgic_morse`
 
-`docker ``start`` nostalgic_morse`
+`docker start nostalgic_morse`
 
 `docker rm nostalgic_morse`
 
