@@ -76,3 +76,9 @@ Learning more
 
 3、Learn by Example
 
+`docker ps`
+
+`docker logs`
+
+`docker stop`
+
