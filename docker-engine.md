@@ -74,3 +74,5 @@ You can use an ID or the name to remove an image.
 
 Learning more
 
+3、Learn by Example
+
