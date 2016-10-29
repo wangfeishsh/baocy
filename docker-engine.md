@@ -116,3 +116,5 @@ _Note: If you have been using a virtual machine on macOS, Windows or Linux, youâ
 
 In this case youâ€™d browse to http:\/\/192.168.99.100:49155 for the above example.
 
+`docker port nostalgic_morse 5000`
+
