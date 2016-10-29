@@ -100,3 +100,19 @@ Network port bindings are very configurable in Docker. In our last example the -
 
 `docker run -d -p 80:5000 training/webapp python app.py`
 
+This would map port 5000 inside our container to port 80 on our local host. You might be asking about now: why wouldn’t we just want to always use 1:1 port mappings in Docker containers rather than mapping to high ports? Well 1:1 mappings have the constraint of only being able to map one of each port on your local host.
+
+Suppose you want to test two Python applications: both bound to port 5000 inside their own containers. Without Docker’s port mapping you could only access one at a time on the Docker host.
+
+So you can now browse to port 49155 in a web browser to see the application.
+
+![](https://docs.docker.com/engine/tutorials/webapp1.png)
+
+_Note: If you have been using a virtual machine on macOS, Windows or Linux, you’ll need to get the IP of the virtual host instead of using localhost. You can do this by running the docker-machine ip your\_vm\_name from your command line or terminal application, for example:_
+
+`$ docker-machine ip my-docker-vm`
+
+192.168.99.100
+
+In this case you’d browse to http:\/\/192.168.99.100:49155 for the above example.
+
