@@ -136,5 +136,7 @@ Our system value is now updated to "7".
 
 **Raft can even stay consistent in the face of network partitions.**
 
+Let's add a partition to separate A & B from C, D & E.
 
+Because of our partition we now have two leaders in different terms.
 
