@@ -102,3 +102,11 @@ If two nodes become candidates at the same time then a split vote can occur.
 
 **Let's take a look at a split vote example...**
 
+Two nodes both start an election for the same term...
+
+...and each reaches a single follower node before the other.
+
+Now each candidate has 2 votes and can receive no more for this term.（投票者投给自己一票，只有follower有投票权）
+
+The nodes will wait for a new election and try again.
+
