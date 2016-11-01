@@ -64,5 +64,15 @@ This process is called _Log Replication_.
 
 ### Leader Election
 
+In Raft there are two timeout settings which control elections.
 
+**First is the election timeout.**
+
+The election timeout is the amount of time a follower waits until becoming a candidate.
+
+The election timeout is randomized to be between 150ms and 300ms.
+
+After the election timeout the follower becomes a candidate and starts a new _election term_...
+
+**...votes for itself...**
 
