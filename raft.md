@@ -110,3 +110,5 @@ Now each candidate has 2 votes and can receive no more for this term.（投票�
 
 The nodes will wait for a new election and try again.
 
+Node D received a majority of votes in term 5 so it becomes leader.
+
