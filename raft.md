@@ -62,3 +62,7 @@ The cluster has now come to consensus about the system state.
 
 This process is called _Log Replication_.
 
+### Leader Election
+
+
+
