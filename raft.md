@@ -84,13 +84,13 @@ If the receiving node hasn't voted yet in this term then it votes for the candid
 
 Once a candidate has a majority of votes it becomes leader.
 
-**The leader begins sending out ****_Append Entries_**** messages to its followers.**
+**The leader begins sending out \*\***_Append Entries_**\*\* messages to its followers.**
 
 These messages are sent in intervals specified by the heartbeat timeout.
 
 Followers then respond to each _Append Entries_ message.
 
-This election term will continue until a follower stops receiving heartbeats and becomes a candidate.
+This election term will continue until a follower stops receiving heartbeats and becomes a candidate.（这句话的意思是假如leader没有down掉，则follower会一直接收心跳信息，假如leader down掉，它变成一个候选者）
 
 **Let's stop the leader and watch a re-election happen.**
 
