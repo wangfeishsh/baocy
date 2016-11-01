@@ -154,3 +154,7 @@ Now let's heal the network partition.
 
 **Node B will see the higher election term and step down.**
 
+Both nodes A & B will roll back their uncommitted entries and match the new leader's log.
+
+Our log is now consistent across our cluster.
+
