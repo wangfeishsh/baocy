@@ -76,3 +76,9 @@ After the election timeout the follower becomes a candidate and starts a new _el
 
 **...votes for itself...**
 
+...and sends out _Request Vote_ messages to other nodes.
+
+If the receiving node hasn't voted yet in this term then it votes for the candidate...
+
+**...and the node resets its election timeout.**
+
