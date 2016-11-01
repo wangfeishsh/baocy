@@ -142,3 +142,15 @@ Because of our partition we now have two leaders in different terms.
 
 Let's add another client and try to update both leaders.
 
+One client will try to set the value of node B to "3".
+
+Node B cannot replicate to a majority so its log entry stays uncommitted.
+
+The other client will try to set the value of node E to "8".
+
+This will succeed because it can replicate to a majority.
+
+Now let's heal the network partition.
+
+**Node B will see the higher election term and step down.**
+
