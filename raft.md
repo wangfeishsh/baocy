@@ -18,7 +18,7 @@ Coming to agreement, or _consensus_, on that value is easy with one node.
 
 **But how do we come to consensus if we have multiple nodes?**
 
-**That's the problem of **_**distributed consensus**_**.**
+**That's the problem of ****_distributed consensus_****.**
 
 _Raft_ is a protocol for implementing distributed consensus.
 
@@ -26,11 +26,11 @@ Let's look at a high level overview of how it works.
 
 **A node can be in 1 of 3 states:**
 
-**The **_**Follower**_** state,**
+**The ****_Follower_**** state,**
 
-**the **_**Candidate**_** state,**
+**the ****_Candidate_**** state,**
 
-**or the **_**Leader**_** state.**
+**or the ****_Leader_**** state.**
 
 All our nodes start in the follower state.
 
@@ -43,4 +43,20 @@ Nodes will reply with their vote.
 The candidate becomes the leader if it gets votes from a majority of nodes.
 
 This process is called _Leader Election_.
+
+**All changes to the system now go through the leader.**
+
+Each change is added as an entry in the node's log.
+
+This log entry is currently uncommitted so it won't update the node's value.
+
+To commit the entry the node first replicates it to the follower nodes...
+
+then the leader waits until a majority of nodes have written the entry.
+
+The entry is now committed on the leader node and the node state is "5".
+
+The leader then notifies the followers that the entry is committed.
+
+The cluster has now come to consensus about the system state.
 
