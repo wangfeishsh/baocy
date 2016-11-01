@@ -94,3 +94,11 @@ This election term will continue until a follower stops receiving heartbeats and
 
 **Let's stop the leader and watch a re-election happen.**
 
+Node A is now leader of term 2.
+
+Requiring a majority of votes guarantees that only one leader can be elected per term.
+
+If two nodes become candidates at the same time then a split vote can occur.
+
+**Let's take a look at a split vote example...**
+
