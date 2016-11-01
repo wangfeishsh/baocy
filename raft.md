@@ -112,3 +112,25 @@ The nodes will wait for a new election and try again.
 
 Node D received a majority of votes in term 5 so it becomes leader.
 
+### Log Replication
+
+Once we have a leader elected we need to replicate all changes to our system to all nodes.
+
+This is done by using the same _Append Entries_ message that was used for heartbeats.
+
+Let's walk through the process.
+
+**First a client sends a change to the leader.**
+
+The change is appended to the leader's log...
+
+...then the change is sent to the followers on the next heartbeat.
+
+An entry is committed once a majority of followers acknowledge it...
+
+...and a response is sent to the client.
+
+**Now let's send a command to increment the value by "2".**
+
+
+
