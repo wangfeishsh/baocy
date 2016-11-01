@@ -132,5 +132,9 @@ An entry is committed once a majority of followers acknowledge it...
 
 **Now let's send a command to increment the value by "2".**
 
+Our system value is now updated to "7".
+
+**Raft can even stay consistent in the face of network partitions.**
+
 
 
