@@ -82,3 +82,13 @@ If the receiving node hasn't voted yet in this term then it votes for the candid
 
 **...and the node resets its election timeout.**
 
+Once a candidate has a majority of votes it becomes leader.
+
+**The leader begins sending out **_**Append Entries**_** messages to its followers.**
+
+These messages are sent in intervals specified by the heartbeat timeout.
+
+Followers then respond to each _Append Entries_ message.
+
+This election term will continue until a follower stops receiving heartbeats and becomes a candidate.
+
