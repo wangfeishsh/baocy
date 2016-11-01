@@ -140,3 +140,5 @@ Let's add a partition to separate A & B from C, D & E.
 
 Because of our partition we now have two leaders in different terms.
 
+Let's add another client and try to update both leaders.
+
